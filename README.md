@@ -45,4 +45,4 @@
     • Выстраивают картинки в «сетку» с равной шириной и высотой контейнера
     • Текст на изображение наложен div-ом поверх картинки
 
-![Image alt](https://github.com/{Soluyanov-Andrey}/{gallery}/raw/master/tz.PNG)
+![Image alt](https://github.com/Soluyanov-Andrey/gallery/blob/master/tz.PNG)
