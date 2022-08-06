@@ -17,8 +17,9 @@ class CoreController
         define("URL_CLASS_CONTROLLER","controller/");
 
         spl_autoload_register('CoreController::AutoLoad');
-        $object1 = new DeleteImg();
-        $object2 = new DeleteImgController();
+        
+        new engineController();
+        
     }
 
     private static function AutoLoad($className) {
@@ -33,7 +34,7 @@ class CoreController
            
         };
         if (!is_file($myclass)) return false;
-        echo($myclass);
+       
         require_once($myclass);
     }
 
