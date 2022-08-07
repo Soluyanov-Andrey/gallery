@@ -10,7 +10,7 @@ class Parser extends ParentAlgorithms
 {
 
     // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
-    public static function valid_Url($url_gl)
+    public static function valid_Url($url_gl): array
     {
         if (@file_get_contents($url_gl))
         {
@@ -26,7 +26,7 @@ class Parser extends ParentAlgorithms
 
 
     // Если пользователь указал адрес без http:
-    private function corrective_test_1($url_gl)
+    private function corrective_test_1($url_gl): string
     {
         
         if (strpos($url_gl, 'http') === false) {
@@ -46,7 +46,7 @@ class Parser extends ParentAlgorithms
 
     }
     // Если пользователь указал адрес без www:
-    private function corrective_test_2($url_gl)
+    private function corrective_test_2($url_gl): string
     {
         if (strpos($url_gl, 'www') === false) {
             $url_gl="www://".$url_gl;
@@ -65,7 +65,7 @@ class Parser extends ParentAlgorithms
 
     }
     // Если пользователь указал адрес без https://:
-    private function corrective_test_3($url_gl)
+    private function corrective_test_3($url_gl): string
     {
         if (strpos($url_gl, 'https') === false) {
             $url_gl="https://".$url_gl;
@@ -86,7 +86,7 @@ class Parser extends ParentAlgorithms
 
     }
      //Ищем в html теги img рисунки
-     private static function Search_Img($url_gl)
+     private static function Search_Img($url_gl): array
      {
          
          global $gl_massages;
