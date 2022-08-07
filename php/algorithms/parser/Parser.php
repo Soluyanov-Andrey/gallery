@@ -9,7 +9,7 @@
 class Parser extends ParentAlgorithms
 {
 
-    //Ищет URL И Пытается исправить url если нет http или www
+    // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
     public static function valid_Url($url_gl)
     {
         if (@file_get_contents($url_gl))
@@ -23,7 +23,7 @@ class Parser extends ParentAlgorithms
       return $url_gl;
     }
 
-
+    // Если пользователь указал адрес без http:
     private function corrective_test_1($url_gl)
     {
         
@@ -39,18 +39,47 @@ class Parser extends ParentAlgorithms
         }
         else
         {
-            $this->corrective_test_2($url_gl);
+            Parser::corrective_test_2($url_gl);
         }
 
     }
-
+    // Если пользователь указал адрес без www:
     private function corrective_test_2($url_gl)
     {
+        if (strpos($url_gl, 'www') === false) {
+            $url_gl="www://".$url_gl;
+        }
+
+
+        if (@file_get_contents($url_gl))
+        {
+            
+            return $url_gl;
+        }
+        else
+        {
+            Parser::corrective_test_3($url_gl);
+        }
 
     }
-
+    // Если пользователь указал адрес без https://:
     private function corrective_test_3($url_gl)
     {
+        if (strpos($url_gl, 'https') === false) {
+            $url_gl="https://".$url_gl;
+        }
+
+
+        if (@file_get_contents($url_gl))
+        {
+            
+            return $url_gl;
+        }
+        else
+        {
+            echo("yt nj");
+            return false;
+        }
 
     }
 }
