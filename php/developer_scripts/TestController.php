@@ -26,7 +26,7 @@ class TestController
         // $url_gl="https://ru.freepik.com/popular-photos";
         // var_dump(Parser::valid_Url($url_gl));
 
-         $url_gl="infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
+         $url_gl="https://infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
          var_dump(Parser::valid_Url($url_gl));
          //echo(Parser::valid_Url($url_gl));
         //$url_gl="http://in56fogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
