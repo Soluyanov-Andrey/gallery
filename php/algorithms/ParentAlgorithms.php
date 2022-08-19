@@ -1,7 +1,10 @@
 <?php
 class ParentAlgorithms
 { 
-  
+   
+
+   
+
     public function massages($var)
     {
         echo $var;

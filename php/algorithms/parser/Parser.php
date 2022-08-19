@@ -1,7 +1,8 @@
 <?php
 /**
  * Парсер страниц, простой выбирает <img> и <scr> c прямого пути типа "https//ru.freepik.com/popular-photos"
- * вернет массив $images c выписанными URL картинок.
+ * вернет массив $images c выписанными URL картинок.Также парсер выполнит некоторые карректировки 
+ * и попробует исправить url если url не рабочий
  *
  * @param string $url_gl адресс сайта
  * @return array список изображений.
@@ -12,10 +13,12 @@ class Parser extends ParentAlgorithms
     // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
     public static function valid_Url(string $url_gl)
     {
+        
         if (@file_get_contents($url_gl))
         {
             $images = Parser::Search_Img($url_gl);
             return $images;
+            
         }
         else
         {
@@ -24,43 +27,9 @@ class Parser extends ParentAlgorithms
         return $url_gl;
     }
 
-    // Если пользователь указал адрес без http:
-    private function corrective_test_1(string $url_gl)
-    {
-
-        if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
-
-        if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
-
-        return Parser::corrective_test_2($url_gl);
-
-    }
-    // Если пользователь указал адрес без www:
-    private function corrective_test_2(string $url_gl)
-    {
-
-        if (strpos($url_gl, 'www') === false) $url_gl = "www://" . $url_gl;
-
-        if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
-
-        return Parser::corrective_test_3($url_gl);
-
-    }
-    // Если пользователь указал адрес без https://:
-    private function corrective_test_3(string $url_gl)
-    {
-        if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
-
-        if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
-
-        echo ("url не рабочий.");
-        return false;
-
-    }
     //Ищем в html теги img рисунки
-    private static function Search_Img(string $url_gl):
-        array
-        {
+    private static function Search_Img(string $url_gl):array
+    {
 
             global $gl_massages;
 
@@ -99,15 +68,59 @@ class Parser extends ParentAlgorithms
             }
             else
             {
+                
                 $vr = count($images) + 1;
                 echo ("Рисунки найдены " . $vr . "-шт");
 
             }
 
             return $images;
-        }
-
     }
+/**
+ *      corrective_test
+ * 
+ */
+       // Если пользователь указал адрес без http:
+       private function corrective_test_1(string $url_gl)
+       {
+   
+           if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
+   
+           if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
+   
+           return Parser::corrective_test_2($url_gl);
+   
+       }
+       // Если пользователь указал адрес без www:
+       private function corrective_test_2(string $url_gl)
+       {
+   
+           if (strpos($url_gl, 'www') === false) $url_gl = "www://" . $url_gl;
+   
+           if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
+   
+           return Parser::corrective_test_3($url_gl);
+   
+       }
+       // Если пользователь указал адрес без https://:
+       private function corrective_test_3(string $url_gl)
+       {
+           if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
+   
+           if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
+   
+           
+           echo ("url не рабочий.");
+           return false;
+   
+       }
+
+
+
+}
+
+
+
 
 
 
