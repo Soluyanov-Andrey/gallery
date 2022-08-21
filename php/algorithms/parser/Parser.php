@@ -9,6 +9,10 @@
  */
 class Parser extends ParentAlgorithms
 {
+    const NO_DRAWINGS = 'Рисунков не найденно';
+    const YES_DRAWINGS = 'Рисунки найдены';
+    const URL_NOT_WORKING = 'Url не рабочий';
+    
 
     // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
     public static function valid_Url(string $url_gl)
@@ -16,19 +20,16 @@ class Parser extends ParentAlgorithms
         
         if (@file_get_contents($url_gl))
         {
-            $images = Parser::Search_Img($url_gl);
-            return $images;
+            
+            return Parser::Search_Img($url_gl);
             
         }
-        else
-        {
-            $url_gl = Parser::corrective_test_1($url_gl);
-        }
-        return $url_gl;
+       
+        return Parser::corrective_step_1($url_gl);
     }
 
     //Ищем в html теги img рисунки
-    private static function Search_Img(string $url_gl):array
+    protected  function Search_Img(string $url_gl):array
     {
 
             global $gl_massages;
@@ -63,47 +64,41 @@ class Parser extends ParentAlgorithms
 
             if (empty($images))
             {
-                echo ("Рисунков не найденно");
+                return ParentAlgorithms::returns(false, self::NO_DRAWINGS,'');
 
             }
-            else
-            {
-                
-                $vr = count($images) + 1;
-                echo ("Рисунки найдены " . $vr . "-шт");
+            $vr = count($images) + 1;
 
-            }
-
-            return $images;
+            return ParentAlgorithms::returns(true, self::YES_DRAWINGS . $vr . "-шт", $images);
     }
 /**
  *      corrective_test
  * 
  */
        // Если пользователь указал адрес без http:
-       private function corrective_test_1(string $url_gl)
+       protected function corrective_step_1(string $url_gl)
        {
    
            if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
    
            if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
    
-           return Parser::corrective_test_2($url_gl);
+           return Parser::corrective_step_2($url_gl);
    
        }
        // Если пользователь указал адрес без www:
-       private function corrective_test_2(string $url_gl)
+       protected function corrective_step_2(string $url_gl)
        {
    
            if (strpos($url_gl, 'www') === false) $url_gl = "www://" . $url_gl;
    
            if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
    
-           return Parser::corrective_test_3($url_gl);
+           return Parser::corrective_step_3($url_gl);
    
        }
        // Если пользователь указал адрес без https://:
-       private function corrective_test_3(string $url_gl)
+       protected function corrective_step_3(string $url_gl)
        {
            if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
    
