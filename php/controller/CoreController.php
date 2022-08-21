@@ -10,7 +10,7 @@ class CoreController
 {
 
     function __construct() {
-       new TestController();
+       
 
     }
 
