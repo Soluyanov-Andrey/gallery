@@ -97,7 +97,7 @@ class Parser extends ParentAlgorithms
    
            if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(false, self::COR_STEP_1_TRUE,'');
+           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_1_TRUE,'');
    
            return ParentAlgorithms::returns(false, self::COR_STEP_1_FALSE,'');
    
@@ -108,7 +108,7 @@ class Parser extends ParentAlgorithms
    
            if (strpos($url_gl, 'www') === false) $url_gl = "www://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(false, self::COR_STEP_2_TRUE,'');
+           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE,'');
    
            return ParentAlgorithms::returns(false, self::COR_STEP_2_FALSE,'');;
    
@@ -118,7 +118,7 @@ class Parser extends ParentAlgorithms
        {
            if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(false, self::COR_STEP_3_TRUE,'');
+           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_3_TRUE,'');
    
            
           

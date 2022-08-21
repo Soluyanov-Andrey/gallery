@@ -17,7 +17,7 @@ class EngineController
         define("URL_CLASS_PARSER","algorithms/parser/");
         define("URL_CLASS_CONTROLLER","controller/");
         define("DEVELOPER_CLASS_CONTROLLER","developer_scripts/");
-        define("TEST","developer_scripts/test");
+        define("TEST","developer_scripts/test/");
         spl_autoload_register('EngineController::AutoLoad');
 
         //Если запускаем проект;

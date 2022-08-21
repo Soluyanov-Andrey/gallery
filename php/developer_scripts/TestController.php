@@ -10,11 +10,12 @@ class TestController
 {
     function __construct()
     {
+
         
-        $b= $this->parser();
-       //echo(serialize($b));
-        var_dump($b);
-        //$v= $this->getimages($b);
+        new Parser_test();
+    //echo(serialize($b));
+    //     var_dump($b);
+         //$v= $this->getimages($b);
 
         
     }
@@ -27,7 +28,7 @@ class TestController
     private  function parser()
     {
        
-        new Parser();
+        new Parser_test();
 
         // $url_gl="https://ru.pinterest.com/chernienkok/%D1%81%D0%B0%D0%B9%D1%82%D1%8B-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5/";
         // var_dump(Parser::valid_Url($url_gl));
