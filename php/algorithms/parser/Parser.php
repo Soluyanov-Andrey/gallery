@@ -12,20 +12,36 @@ class Parser extends ParentAlgorithms
     const NO_DRAWINGS = 'Рисунков не найденно';
     const YES_DRAWINGS = 'Рисунки найдены';
     const URL_NOT_WORKING = 'Url не рабочий';
+    const COR_STEP_1_FALSE = 'corrective_step_1 не смог исправить URL';
+    const COR_STEP_1_TRUE = 'corrective_step_1 смог исправить URL';
+    const COR_STEP_2_FALSE = 'corrective_step_2 не смог исправить URL';
+    const COR_STEP_2_TRUE = 'corrective_step_2 смог исправить URL';
+    const COR_STEP_3_FALSE = 'corrective_step_3 не смог исправить URL';
+    const COR_STEP_3_TRUE = 'corrective_step_3 смог исправить URL';
     
-
     // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
     public static function valid_Url(string $url_gl)
     {
         
         if (@file_get_contents($url_gl))
         {
-            
-            return Parser::Search_Img($url_gl);
+            $images = Parser::Search_Img($url_gl);
+            return $images;
             
         }
-       
-        return Parser::corrective_step_1($url_gl);
+        else
+        {
+            $url_gl = Parser::corrective_step_1($url_gl);
+            if($url_gl['result']){ return $url_gl;};
+
+            $url_gl = Parser::corrective_step_2($url_gl);
+            if($url_gl['result']){ return $url_gl;};
+
+            $url_gl = Parser::corrective_step_3($url_gl);
+            if($url_gl['result']){ return $url_gl;};
+
+        }
+        return $url_gl;
     }
 
     //Ищем в html теги img рисунки
@@ -68,7 +84,7 @@ class Parser extends ParentAlgorithms
 
             }
             $vr = count($images) + 1;
-
+            
             return ParentAlgorithms::returns(true, self::YES_DRAWINGS . $vr . "-шт", $images);
     }
 /**
@@ -83,7 +99,7 @@ class Parser extends ParentAlgorithms
    
            if (@file_get_contents($url_gl)) return Parser::Search_Img($url_gl);
    
-           return Parser::corrective_step_2($url_gl);
+           return ParentAlgorithms::returns(false, self::COR_STEP_1_FALSE,'');;
    
        }
        // Если пользователь указал адрес без www:

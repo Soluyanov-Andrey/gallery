@@ -12,9 +12,9 @@ class TestController
     {
         
         $b= $this->parser();
-        echo(serialize($b));
-        
-        $v= $this->getimages($b);
+       //echo(serialize($b));
+        var_dump($b);
+        //$v= $this->getimages($b);
 
         
     }

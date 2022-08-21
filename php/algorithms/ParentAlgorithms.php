@@ -12,6 +12,7 @@ class ParentAlgorithms
             "data" => $data
             
         );  
+        
         return $result;
     }
 
