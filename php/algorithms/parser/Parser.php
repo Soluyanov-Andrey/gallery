@@ -32,13 +32,13 @@ class Parser extends ParentAlgorithms
         else
         {
             $result_array = Parser::corrective_step_1($url_gl);
-            if($result_array['result']){ Parser::Search_Img($url_gl);};
+            if($result_array['result']){ return Parser::Search_Img($result_array['data']);};
 
             $result_array = Parser::corrective_step_2($url_gl);
-            if($result_array['result']){ Parser::Search_Img($url_gl);};
+            if($result_array['result']){ return Parser::Search_Img($result_array['data']);};
 
             $result_array = Parser::corrective_step_3($url_gl);
-            if($result_array['result']){ Parser::Search_Img($url_gl);};
+            if($result_array['result']){ return Parser::Search_Img($result_array['data']);};
 
         }
         //eturn ParentAlgorithms::returns(false, self::URL_NOT_WORKING,'');
@@ -97,7 +97,7 @@ class Parser extends ParentAlgorithms
    
            if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_1_TRUE,'');
+           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_1_TRUE,$url_gl);
    
            return ParentAlgorithms::returns(false, self::COR_STEP_1_FALSE,'');
    
@@ -108,7 +108,7 @@ class Parser extends ParentAlgorithms
    
            if (strpos($url_gl, 'www') === false) $url_gl = "www://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE,'');
+           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE,$url_gl);
    
            return ParentAlgorithms::returns(false, self::COR_STEP_2_FALSE,'');;
    
@@ -118,7 +118,7 @@ class Parser extends ParentAlgorithms
        {
            if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_3_TRUE,'');
+           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_3_TRUE,$url_gl);
    
            
           
