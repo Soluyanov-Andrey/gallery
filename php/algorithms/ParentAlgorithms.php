@@ -4,7 +4,7 @@ class ParentAlgorithms
     
    
 
-    public function returns($result, $message, $data)
+    public function returns($result, $message, $data = null)
     {
         $result = array(
             "result" => $result,   // true.false

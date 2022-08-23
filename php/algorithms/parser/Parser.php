@@ -1,6 +1,6 @@
 <?php
 /**
- * Парсер страниц, простой выбирает <img> и <scr> c прямого пути типа "https//ru.freepik.com/popular-photos"
+ * Парсер страниц, выбирает <img> и <scr> c прямого пути типа "https//ru.freepik.com/popular-photos"
  * вернет массив $images c выписанными URL картинок.Также парсер выполнит некоторые карректировки 
  * и попробует исправить url если url не рабочий
  *
@@ -88,7 +88,7 @@ class Parser extends ParentAlgorithms
             return ParentAlgorithms::returns(true, self::YES_DRAWINGS . $vr . "-шт", $images);
     }
 /**
- *      corrective_test
+ *      corrective_step
  * 
  */
        // Если пользователь указал адрес без http:

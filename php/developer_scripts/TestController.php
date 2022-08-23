@@ -1,21 +1,19 @@
 <?php
 /**
  * 
- * Ключевой контролер, откуда начинается запуск.
+ * Ключевой контролер, откуда запускаем тесты.
  *
  */
 
-// Cоздаем ауто лоадер классов.
+
 class TestController
 {
     function __construct()
     {
 
-        
-        new Parser_test();
-    //echo(serialize($b));
-    //     var_dump($b);
-         //$v= $this->getimages($b);
+        new GetImages_test();
+        //new Parser_test();
+      
 
         
     }
