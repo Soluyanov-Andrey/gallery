@@ -48,11 +48,11 @@ class Parser extends ParentAlgorithms
     protected  function Search_Img(string $url_gl):array
     {
 
-            global $gl_massages;
+            
 
             $images = array();
 
-            $data = file_get_contents($url_gl);
+            $data = @file_get_contents($url_gl);
 
             //находит все img src создавая при это не нужные данные
             preg_match_all('/(img|src)=("|\')[^"\'>]+/i', $data, $media);

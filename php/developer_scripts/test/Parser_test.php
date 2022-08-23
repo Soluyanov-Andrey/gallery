@@ -14,12 +14,15 @@ class Parser_test extends Parser
         //$url="infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
         $url01="http://infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
         $url="http:/in56fogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
-        
-        $this->test1($url);
-        $this->test2($url);
-        $this->test3($url);
-        $this->test4($url01);
-        $this->test5($url);
+        $url02="https://zastavok.net/?ysclid=l764sqvgt028704337";
+        $url03="https://demotivation.ru/news/risunki-dlya-srisovki-v-tsvete-100-kartinok?ysclid=l764znr7z4555797740";
+        $url04="https://demotivation.ru/poleznoe";
+        //$this->test1($url);
+        //$this->test2($url);
+        //$this->test3($url);
+        //$this->test4($url01);
+        $this->test4($url02);
+       // $this->test5($url);
     }
     private  function test1($url)
     {
