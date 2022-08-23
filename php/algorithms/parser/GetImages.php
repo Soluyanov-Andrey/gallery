@@ -59,16 +59,27 @@ class GetImages extends ParentAlgorithms
 	protected function corrective_step_1($url, $gl_url)
 	{
 		
-		
-        $a=parse_url($gl_url);
-        $url_n=$a["scheme"]."://".$a["host"];
+		$path_parts = pathinfo($gl_url);
 
-        //если в url первая  "/" то соеденяем по
-        if(substr($url, 0, 1)=="/"){
-            return $url_n.$url;
-        }else{
-            return $url_n."/".$url;
-        }
+        $a=parse_url($url);
+
+
+        if(!isset($a["host"])){
+
+            //если в url нет ../ то делаем
+            if (strpos($url, '../') === false) {
+
+                //если в url первая  "/" то соеденяем по
+                if(substr($url, 0, 1)=="/"){
+                    return $path_parts['dirname'].$url;
+                }else{
+                    return $path_parts['dirname']."/".$url;
+                }
+
+            }
+        };
+        return $url;
+
 
 
 	}
@@ -80,9 +91,54 @@ class GetImages extends ParentAlgorithms
     * результат http://test.ru/test_img/1.jpg
     */
 
-	protected function corrective_step_2(string $url)
+	protected function corrective_step_2(string $url,$gl_url)
 	{
+		
+        $path_parts = pathinfo($gl_url);
 
+        $a=parse_url($url);
+
+        //Проверяем первичное условие есть ли в url имя и является ли адрес относительным ../
+        function conditions($url)
+        {
+            if (!isset($a["host"])) {
+
+                //если в url нет ../ то делаем
+
+                if (substr_count($url, '../') != 0) {
+
+                    return true;
+                }
+            }
+        };
+        //рекурсивная функция из Url http://rnk.ru/test/55/6 отсикает $quantity '/' с конца
+        //$quantity=1 вернет http://rnk.ru/test/55
+        //$quantity=2 вернет http://rnk.ru/test
+        function trim_down($url,$quantity)
+        {
+            $a= strripos($url,'/');
+            $url_n= substr($url,0,$a);
+            $quantity=$quantity-1;
+
+
+            if($quantity>0){ return trim_down($url_n,$quantity);};
+            if($quantity==0){ return $url_n;};
+        };
+
+        if(conditions($url)){
+            $quantity = substr_count($url, '../');
+
+
+            $str_1=trim_down($gl_url,$quantity+1);
+
+            //удаляем все '../' в строке вида '../../img.jpg'
+            $str_2 = str_replace("../", "", $url, $count);
+
+
+            return ($str_1.'/'.$str_2);
+
+        }
+        return $url;
 	}
 	/*
 	* corrective_step3  возвращает новый URl картинки
