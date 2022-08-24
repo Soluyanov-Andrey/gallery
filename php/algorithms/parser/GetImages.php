@@ -1,6 +1,6 @@
 <?php
 /**
- *  Найденный изображения при проходе Parser могут 
+ *  Найденные изображения при проходе Parser могут содержать сокращенные 
  */
 class GetImages extends ParentAlgorithms
 {
@@ -78,6 +78,7 @@ class GetImages extends ParentAlgorithms
 
             }
         };
+
         return $url;
 
 
