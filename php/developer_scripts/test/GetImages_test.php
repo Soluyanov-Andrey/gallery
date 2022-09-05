@@ -38,7 +38,7 @@ class GetImages_test extends GetImages
 
         $this->test4($url1,$url2);
         //вернет https://zastavok.net/template/img/left-logo.png
-        
+        $this->test5($url1,70,80);
     }
     private  function test1($url,$whith, $higth)
     {
@@ -61,9 +61,9 @@ class GetImages_test extends GetImages
         
         var_dump(GetImages::corrective_step_3($url, $gl_url));
     }
-    private  function test5($url)
+    private  function test5($url,$whith, $higth)
     {
-        
+        var_dump(GetImages::get_images_url($url,$whith, $higth));
         
     }
 }

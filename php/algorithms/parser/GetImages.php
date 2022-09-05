@@ -8,13 +8,16 @@ class GetImages extends ParentAlgorithms
     const FILES_SIZE_NO = 'Фаил есть но не подходит по размеру';
     const FILES_NO = 'Фаила нет';
 
-	public static function get_images_url($images_url_array)
+	public  function get_images_url($images_url,$width, $higth)
 	{
-	
+		if(self::get_files($images_url,$width, $higth)['result'] == null){
+			corrective_step_1($url, $gl_url);
+		}
+
 	}
 
 
-	protected static function get_files($url, $width, $higth){
+	protected  function get_files($url, $width, $higth){
 
 
 		
