@@ -24,6 +24,9 @@ class parserTest extends \PHPUnit\Framework\TestCase {
     return $result;
   }
 
+
+  // Если пользователь указал адрес без http:
+
   /**
   * @depends corrective_step_1
   */
@@ -35,7 +38,31 @@ class parserTest extends \PHPUnit\Framework\TestCase {
 
   
   }
+
+  /** @test */
+  public function corrective_step_2() {
+
+    $url="yandex.ru";
+    $result = $this->callMethod(Parser::class, 'corrective_step_2',$url);
   
+    $this->assertIsArray($result);
+    
+    return $result;
+   
+  }
+
+   /**
+  * @depends corrective_step_2
+  */
+  public function test_corrective_step_2($value) {
+
+    $result = 'http://www.yandex.ru';
+  
+    $this->assertSame( $result, $value['data'] );
+  
+    
+    }
+
 
   
   

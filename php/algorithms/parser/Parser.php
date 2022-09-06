@@ -106,8 +106,8 @@ class Parser extends ParentAlgorithms
        protected function corrective_step_2(string $url_gl)
        {
    
-           if (strpos($url_gl, 'www') === false) $url_gl = "www://" . $url_gl;
-   
+           if (strpos($url_gl, 'www') === false) $url_gl = "http://www." . $url_gl;
+           var_dump($url_gl);
            if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE,$url_gl);
    
            return ParentAlgorithms::returns(false, self::COR_STEP_2_FALSE,'');;

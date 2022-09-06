@@ -26,3 +26,5 @@
    Изменил структуру приложения.
 
 7. Подключение phpUnit.
+
+8. Запуск тестов vendor/bin/phpunit --configuration tests/phpunit.xml --testsuite unit
