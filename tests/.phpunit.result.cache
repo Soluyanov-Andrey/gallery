@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Krya_Test::test_say":3,"Warning":6},"times":{"Krya_Test::test_say":0.933,"Warning":0.006,"Krya_Test::corrective_step_1":0.899,"Krya_Test::test_corrective_step_1":1.008,"Krya_Test::corrective_step_1_1":0.952,"parserTest::corrective_step_1":0.923,"parserTest::corrective_step_1_1":0.906}}
