@@ -20,6 +20,7 @@ class EngineController
         define("TEST","developer_scripts/test/");
         spl_autoload_register('EngineController::AutoLoad');
 
+        if(!TEST_MODE){CoreController();};
         //Если запускаем проект;
         //new CoreController();
         
