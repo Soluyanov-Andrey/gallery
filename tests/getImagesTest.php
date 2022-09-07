@@ -7,11 +7,12 @@
 class GetImagesTest extends \PHPUnit\Framework\TestCase {
   
   use CallAsPublic;
-
+ 
+  
   //Проверяем конечную функцию, берет изображения с задаными размерами.
   /** @test */
   public function test1() {
-
+    
     $url = "https://infogra.ru/wp-content/uploads/2022/08/1StqFPBICfdW_YmcUH1s-YA-810x540.jpeg";
     $whith = 150;
     $higth = 200;
@@ -49,10 +50,10 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
     
     
         $result = $this->callMethod(GetImages::class, 'corrective_step_2', $url ,$gl_url);
-        var_dump($result);
+        
         
         $this->assertSame("http://test.ru/test_img/1.jpg",$result );
-     
+        unset($result);
         
         
        }
@@ -65,12 +66,31 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
     
     
         $result = $this->callMethod(GetImages::class, 'corrective_step_3', $url ,$gl_url);
-        var_dump($result);
+        
         
         $this->assertSame("https://zastavok.net/template/img/left-logo.png",$result );
      
         
         
        }
+       
+     /** @test */
+     public function get_files_repeated() {
+
+      $url = 'https://infogra.ru/wp-content/uploads/2020/11/cover-666x400.jpg';
+      $method_name = 'Tect';
+  
+  
+      $result = $this->callMethod(GetImages::class, 'get_files_repeated', $url ,$method_name);
+      
+      
+      
+   
+      $this->assertTrue( $result['result'] );
+      
+     }
+
+    
+
 
 }

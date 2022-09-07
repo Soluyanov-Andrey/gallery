@@ -6,6 +6,9 @@
         <testsuite name="unit">
            <directory suffix="Test.php">./</directory>
         </testsuite>
+         <testsuite name="getImagesIngr">
+           <directory suffix="getImagesIngr.php">./</directory>
+        </testsuite>
     </testsuites>
    
 </phpunit>

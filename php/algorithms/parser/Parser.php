@@ -92,7 +92,7 @@ class Parser extends ParentAlgorithms
  * 
  */
        // Если пользователь указал адрес без http:
-    private function corrective_step_1(string $url_gl)
+    protected function corrective_step_1(string $url_gl)
     {
    
         if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
@@ -103,7 +103,7 @@ class Parser extends ParentAlgorithms
    
     }
     // Если пользователь указал адрес без www:
-    private function corrective_step_2(string $url_gl)
+    protected function corrective_step_2(string $url_gl)
     {
    
         if (strpos($url_gl, 'www') === false) $url_gl = "http://www." . $url_gl;
@@ -114,7 +114,7 @@ class Parser extends ParentAlgorithms
    
     }
     // Если пользователь указал адрес без https://:
-    private function corrective_step_3(string $url_gl)
+    protected function corrective_step_3(string $url_gl)
     {
         if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
    

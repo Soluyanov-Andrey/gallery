@@ -91,10 +91,12 @@ class parserTest extends \PHPUnit\Framework\TestCase {
     $result = $this->callMethod(Parser::class, 'Search_Img',$url);
     
     $this->assertIsArray($result);
-      var_dump($result);
+      
     return $result;
      
   }
+
+  
 
 
   

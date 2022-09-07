@@ -1,82 +1,115 @@
 <?php
 /**
- *  Найденные изображения при проходе Parser могут содержать сокращенные 
+ *  Найденные изображения при проходе Parser могут содержать сокращенные
  */
 class GetImages extends ParentAlgorithms
 {
-	const FILES_YES = 'Фаил есть и подходит по размеру';
+    const FILES_YES = 'Фаил есть и подходит по размеру';
     const FILES_SIZE_NO = 'Фаил есть но не подходит по размеру';
     const FILES_NO = 'Фаила нет';
+    const CORRECTION_NO = 'Коррекция результата не дала.';
+    const CORRECTION_YES = 'Коррекция результы дала.';
 
-	public  function get_images_url($images_url,$width, $higth)
-	{
-		if(self::get_files($images_url,$width, $higth)['result'] == null){
-			corrective_step_1($url, $gl_url);
-		}
+    public function get_images_url($images_url, $url_gl, $width, $higth)
+    {
+        $obr = self::get_files($images_url, $width, $higth);
 
-	}
+        if ($obr['result'] == null) {
+            
+            $result_url = GetImages::corrective_step_1($images_url, $url_gl);
+            $result = GetImages::get_files_repeated($result_url, "corrective_step_1");
+            var_dump($result);
+            if ($result['result']) { return $result; };
+           
+            $result_url = GetImages::corrective_step_2($images_url, $url_gl);
+            $result = GetImages::get_files_repeated($result_url, "corrective_step_2");
+            if ($result['result']) { return $result; };
+            var_dump($result);
+            $result_url = GetImages::corrective_step_3($images_url, $url_gl);
+            $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
+            if ($result['result']) { return $result; };
+            var_dump($result);
 
+            return $obr;
 
-	protected  function get_files($url, $width, $higth){
+        }
+        if ($obr['result'] == true) {
+            var_dump($obr);
+            return $obr;
 
+        }
 
-		
-		$fl=0;
-		//"@" означает, что стандартная ошибка не выдается а генерируется false
-		$size=@getimagesize($url);
-		//"высота".$size[1]);
-		//"ширина".$size[0]);
+    }
+    private function get_files_repeated($url, $method_name)
+    {
 
-		if($size[1]>=$higth && $size[0]>=$width){
+        $size = @getimagesize($url);
 
-			$fl=1;
-		}
+        if (!$size) {
+            return ParentAlgorithms::returns(false, self::CORRECTION_NO . "-" . $method_name);
+        }
 
-		//-----------------------------------------------------
-		if ($size && $fl==1) {
-			//фаил есть и подходит по размеру
+        return ParentAlgorithms::returns(true, self::CORRECTION_YES . "-" . $method_name, $url);
 
-			return ParentAlgorithms::returns(true, self::FILES_YES );
-		}
+    }
 
-		if ($size && $fl==0) {
-			//фаил есть но не подходит по размеру
+    private function get_files($url, $width, $higth)
+    {
 
-			return  ParentAlgorithms::returns(false, self::FILES_SIZE_NO );
-		}
+        $fl = 0;
+        //"@" означает, что стандартная ошибка не выдается а генерируется false
+        $size = @getimagesize($url);
+        //"высота".$size[1]);
+        //"ширина".$size[0]);
 
-		if (!$size) {
-			//фаила нет
+        if ($size[1] >= $higth && $size[0] >= $width) {
 
+            $fl = 1;
+        }
 
-			return  ParentAlgorithms::returns(null, self::FILES_NO );
-		}
-	}
+        //-----------------------------------------------------
+        if ($size && $fl == 1) {
+            //фаил есть и подходит по размеру
 
-	/*
-    * corrective_step1 возвращает новый URl
-    * имеет исходный url -$gl_url например http://test.ru/test/12/3.php
-    * выбранные url -$url например test_img/1.jpg
-    * результат http://test.ru/test/12/test_img/1.jpg
-    */
-	protected function corrective_step_1($url, $gl_url)
-	{
-		
-		$path_parts = pathinfo($gl_url);
+            return ParentAlgorithms::returns(true, self::FILES_YES,$url);
+        }
 
-        $a=parse_url($url);
+        if ($size && $fl == 0) {
+            //фаил есть но не подходит по размеру
 
+            return ParentAlgorithms::returns(false, self::FILES_SIZE_NO,$url);
+        }
 
-        if(!isset($a["host"])){
+        if (!$size) {
+            //фаила нет
+
+            return ParentAlgorithms::returns(null, self::FILES_NO);
+        }
+    }
+
+    /*
+     * corrective_step1 возвращает новый URl
+     * имеет исходный url -$gl_url например http://test.ru/test/12/3.php
+     * выбранные url -$url например test_img/1.jpg
+     * результат http://test.ru/test/12/test_img/1.jpg
+     */
+    protected function corrective_step_1($url, $gl_url)
+    {
+
+        $path_parts = pathinfo($gl_url);
+
+        $a = parse_url($url);
+
+        if (!isset($a["host"])) {
 
             //если в url нет ../ то делаем
             if (strpos($url, '../') === false) {
 
                 //если в url первая  "/" то соеденяем по
-                if(substr($url, 0, 1)=="/"){
-                    return $path_parts['dirname'].$url;
-                }else{
-                    return $path_parts['dirname']."/".$url;
+                if (substr($url, 0, 1) == "/") {
+                    return $path_parts['dirname'] . $url;
+                } else {
+                    return $path_parts['dirname'] . "/" . $url;
                 }
 
             }
@@ -84,23 +117,21 @@ class GetImages extends ParentAlgorithms
 
         return $url;
 
+    }
 
+    /*
+     * corrective_step2 возвращает новый URl
+     * имеет исходный url -$gl_url например http://test.ru/test/12/3.php
+     * выбранные url -$url например ../../test_img/1.jpg
+     * результат http://test.ru/test_img/1.jpg
+     */
 
-	}
+    protected function corrective_step_2(string $url, $gl_url)
+    {
 
-	/*
-    * corrective_step2 возвращает новый URl
-    * имеет исходный url -$gl_url например http://test.ru/test/12/3.php
-    * выбранные url -$url например ../../test_img/1.jpg
-    * результат http://test.ru/test_img/1.jpg
-    */
-
-	protected function corrective_step_2(string $url,$gl_url)
-	{
-		
         $path_parts = pathinfo($gl_url);
 
-        $a=parse_url($url);
+        $a = parse_url($url);
 
         //Проверяем первичное условие есть ли в url имя и является ли адрес относительным ../
         function conditions($url)
@@ -118,54 +149,48 @@ class GetImages extends ParentAlgorithms
         //рекурсивная функция из Url http://rnk.ru/test/55/6 отсикает $quantity '/' с конца
         //$quantity=1 вернет http://rnk.ru/test/55
         //$quantity=2 вернет http://rnk.ru/test
-        function trim_down($url,$quantity)
+        function trim_down($url, $quantity)
         {
-            $a= strripos($url,'/');
-            $url_n= substr($url,0,$a);
-            $quantity=$quantity-1;
+            $a = strripos($url, '/');
+            $url_n = substr($url, 0, $a);
+            $quantity = $quantity - 1;
 
-
-            if($quantity>0){ return trim_down($url_n,$quantity);};
-            if($quantity==0){ return $url_n;};
+            if ($quantity > 0) {return trim_down($url_n, $quantity);};
+            if ($quantity == 0) {return $url_n;};
         };
 
-        if(conditions($url)){
+        if (conditions($url)) {
             $quantity = substr_count($url, '../');
 
-
-            $str_1=trim_down($gl_url,$quantity+1);
+            $str_1 = trim_down($gl_url, $quantity + 1);
 
             //удаляем все '../' в строке вида '../../img.jpg'
             $str_2 = str_replace("../", "", $url, $count);
 
-
-            return ($str_1.'/'.$str_2);
+            return ($str_1 . '/' . $str_2);
 
         }
         return $url;
-	}
-	/*
-	* corrective_step3  возвращает новый URl картинки
-    * $url="/template/img/left-logo.png";
-    * $gl_url="https://zastavok.net/?ysclid=l764sqvgt028704337";
-	* вернет https://zastavok.net/template/img/left-logo.png
-    */
-	protected function corrective_step_3($url, $gl_url)
-	{
-		
-		
-        $a=parse_url($gl_url);
-        $url_n=$a["scheme"]."://".$a["host"];
+    }
+    /*
+     * corrective_step3  возвращает новый URl картинки
+     * $url="/template/img/left-logo.png";
+     * $gl_url="https://zastavok.net/?ysclid=l764sqvgt028704337";
+     * вернет https://zastavok.net/template/img/left-logo.png
+     */
+    protected function corrective_step_3($url, $gl_url)
+    {
+
+        $a = parse_url($gl_url);
+        $url_n = $a["scheme"] . "://" . $a["host"];
 
         //если в url первая  "/" то соеденяем по
-        if(substr($url, 0, 1)=="/"){
-            return $url_n.$url;
-        }else{
-            return $url_n."/".$url;
+        if (substr($url, 0, 1) == "/") {
+            return $url_n . $url;
+        } else {
+            return $url_n . "/" . $url;
         }
 
-
-	}
-	
+    }
 
 }
