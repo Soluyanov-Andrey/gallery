@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: SadAdmin
- * Date: 28.12.2018
- * Time: 22:46
+ * Скрипт можно просто запустить, и он покажет различные градиенты цветов.
  */
 
 //echo("<div style=\"background-color: RGB(".$r.", ".$g.", ".$b."); height: 20px; width:40px;\">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp".$k."</div>");
@@ -30,9 +27,6 @@ function hsv2rgb($hue,$sat,$val,$kol) {;
     //$rgb['html'] = sprintf('#%02X%02X%02X', $rgb[0], $rgb[1], $rgb[2]);
     //return $rgb;
 }
-
-
-
 
 
 
