@@ -10,9 +10,6 @@ class parserTest extends \PHPUnit\Framework\TestCase {
 
 
 
-  //Так пишем если перед методом corrective_step_1() не пишем test_corrective_step_1()
-  //Иначе выдает  Warnings: 1..
-
   /** @test */
   public function corrective_step_1() {
 

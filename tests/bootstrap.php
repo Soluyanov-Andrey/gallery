@@ -3,6 +3,7 @@ define("TEST_MODE",true);
 
 require_once __DIR__.'/../php/controller/EngineController.php';
 
+// CallAsPublic нужен для вызова закрытых методов.
 trait CallAsPublic
 {
     /**
