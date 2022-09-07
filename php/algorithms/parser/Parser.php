@@ -45,7 +45,7 @@ class Parser extends ParentAlgorithms
     }
 
     //Ищем в html теги img рисунки
-    protected  function Search_Img(string $url_gl):array
+    private  function Search_Img(string $url_gl):array
     {
 
             
@@ -92,39 +92,39 @@ class Parser extends ParentAlgorithms
  * 
  */
        // Если пользователь указал адрес без http:
-       protected function corrective_step_1(string $url_gl)
-       {
+    private function corrective_step_1(string $url_gl)
+    {
    
-           if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
+        if (strpos($url_gl, 'http') === false) $url_gl = "http://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_1_TRUE,$url_gl);
+        if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_1_TRUE,$url_gl);
    
-           return ParentAlgorithms::returns(false, self::COR_STEP_1_FALSE,'');
+        return ParentAlgorithms::returns(false, self::COR_STEP_1_FALSE,'');
    
-       }
-       // Если пользователь указал адрес без www:
-       protected function corrective_step_2(string $url_gl)
-       {
+    }
+    // Если пользователь указал адрес без www:
+    private function corrective_step_2(string $url_gl)
+    {
    
-           if (strpos($url_gl, 'www') === false) $url_gl = "http://www." . $url_gl;
+        if (strpos($url_gl, 'www') === false) $url_gl = "http://www." . $url_gl;
            
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE,$url_gl);
+        if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE,$url_gl);
    
-           return ParentAlgorithms::returns(false, self::COR_STEP_2_FALSE,'');;
+        return ParentAlgorithms::returns(false, self::COR_STEP_2_FALSE,'');;
    
-       }
-       // Если пользователь указал адрес без https://:
-       protected function corrective_step_3(string $url_gl)
-       {
-           if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
+    }
+    // Если пользователь указал адрес без https://:
+    private function corrective_step_3(string $url_gl)
+    {
+        if (strpos($url_gl, 'https') === false) $url_gl = "https://" . $url_gl;
    
-           if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_3_TRUE,$url_gl);
-   
+        if (@file_get_contents($url_gl)) return ParentAlgorithms::returns(true, self::COR_STEP_3_TRUE,$url_gl);
+
            
           
-           return ParentAlgorithms::returns(false, self::COR_STEP_3_FALSE,'');
+        return ParentAlgorithms::returns(false, self::COR_STEP_3_FALSE,'');
    
-       }
+    }
 
 
 
