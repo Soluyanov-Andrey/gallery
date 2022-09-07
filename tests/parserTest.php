@@ -68,7 +68,7 @@ class parserTest extends \PHPUnit\Framework\TestCase {
     $url="infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
     $result = $this->callMethod(Parser::class, 'corrective_step_3',$url);
   
-    $this->assertIsArray($result);
+    $this->assertIsArray($result, $message = 'step_3 не массив');
     
     return $result;
    
@@ -81,7 +81,7 @@ class parserTest extends \PHPUnit\Framework\TestCase {
 
     $result = 'https://infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov';
   
-    $this->assertSame( $result, $value['data'] );
+    $this->assertSame( $result, $value['data'], $message = 'Ошибка при дабавлении https' );
   
     
     }
