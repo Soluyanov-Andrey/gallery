@@ -11,21 +11,10 @@ class EngineController
     function __construct()
     {
         
-        define("DOCUMENT_ROOT",$_SERVER['DOCUMENT_ROOT']."php/");
-
-        define("URL_CLASS_ALGORITMS","algorithms/");
-        define("URL_CLASS_PARSER","algorithms/parser/");
-        define("URL_CLASS_CONTROLLER","controller/");
-        define("DEVELOPER_CLASS_CONTROLLER","developer_scripts/");
-        define("TEST","developer_scripts/test/");
         spl_autoload_register('EngineController::AutoLoad');
-
-        if(!TEST_MODE){CoreController();};
-        //Если запускаем проект;
-        //new CoreController();
-        
-        //Если запускаем тесты;
-        //new TestController();
+        //Если запускаются тесты, то CoreController() не срабатывает
+        if(!TEST_MODE){new CoreController();};
+      
     }
 
     private static function AutoLoad($className) {

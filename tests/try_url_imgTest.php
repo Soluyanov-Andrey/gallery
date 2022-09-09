@@ -9,7 +9,7 @@ class try_urlTest extends \PHPUnit\Framework\TestCase {
    public function try_url() {
 
 
-    $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
+    $gl_url = 'https://zastav1ok.net/?ysclid=l764sqvgt028704337';
           
   
           // $url = '../../test_img/1.jpg';
