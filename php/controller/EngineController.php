@@ -5,7 +5,7 @@
  *
  */
  define("URL_CLASS_ALGORITMS","algorithms/");
- define("DOCUMENT_ROOT",$_SERVER['DOCUMENT_ROOT']."php/");
+ define("DOCUMENT_ROOT_PHP",$_SERVER['DOCUMENT_ROOT']."php/");
 
  define("URL_CLASS_ALGORITMS","algorithms/");
  define("URL_CLASS_PARSER","algorithms/parser/");
@@ -28,10 +28,10 @@ class EngineController
 
     private static function AutoLoad($className) {
         
-        $algorithms = DOCUMENT_ROOT.URL_CLASS_ALGORITMS.$className.'.php';
-        $controller = DOCUMENT_ROOT.URL_CLASS_CONTROLLER.$className.'.php';
-        $parser = DOCUMENT_ROOT.URL_CLASS_SAVE_FILE.$className.'.php';
-        $seve_file = DOCUMENT_ROOT.URL_CLASS_PARSER.$className.'.php';
+        $algorithms = DOCUMENT_ROOT_PHP.URL_CLASS_ALGORITMS.$className.'.php';
+        $controller = DOCUMENT_ROOT_PHP.URL_CLASS_CONTROLLER.$className.'.php';
+        $parser = DOCUMENT_ROOT_PHP.URL_CLASS_SAVE_FILE.$className.'.php';
+        $seve_file = DOCUMENT_ROOT_PHP.URL_CLASS_PARSER.$className.'.php';
         
          (is_file($algorithms)) ? require_once($algorithms): false;
          (is_file($controller)) ? require_once($controller): false;

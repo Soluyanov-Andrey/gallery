@@ -15,9 +15,9 @@ class CoreController
         $higth = 150;
         $result = Try_url_img::try_url($gl_url ,$width, $higth);
     
-        var_dump($result['data']);
+        
         // $this->assertIsArray($result);
-         SaveFile::seve_fales_imagis('https://zastavok.net/template/img/left-logo.png');
+         SaveFile::seve_fales_imagis($result['data']);
     }
 
     private static function perform() {

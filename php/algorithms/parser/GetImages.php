@@ -15,26 +15,26 @@ class GetImages extends ParentAlgorithms
         $obr = self::get_files($images_url, $width, $higth);
 
         if ($obr['result'] == null) {
-            
+
             $result_url = GetImages::corrective_step_1($images_url, $url_gl);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_1");
-            var_dump($result);
-            if ($result['result']) { return $result; };
-           
+            
+            if ($result['result']) {return $result;};
+
             $result_url = GetImages::corrective_step_2($images_url, $url_gl);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_2");
-            if ($result['result']) { return $result; };
-            var_dump($result);
+            if ($result['result']) {return $result;};
+           
             $result_url = GetImages::corrective_step_3($images_url, $url_gl);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
-            if ($result['result']) { return $result; };
-            var_dump($result);
+            if ($result['result']) {return $result;};
+            
 
             return $obr;
 
         }
         if ($obr['result'] == true) {
-            var_dump($obr);
+            
             return $obr;
 
         }
@@ -57,7 +57,7 @@ class GetImages extends ParentAlgorithms
     {
 
         $fl = 0;
-        //"@" означает, что стандартная ошибка не выдается а генерируется false
+
         $size = @getimagesize($url);
         //"высота".$size[1]);
         //"ширина".$size[0]);
@@ -71,13 +71,13 @@ class GetImages extends ParentAlgorithms
         if ($size && $fl == 1) {
             //фаил есть и подходит по размеру
 
-            return ParentAlgorithms::returns(true, self::FILES_YES,$url);
+            return ParentAlgorithms::returns(true, self::FILES_YES, $url);
         }
 
         if ($size && $fl == 0) {
             //фаил есть но не подходит по размеру
 
-            return ParentAlgorithms::returns(false, self::FILES_SIZE_NO,$url);
+            return ParentAlgorithms::returns(false, self::FILES_SIZE_NO, $url);
         }
 
         if (!$size) {
