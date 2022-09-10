@@ -14,9 +14,9 @@ class ImgHash
      * @param boolean $toBase64 Преобразовать результат в base64?
      * @return string хэш изображения
      */
-    public function createHashFromFile($imageFile, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
+    public static function createHashFromFile($imageFile, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
     {
-        return $this->createHashFromFileContents(file_get_contents($imageFile), $pHashSizeRoot, $pHashDetalization, $toBase64);
+        return ImgHash::createHashFromFileContents(file_get_contents($imageFile), $pHashSizeRoot, $pHashDetalization, $toBase64);
     }
     /**
      * Построить хэш изображения из строки, содержащей содержимое загруженного файла изображения
@@ -27,10 +27,10 @@ class ImgHash
      * @param boolean $toBase64 Преобразовать результат в base64?
      * @return string хэш изображения
      */
-    public function createHashFromFileContents($imageFileContents, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
+    private function createHashFromFileContents($imageFileContents, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
     {
         $image = imagecreatefromstring($imageFileContents);
-        return $this->createHash($image, $pHashSizeRoot, $pHashDetalization, $toBase64);
+        return ImgHash::createHash($image, $pHashSizeRoot, $pHashDetalization, $toBase64);
     }
     /**
      * Ограничить значение минимумом и максимумом
@@ -39,7 +39,7 @@ class ImgHash
      * @param integer $max
      * @return integer
      */
-    protected function limit($value, $min, $max)
+    private function limit($value, $min, $max)
     {
         return $value > $max ? $max : ($value < $min ? $min : $value);
     }
@@ -49,7 +49,7 @@ class ImgHash
      * @param string $type Переменная, куда будет записано название типа переменной, если она будет не изображением
      * @return type
      */
-    protected function isImage($image, &$type)
+    private function isImage($image, &$type)
     {
         $x = @imagesx($image);
         if (!$x)
@@ -88,14 +88,14 @@ class ImgHash
      * @param integer $pHashSizeRoot Квадратный корень из размера хэша. От 4 и больше. Чем больше - тем точнее сравнение.
      * @param integer $pHashDetalization детализация хэша, от 2 до 6. Чем больше - тем точнее сравнение.
      */
-    public function createHash($image, $pHashSizeRoot = 10, $pHashDetalization = 6, $toBase64 = true)
+    private function createHash($image, $pHashSizeRoot = 10, $pHashDetalization = 6, $toBase64 = true)
     {
-        if (!$this->isImage($image, $type))
+        if (!ImgHash::isImage($image, $type))
         {
             throw new Exception("\$image argument should be image resource, but it's " . $type);
         }
-        $hashDetalization = $this->limit($pHashDetalization, 2, 6, true);
-        $hashSizeRoot = $this->limit($pHashSizeRoot, 4, 50, true);
+        $hashDetalization = ImgHash::limit($pHashDetalization, 2, 6, true);
+        $hashSizeRoot = ImgHash::limit($pHashSizeRoot, 4, 50, true);
         $width = imagesx($image);
         $height = imagesy($image);
         $size = array($width, $height);
