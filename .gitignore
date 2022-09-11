@@ -3,3 +3,4 @@
 /dist
 /vendor
 /tests/.phpunit.result.cache
+/php/temp
