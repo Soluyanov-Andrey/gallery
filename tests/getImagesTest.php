@@ -1,6 +1,6 @@
 <?php
 
-  require_once __DIR__.'/../php/algorithms/parser/GetImages.php';
+  require_once __DIR__.'/../php/algorithms/transforming_steps/GetImages.php';
  
 
 
@@ -61,14 +61,16 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
     /** @test */
     public function corrective_step_3() {
 
-        $url = '/template/img/left-logo.png';
-        $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
+        // $url = '/template/img/left-logo.png';
+        // $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
     
-    
+        
+        $url = '/ts/animals/154988616247.jpg';
+        $gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
         $result = $this->callMethod(GetImages::class, 'corrective_step_3', $url ,$gl_url);
         
-        
-        $this->assertSame("https://zastavok.net/template/img/left-logo.png",$result );
+        var_dump($result);
+        $this->assertSame("https://zastavok.net/ts/animals/154988616247.jpg",$result );
      
         
         

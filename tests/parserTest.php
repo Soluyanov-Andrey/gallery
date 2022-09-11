@@ -89,7 +89,6 @@ class parserTest extends \PHPUnit\Framework\TestCase {
 
     $url="https://zastavok.net/?ysclid=l764sqvgt028704337";
     $result = $this->callMethod(Parser::class, 'Search_Img',$url);
-    
     $this->assertIsArray($result);
       
     return $result;

@@ -13,19 +13,23 @@ class GetImages extends MessageSystem
     public function get_images_url($images_url, $url_gl, $width, $higth)
     {
         $obr = self::get_files($images_url, $width, $higth);
-
+        
         if ($obr['result'] == null) {
 
             $result_url = GetImages::corrective_step_1($images_url, $url_gl);
+            
             $result = GetImages::get_files_repeated($result_url, "corrective_step_1");
 
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::corrective_step_2($images_url, $url_gl);
+            
+
             $result = GetImages::get_files_repeated($result_url, "corrective_step_2");
             if ($result['result']) {return $result;};
 
-            $result_url = GetImages::corrective_step_3($images_url, $url_gl);
+            $result_url = GetImages::corrective_step_3($images_url, $url_gl); 
+            var_dump($result_url);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
             if ($result['result']) {return $result;};
 
@@ -113,7 +117,7 @@ class GetImages extends MessageSystem
 
             }
         };
-
+       
         return $url;
 
     }
@@ -174,6 +178,7 @@ class GetImages extends MessageSystem
             return ($str_1 . '/' . $str_2);
 
         }
+        
         return $url;
     }
     /*
@@ -184,12 +189,14 @@ class GetImages extends MessageSystem
      */
     protected function corrective_step_3($url, $gl_url)
     {
-
+        echo($url);
+        echo($gl_url);
         $a = parse_url($gl_url);
         $url_n = $a["scheme"] . "://" . $a["host"];
 
         //если в url первая  "/" то соеденяем по
         if (substr($url, 0, 1) == "/") {
+            
             return $url_n . $url;
         } else {
             return $url_n . "/" . $url;

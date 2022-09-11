@@ -10,7 +10,7 @@
  define("URL_CLASS_ALGORITMS","algorithms/");
  define("URL_CLASS_PARSER","algorithms/parser/");
  define("URL_CLASS_CONTROLLER","controller/");
- define("URL_CLASS_TRANSFORMING_STEPS","algorithms/transforming_steps");
+ define("URL_CLASS_TRANSFORMING_STEPS","algorithms/transforming_steps/");
  
 
 // Cоздаем ауто лоадер классов.

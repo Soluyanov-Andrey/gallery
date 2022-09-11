@@ -12,19 +12,19 @@ class try_urlTest extends \PHPUnit\Framework\TestCase {
     $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
           
   
-          // $url = '../../test_img/1.jpg';
-          // $gl_url = 'http://test.ru/test/12/3.php';
+         //  // $url = '../../test_img/1.jpg';
+         //  // $gl_url = 'http://test.ru/test/12/3.php';
   
-          // $url = 'https://infogra.ru/wp-content/uploads/2020/11/cover-666x400.jpg';
-          // $gl_url = 'http://test.ru/test/12/3.php';
+         //  // $url = 'https://infogra.ru/wp-content/uploads/2020/11/cover-666x400.jpg';
+         //  // $gl_url = 'http://test.ru/test/12/3.php';
           
-          $width = 150;
-          $higth = 150;
-          $result = Try_url_img::try_url($gl_url ,$width, $higth);
+         //  $width = 150;
+         //  $higth = 150;
+         //  $result = Try_url_img::try_url($gl_url ,$width, $higth);
       
-          var_dump($result['data']);
-          // $this->assertIsArray($result);
-          SaveFile::seve_fales_imagis('https://zastavok.net/template/img/left-logo.png');
+         //  var_dump($result['data']);
+         //  // $this->assertIsArray($result);
+         //  SaveFile::seve_fales_imagis('https://zastavok.net/template/img/left-logo.png');
           
    }
     
