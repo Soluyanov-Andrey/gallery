@@ -15,9 +15,9 @@ class CoreController
        
         $width = 350;
         $higth = 450;
-        $result = Try_url_img::try_url($gl_url ,$width, $higth);
-    
-        
+        // $result = Try_url_img::try_url($gl_url ,$width, $higth);
+        $result = Parser::valid_Url( $gl_url);
+        var_dump($result);
         // $this->assertIsArray($result);
         //  SaveFile::seve_fales_imagis($result['data']);
     }

@@ -1,5 +1,5 @@
 <?php
-define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'algorithms/system/system.log');
+define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'system/system.log');
 
 class MessageSystem
 { 
