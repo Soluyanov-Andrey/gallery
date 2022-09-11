@@ -1,7 +1,7 @@
 <?php
-define('URL_TEMP', DOCUMENT_ROOT_PHP . 'algorithms/temp/test.');
+define('URL_TEMP', DOCUMENT_ROOT_PHP . 'algorithms/temp/');
 define('URL_SYSTEM', DOCUMENT_ROOT_PHP . 'algorithms/system/cash.txt');
-
+define('NAME_FILES',  'test.');
 class SaveFile extends ParentAlgorithms
 {
 
@@ -24,15 +24,21 @@ class SaveFile extends ParentAlgorithms
             //echo $path_parts['extension'], "\n";
             $path_parts = pathinfo($url);
 
-            if (!copy($url, URL_TEMP . $path_parts['extension'])) {
+            if (!copy($url, URL_TEMP . NAME_FILES . $path_parts['extension'])) {
                 echo ("error");
 
             }
+            $rez = ImgHash::createHashFromFile(URL_TEMP . NAME_FILES . $path_parts['extension']);
+            $new_filename = md5($rez) . '.';
 
-            // echo(self:: $Hash."-----------------");
-            $rez = ImgHash::createHashFromFile(URL_TEMP . $path_parts['extension']);
+            $if_rez = SaveFile::comparisonHash($rez);
 
-            if (SaveFile::comparisonHash($rez)['result']) {
+            $new_name = URL_TEMP . $new_filename . $path_parts['extension'];
+
+          
+            if ($if_rez['result']) {
+                
+                rename(URL_TEMP . NAME_FILES . $path_parts['extension'], $new_name);
                 SaveFile::seve_falesHash($rez);
 
             }
@@ -40,7 +46,7 @@ class SaveFile extends ParentAlgorithms
     }
 
     /**
-     * Проверяем есть ли в записанном вайле кэш, подобное изображение.
+     * Проверяем есть ли в записанном файле кэш, подобное изображение.
      * @param string $HashFromFile кэш изображения
      * @param array arrayHashRedFiles массив содержащий кэши изображений хранящийся в файле.
      */
@@ -54,9 +60,7 @@ class SaveFile extends ParentAlgorithms
 
             $isNearEqual = ImgHash::compareImageHashes($HashFromFile, $name, 0.05);
 
-            echo ($name . "</br>");
             $name = preg_replace("/[\t\r\n]+/", '', $name);
-            var_dump($names);
 
             // Такое изображение уже есть в кэш
             if ($HashFromFile == $name) {
