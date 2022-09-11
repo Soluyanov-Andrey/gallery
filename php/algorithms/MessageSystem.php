@@ -1,4 +1,6 @@
 <?php
+define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'algorithms/system/system.log');
+
 class MessageSystem
 { 
     
@@ -13,6 +15,7 @@ class MessageSystem
             
         );  
         
+        MessageSystem::seve_log_files($result["message"].'</br>'.$result["data"].'</br>--------------------');
         return $result;
     }
 
@@ -24,6 +27,15 @@ class MessageSystem
     public function massages1($var)
     {
         echo "$var";
+    }
+
+    private function seve_log_files($Message)
+    {
+
+        $fp = fopen(URL_FILE_LOG, "a");
+        fwrite($fp, "\r\n" . $Message);
+        fclose($fp);
+
     }
 }
 

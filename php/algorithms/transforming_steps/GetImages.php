@@ -18,23 +18,22 @@ class GetImages extends MessageSystem
 
             $result_url = GetImages::corrective_step_1($images_url, $url_gl);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_1");
-            
+
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::corrective_step_2($images_url, $url_gl);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_2");
             if ($result['result']) {return $result;};
-           
+
             $result_url = GetImages::corrective_step_3($images_url, $url_gl);
             $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
             if ($result['result']) {return $result;};
-            
 
             return $obr;
 
         }
         if ($obr['result'] == true) {
-            
+
             return $obr;
 
         }
@@ -134,31 +133,36 @@ class GetImages extends MessageSystem
         $a = parse_url($url);
 
         //Проверяем первичное условие есть ли в url имя и является ли адрес относительным ../
-        function conditions($url)
-        {
-            if (!isset($a["host"])) {
+        if (!function_exists('conditions')) {
 
-                //если в url нет ../ то делаем
+            function conditions($url)
+            {
+                if (!isset($a["host"])) {
 
-                if (substr_count($url, '../') != 0) {
+                    //если в url нет ../ то делаем
 
-                    return true;
+                    if (substr_count($url, '../') != 0) {
+
+                        return true;
+                    }
                 }
-            }
-        };
+            };
+
+        }
         //рекурсивная функция из Url http://rnk.ru/test/55/6 отсикает $quantity '/' с конца
         //$quantity=1 вернет http://rnk.ru/test/55
         //$quantity=2 вернет http://rnk.ru/test
-        function trim_down($url, $quantity)
-        {
-            $a = strripos($url, '/');
-            $url_n = substr($url, 0, $a);
-            $quantity = $quantity - 1;
+        if (!function_exists('trim_down')) {
+            function trim_down($url, $quantity)
+            {
+                $a = strripos($url, '/');
+                $url_n = substr($url, 0, $a);
+                $quantity = $quantity - 1;
 
-            if ($quantity > 0) {return trim_down($url_n, $quantity);};
-            if ($quantity == 0) {return $url_n;};
-        };
-
+                if ($quantity > 0) {return trim_down($url_n, $quantity);};
+                if ($quantity == 0) {return $url_n;};
+            };
+        }
         if (conditions($url)) {
             $quantity = substr_count($url, '../');
 
