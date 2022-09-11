@@ -9,7 +9,7 @@
 
  define("URL_CLASS_ALGORITMS","algorithms/");
  define("URL_CLASS_PARSER","algorithms/parser/");
- define("URL_CLASS_SAVE_FILE","algorithms/seve_file/");
+ define("URL_CLASS_TRANSFORMING_STEPS","algorithms/transforming_steps/");
  define("URL_CLASS_CONTROLLER","controller/");
 
 
@@ -31,12 +31,12 @@ class EngineController
         $algorithms = DOCUMENT_ROOT_PHP.URL_CLASS_ALGORITMS.$className.'.php';
         $controller = DOCUMENT_ROOT_PHP.URL_CLASS_CONTROLLER.$className.'.php';
         $parser = DOCUMENT_ROOT_PHP.URL_CLASS_SAVE_FILE.$className.'.php';
-        $seve_file = DOCUMENT_ROOT_PHP.URL_CLASS_PARSER.$className.'.php';
+        $transforming_steps = DOCUMENT_ROOT_PHP.URL_CLASS_TRANSFORMING_STEPS.URL_CLASS_PARSER.$className.'.php';
         
          (is_file($algorithms)) ? require_once($algorithms): false;
          (is_file($controller)) ? require_once($controller): false;
          (is_file($parser)) ? require_once($parser): false;
-         (is_file($seve_file)) ? require_once($seve_file): false;
+         (is_file($transforming_steps)) ? require_once($transforming_steps): false;
     }
 
 }
