@@ -2,7 +2,7 @@
 define('URL_TEMP', DOCUMENT_ROOT_PHP . 'algorithms/temp/');
 define('URL_SYSTEM', DOCUMENT_ROOT_PHP . 'algorithms/system/cash.txt');
 define('NAME_FILES',  'test.');
-class SaveFile extends ParentAlgorithms
+class SaveFile extends MessageSystem
 {
 
     const IMAGES_YES = 'Такое изображение уже есть.';
@@ -65,12 +65,12 @@ class SaveFile extends ParentAlgorithms
             // Такое изображение уже есть в кэш
             if ($HashFromFile == $name) {
 
-                return ParentAlgorithms::returns(false, self::IMAGES_YES, '');
+                return MessageSystem::returns(false, self::IMAGES_YES, '');
             };
             // Изображение различимо менне чем на 5%
             if ($isNearEqual == true) {
 
-                return ParentAlgorithms::returns(false, self::IMAGES_5PROC, '');
+                return MessageSystem::returns(false, self::IMAGES_5PROC, '');
             };
 
             //$isEqual = ($hash1 == $name);
@@ -79,7 +79,7 @@ class SaveFile extends ParentAlgorithms
             //echo "Хэши изображений равны с точностью до 5%?:" . ($isNearEqual ? "Да" : "Нет");
 
         }
-        return ParentAlgorithms::returns(true, self::IMAGES_NO, '');
+        return MessageSystem::returns(true, self::IMAGES_NO, '');
 
     }
 

@@ -1,5 +1,5 @@
 <?php
-class ParentAlgorithms
+class MessageSystem
 { 
     
    

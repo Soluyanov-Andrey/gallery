@@ -3,7 +3,7 @@
  *
  *
  */
-class Try_url_img extends ParentAlgorithms
+class Try_url_img extends MessageSystem
 {
     const ANSWER_NO = 'Или на сайте нет картинок, или url не смогли быть приобразованы.';
     const ANSWER_YES = 'URL картинок, собраны в массив и готовы для скачивания.';
@@ -23,10 +23,10 @@ class Try_url_img extends ParentAlgorithms
             }
         }
         if ($array_url === []) {
-            return ParentAlgorithms::returns(false, self::ANSWER_NO, $array_url);
+            return MessageSystem::returns(false, self::ANSWER_NO, $array_url);
         }
 
-        return ParentAlgorithms::returns(true, self::ANSWER_YES, $array_url);
+        return MessageSystem::returns(true, self::ANSWER_YES, $array_url);
 
     }
 

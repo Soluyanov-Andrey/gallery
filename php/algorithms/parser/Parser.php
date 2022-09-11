@@ -7,7 +7,7 @@
  * @param string $url_gl адресс сайта
  * @return array список изображений.
  */
-class Parser extends ParentAlgorithms
+class Parser extends MessageSystem
 {
     const NO_DRAWINGS = 'Рисунков не найденно';
     const YES_DRAWINGS = 'Рисунки найдены';
@@ -38,7 +38,7 @@ class Parser extends ParentAlgorithms
             if ($result_array['result']) {return Parser::Search_Img($result_array['data']);};
 
         }
-        //eturn ParentAlgorithms::returns(false, self::URL_NOT_WORKING,'');
+        //eturn MessageSystem::returns(false, self::URL_NOT_WORKING,'');
     }
 
     //Ищем в html теги img рисунки
@@ -71,12 +71,12 @@ class Parser extends ParentAlgorithms
         };
 
         if (empty($images)) {
-            return ParentAlgorithms::returns(false, self::NO_DRAWINGS, '');
+            return MessageSystem::returns(false, self::NO_DRAWINGS, '');
 
         }
         $vr = count($images) + 1;
 
-        return ParentAlgorithms::returns(true, self::YES_DRAWINGS . $vr . "-шт", $images);
+        return MessageSystem::returns(true, self::YES_DRAWINGS . $vr . "-шт", $images);
     }
 /**
  *      corrective_step
@@ -91,10 +91,10 @@ class Parser extends ParentAlgorithms
         }
 
         if (@file_get_contents($url_gl)) {
-            return ParentAlgorithms::returns(true, self::COR_STEP_1_TRUE, $url_gl);
+            return MessageSystem::returns(true, self::COR_STEP_1_TRUE, $url_gl);
         }
 
-        return ParentAlgorithms::returns(false, self::COR_STEP_1_FALSE, '');
+        return MessageSystem::returns(false, self::COR_STEP_1_FALSE, '');
 
     }
     // Если пользователь указал адрес без www:
@@ -106,10 +106,10 @@ class Parser extends ParentAlgorithms
         }
 
         if (@file_get_contents($url_gl)) {
-            return ParentAlgorithms::returns(true, self::COR_STEP_2_TRUE, $url_gl);
+            return MessageSystem::returns(true, self::COR_STEP_2_TRUE, $url_gl);
         }
 
-        return ParentAlgorithms::returns(false, self::COR_STEP_2_FALSE, '');
+        return MessageSystem::returns(false, self::COR_STEP_2_FALSE, '');
 
     }
     // Если пользователь указал адрес без https://:
@@ -120,10 +120,10 @@ class Parser extends ParentAlgorithms
         }
 
         if (@file_get_contents($url_gl)) {
-            return ParentAlgorithms::returns(true, self::COR_STEP_3_TRUE, $url_gl);
+            return MessageSystem::returns(true, self::COR_STEP_3_TRUE, $url_gl);
         }
 
-        return ParentAlgorithms::returns(false, self::COR_STEP_3_FALSE, '');
+        return MessageSystem::returns(false, self::COR_STEP_3_FALSE, '');
 
     }
 

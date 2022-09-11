@@ -2,7 +2,7 @@
 /**
  *  Найденные изображения при проходе Parser могут содержать сокращенные
  */
-class GetImages extends ParentAlgorithms
+class GetImages extends MessageSystem
 {
     const FILES_YES = 'Фаил есть и подходит по размеру';
     const FILES_SIZE_NO = 'Фаил есть но не подходит по размеру';
@@ -46,10 +46,10 @@ class GetImages extends ParentAlgorithms
         $size = @getimagesize($url);
 
         if (!$size) {
-            return ParentAlgorithms::returns(false, self::CORRECTION_NO . "-" . $method_name);
+            return MessageSystem::returns(false, self::CORRECTION_NO . "-" . $method_name);
         }
 
-        return ParentAlgorithms::returns(true, self::CORRECTION_YES . "-" . $method_name, $url);
+        return MessageSystem::returns(true, self::CORRECTION_YES . "-" . $method_name, $url);
 
     }
 
@@ -71,19 +71,19 @@ class GetImages extends ParentAlgorithms
         if ($size && $fl == 1) {
             //фаил есть и подходит по размеру
 
-            return ParentAlgorithms::returns(true, self::FILES_YES, $url);
+            return MessageSystem::returns(true, self::FILES_YES, $url);
         }
 
         if ($size && $fl == 0) {
             //фаил есть но не подходит по размеру
 
-            return ParentAlgorithms::returns(false, self::FILES_SIZE_NO, $url);
+            return MessageSystem::returns(false, self::FILES_SIZE_NO, $url);
         }
 
         if (!$size) {
             //фаила нет
 
-            return ParentAlgorithms::returns(null, self::FILES_NO);
+            return MessageSystem::returns(null, self::FILES_NO);
         }
     }
 
