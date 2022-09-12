@@ -16,17 +16,19 @@ class CoreController
         $higth = 450;
         // $result = Try_url_img::try_url($gl_url ,$width, $higth);
         $result = Parser::valid_Url( $gl_url);
+        $array_url = array();
 
 // $img_yes = GetImages::get_images_url($result['data'][0], $gl_url, $width, $higth);
         foreach ($result['data'] as &$value) {
                     $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
     
-                    // if ($img_yes['result'] == true) {
-                    //     array_push($array_url, $img_yes['data']);
-                    // }
-                    
+                    if ($img_yes['result'] == true) {
+                       
+                        array_push($array_url, $img_yes['data']);
+                             
+                    }
                 }
-        var_dump($img_yes);
+        var_dump($array_url);
 
         // $img_yes = GetImages::get_images_url($value, $url_gl, $width, $higth);
         // var_dump($result);

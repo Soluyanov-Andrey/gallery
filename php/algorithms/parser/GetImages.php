@@ -86,7 +86,7 @@ class GetImages extends MessageSystem
         if (!$size) {
             //фаила нет
 
-            return MessageSystem::returns(null, self::FILES_NO);
+            return MessageSystem::returns(null, self::FILES_NO,$url);
         }
     }
 
