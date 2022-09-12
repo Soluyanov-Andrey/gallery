@@ -10,8 +10,8 @@ class CoreController
 {
 
     function __construct() {
-         //$gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
-        $gl_url = 'https://www.lifeofpix.com/gallery/city/';
+         $gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
+        //$gl_url = 'https://www.lifeofpix.com/gallery/city/';
       
         $higth = 450;
         // $result = Try_url_img::try_url($gl_url ,$width, $higth);
