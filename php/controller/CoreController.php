@@ -10,15 +10,14 @@ class CoreController
 {
 
     function __construct() {
-         $gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
-        // $gl_url = 'https://www.lifeofpix.com/gallery/city/';
-       
-        $width = 350;
+         //$gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
+        $gl_url = 'https://www.lifeofpix.com/gallery/city/';
+      
         $higth = 450;
         // $result = Try_url_img::try_url($gl_url ,$width, $higth);
         $result = Parser::valid_Url( $gl_url);
-var_dump($result);
 
+// $img_yes = GetImages::get_images_url($result['data'][0], $gl_url, $width, $higth);
         foreach ($result['data'] as &$value) {
                     $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
     
@@ -27,7 +26,7 @@ var_dump($result);
                     // }
                     
                 }
-
+        var_dump($img_yes);
 
         // $img_yes = GetImages::get_images_url($value, $url_gl, $width, $higth);
         // var_dump($result);

@@ -13,8 +13,8 @@ class GetImages extends MessageSystem
     public function get_images_url($images_url, $url_gl, $width, $higth)
     {
         $obr = self::get_files($images_url, $width, $higth);
-        
-        if ($obr['result'] == null) {
+       
+        if (is_null($obr['result'])) {
 
             $result_url = GetImages::corrective_step_1($images_url, $url_gl);
             
@@ -29,14 +29,14 @@ class GetImages extends MessageSystem
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::corrective_step_3($images_url, $url_gl); 
-            var_dump($result_url);
+            
             $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
             if ($result['result']) {return $result;};
 
             return $obr;
 
         }
-        if ($obr['result'] == true) {
+        if ($obr['result'] == true || $obr['result'] == false) {
 
             return $obr;
 
@@ -81,7 +81,7 @@ class GetImages extends MessageSystem
             //фаил есть но не подходит по размеру
 
             return MessageSystem::returns(false, self::FILES_SIZE_NO, $url);
-        }
+        } 
 
         if (!$size) {
             //фаила нет
