@@ -18,17 +18,26 @@ class CoreController
         $result = Parser::valid_Url( $gl_url);
         $array_url = array();
 
+
+        $bmw = new СallСhainСontroller();
+       
+
 // $img_yes = GetImages::get_images_url($result['data'][0], $gl_url, $width, $higth);
         foreach ($result['data'] as &$value) {
-                    $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
+
+            $bmw ->getImage($value, $gl_url, $width, $higth)
+                 ->ImgHash(7)
+                 ->SeveFile(10);
+                    // $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
     
-                    if ($img_yes['result'] == true) {
+                    // if ($img_yes['result'] == true) {
                        
-                        array_push($array_url, $img_yes['data']);
+                    //     array_push($array_url, $img_yes['data']);
                              
-                    }
+                    // }
                 }
-        var_dump($array_url);
+
+        // var_dump($array_url);
 
         // $img_yes = GetImages::get_images_url($value, $url_gl, $width, $higth);
         // var_dump($result);

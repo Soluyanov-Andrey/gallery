@@ -6,34 +6,44 @@
  *
  */
 
+
 class СallСhainСontroller
 {
-
+    public $cash;
     function __construct() {
        
     }
-    getImages()->ImgHash()->SeveFile()
     
-    private static function getImages() {
-     
+
+    public function getImage($value, $gl_url, $width, $higth){
+
+        $this->$cash =  GetImages::get_images_url($value, $gl_url, $width, $higth);
+
+        return $this;
     }
-    private static function ImgHash() {
-     
+    public function ImgHash($a){
+        var_dump($this->$cash);
+        return $this;
     }
-    private static function SeveFile() {
-     
+    public function SeveFile($a){
+        echo("3");
+        return $this;
     }
-    private static function ImageResize() {
-     
+    public function ImageResize($a){
+        echo("4");
+        return $this;
     }
-    private static function Predominant_Color() {
-     
+    public function Predominant_Color($a){
+        echo("5");
+        return $this;
     }
-    private static function Watermark() {
-     
+    public static function Watermark($a){
+        echo("6");
+        return $this;
     }
-    private static function Distributions_Directory() {
-     
+    public static function Distributions_Directory($a){
+        echo("7");
+        return $this;
     }
 
 }
