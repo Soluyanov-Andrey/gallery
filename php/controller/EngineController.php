@@ -10,8 +10,8 @@
  define("URL_CLASS_ALGORITMS","algorithms/");
  define("URL_CLASS_PARSER","algorithms/parser/");
  define("URL_CLASS_CONTROLLER","controller/");
- define("URL_CLASS_TRANSFORMING_STEPS","algorithms/transforming_steps/");
- define("URL_CLASS_SAVE_FAIL","algorithms/savefail/");
+ define("URL_CLASS_TRANSFORMING_STEPS","algorithms/transformingSteps/");
+ define("URL_CLASS_SAVE_FAIL","algorithms/fileHandling/");
  define("URL_CLASS_VIEW","algorithms/view/");
 
 // Cоздаем ауто лоадер классов.
@@ -31,15 +31,15 @@ class EngineController
         $algorithms = DOCUMENT_ROOT_PHP.URL_CLASS_ALGORITMS.$className.'.php';
         $controller = DOCUMENT_ROOT_PHP.URL_CLASS_CONTROLLER.$className.'.php';
         $parser = DOCUMENT_ROOT_PHP.URL_CLASS_PARSER.$className.'.php';
-        $transforming_steps = DOCUMENT_ROOT_PHP.URL_CLASS_TRANSFORMING_STEPS.$className.'.php';
-        $savefail = DOCUMENT_ROOT_PHP.URL_CLASS_SAVE_FAIL.$className.'.php';
+        $transformingSteps = DOCUMENT_ROOT_PHP.URL_CLASS_TRANSFORMING_STEPS.$className.'.php';
+        $fileHandling = DOCUMENT_ROOT_PHP.URL_CLASS_SAVE_FAIL.$className.'.php';
         $view = DOCUMENT_ROOT_PHP.URL_CLASS_VIEW.$className.'.php';
 
          (is_file($algorithms)) ? require_once($algorithms): false;
          (is_file($controller)) ? require_once($controller): false;
          (is_file($parser)) ? require_once($parser): false;
-         (is_file($transforming_steps)) ? require_once($transforming_steps): false;
-         (is_file($savefail)) ? require_once($savefail): false;
+         (is_file($transformingSteps)) ? require_once($transformingSteps): false;
+         (is_file($fileHandling)) ? require_once($fileHandling): false;
          (is_file($view)) ? require_once($view): false;
     }
 
