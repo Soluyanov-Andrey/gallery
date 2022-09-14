@@ -2,7 +2,7 @@
 define('URL_TEMP', DOCUMENT_ROOT_PHP . 'algorithms/temp/');
 define('URL_SYSTEM', DOCUMENT_ROOT_PHP . 'algorithms/system/cash.txt');
 define('NAME_FILES',  'test.');
-class SaveFile extends MessageSystem
+class ReadSaveHashFile 
 {
 
     const IMAGES_YES = 'Такое изображение уже есть.';

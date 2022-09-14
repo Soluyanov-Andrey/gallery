@@ -7,7 +7,7 @@
  * @param string $url_gl адресс сайта
  * @return array список изображений.
  */
-class Parser extends MessageSystem
+class Parser 
 {
     const NO_DRAWINGS = 'Рисунков не найденно';
     const YES_DRAWINGS = 'Рисунки найдены';

@@ -1,6 +1,6 @@
 <?php
 
-class SaveFile extends MessageSystem
+class SaveFile 
 {
 
     const IMAGES_YES = 'Скопировали изображения для анализа.';
@@ -11,10 +11,9 @@ class SaveFile extends MessageSystem
     {
 
             if (!copy($url, URL_TEMP . NAME_FILES . $path_parts['extension'])) {
-                echo ("error");
-
-            }
-           
+                return MessageSystem::sendMessage(false, self::IMAGES_NO, '');
+            } 
+           return MessageSystem::sendMessage(true, self::IMAGES_YES, '');
         
     }
 
