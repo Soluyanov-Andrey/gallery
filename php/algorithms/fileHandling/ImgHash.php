@@ -14,7 +14,7 @@ class ImgHash
      * @param boolean $toBase64 Преобразовать результат в base64?
      * @return string хэш изображения
      */
-    public static function createHashFromFile($imageFile, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
+    public function createHashFromFile($imageFile, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
     {
         return ImgHash::createHashFromFileContents(file_get_contents($imageFile), $pHashSizeRoot, $pHashDetalization, $toBase64);
     }
@@ -27,7 +27,7 @@ class ImgHash
      * @param boolean $toBase64 Преобразовать результат в base64?
      * @return string хэш изображения
      */
-    private function createHashFromFileContents($imageFileContents, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
+    public function createHashFromFileContents($imageFileContents, $pHashSizeRoot = 10, $pHashDetalization = 3, $toBase64 = true)
     {
         $image = imagecreatefromstring($imageFileContents);
         return ImgHash::createHash($image, $pHashSizeRoot, $pHashDetalization, $toBase64);
@@ -39,7 +39,7 @@ class ImgHash
      * @param integer $max
      * @return integer
      */
-    private function limit($value, $min, $max)
+    protected function limit($value, $min, $max)
     {
         return $value > $max ? $max : ($value < $min ? $min : $value);
     }
@@ -49,9 +49,9 @@ class ImgHash
      * @param string $type Переменная, куда будет записано название типа переменной, если она будет не изображением
      * @return type
      */
-    private function isImage($image, &$type)
+    protected function isImage($image, &$type)
     {
-        $x = @urlImagesx($image);
+        $x = @imagesx($image);
         if (!$x)
         {
             $type = "";
@@ -88,7 +88,7 @@ class ImgHash
      * @param integer $pHashSizeRoot Квадратный корень из размера хэша. От 4 и больше. Чем больше - тем точнее сравнение.
      * @param integer $pHashDetalization детализация хэша, от 2 до 6. Чем больше - тем точнее сравнение.
      */
-    private function createHash($image, $pHashSizeRoot = 10, $pHashDetalization = 6, $toBase64 = true)
+    public function createHash($image, $pHashSizeRoot = 10, $pHashDetalization = 6, $toBase64 = true)
     {
         if (!ImgHash::isImage($image, $type))
         {
@@ -96,8 +96,8 @@ class ImgHash
         }
         $hashDetalization = ImgHash::limit($pHashDetalization, 2, 6, true);
         $hashSizeRoot = ImgHash::limit($pHashSizeRoot, 4, 50, true);
-        $width = urlImagesx($image);
-        $height = urlImagesy($image);
+        $width = imagesx($image);
+        $height = imagesy($image);
         $size = array($width, $height);
         $littleSize = $hashSizeRoot;
         //Цветов на один пиксел (число от 8 до 216)
