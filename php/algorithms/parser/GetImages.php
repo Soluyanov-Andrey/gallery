@@ -1,8 +1,10 @@
 <?php
 /**
- *  Найденные изображения при проходе Parser могут содержать сокращенные
+ *  Найденные изображения при проходе Parser могут содержать сокращенные варианты url например ../image.jpg
+ *  И скачать ../image.jpg через http не возможно. В данном классе производтся попытка исправить такие url.
+ *  И в сообщении возвращается рабочий url.
  */
-class GetImages extends MessageSystem
+class GetImages 
 {
     const FILES_YES = 'Фаил есть и подходит по размеру';
     const FILES_SIZE_NO = 'Фаил есть но не подходит по размеру';
@@ -17,20 +19,18 @@ class GetImages extends MessageSystem
         if (is_null($obr['result'])) {
 
             $result_url = GetImages::corrective_step_1($images_url, $url_gl);
-            
             $result = GetImages::get_files_repeated($result_url, "corrective_step_1");
 
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::corrective_step_2($images_url, $url_gl);
-            
-
             $result = GetImages::get_files_repeated($result_url, "corrective_step_2");
+
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::corrective_step_3($images_url, $url_gl); 
-            
             $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
+            
             if ($result['result']) {return $result;};
 
             return $obr;
