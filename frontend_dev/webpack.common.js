@@ -11,7 +11,7 @@ module.exports = {
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        // assetModuleFilename: 'images/[name][ext]'
+        // assetModuleFilename: 'urlImages/[name][ext]'
     },
 
     module: {
@@ -69,7 +69,7 @@ module.exports = {
 
                  type: 'asset/resource',
                  generator: {
-                    filename: 'images/[name][ext]'
+                    filename: 'urlImages/[name][ext]'
                   },
             }
         ],
@@ -91,7 +91,7 @@ module.exports = {
 
         new CopyPlugin({
             patterns: [
-              { from: './src/images', to: 'images' },
+              { from: './src/urlImages', to: 'urlImages' },
               { from: './src/fonts', to: 'fonts' }
             ],
           }),

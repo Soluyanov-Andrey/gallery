@@ -1,10 +1,10 @@
 <?php
 /**
  * Парсер страниц, выбирает <img> и <scr> c прямого пути типа "https//ru.freepik.com/popular-photos"
- * вернет массив $images c выписанными URL картинок.Также парсер выполнит некоторые карректировки
+ * вернет массив $urlImages c выписанными URL картинок.Также парсер выполнит некоторые карректировки
  * и попробует исправить url если url не рабочий
  *
- * @param string $url_gl адресс сайта
+ * @param string $saitUrl адресс сайта
  * @return array список изображений.
  */
 class Parser 
@@ -20,34 +20,34 @@ class Parser
     const COR_STEP_3_TRUE = 'correctiveStep_3 смог исправить URL';
 
     // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
-    public static function validUrl(string $url_gl)
+    public static function validUrl(string $saitUrl)
     {
 
-        if (@file_get_contents($url_gl)) {
-            $images = Parser::searchImg($url_gl);
-            return $images;
+        if (@file_get_contents($saitUrl)) {
+            $saveMessage = Parser::searchImg($saitUrl);
+            return $saveMessage;
 
         } else {
-            $result_array = Parser::correctiveStep_1($url_gl);
-            if ($result_array['result']) {return Parser::searchImg($result_array['data']);};
+            $resultArray = Parser::correctiveStep_1($saitUrl);
+            if ($resultArray['result']) {return Parser::searchImg($resultArray['data']);};
 
-            $result_array = Parser::correctiveStep_2($url_gl);
-            if ($result_array['result']) {return Parser::searchImg($result_array['data']);};
+            $resultArray = Parser::correctiveStep_2($saitUrl);
+            if ($resultArray['result']) {return Parser::searchImg($resultArray['data']);};
 
-            $result_array = Parser::correctiveStep_3($url_gl);
-            if ($result_array['result']) {return Parser::searchImg($result_array['data']);};
+            $resultArray = Parser::correctiveStep_3($saitUrl);
+            if ($resultArray['result']) {return Parser::searchImg($resultArray['data']);};
 
         }
         //eturn MessageSystem::sendMessage(false, self::URL_NOT_WORKING,'');
     }
 
     //Ищем в html теги img рисунки
-    private function searchImg(string $url_gl): array
+    private function searchImg(string $saitUrl): array
     {
 
-        $images = array();
+        $urlImages = array();
 
-        $data = @file_get_contents($url_gl);
+        $data = @file_get_contents($saitUrl);
 
         //находит все img src создавая при это не нужные данные
         preg_match_all('/(img|src)=("|\')[^"\'>]+/i', $data, $media);
@@ -56,7 +56,7 @@ class Parser
         //чистим $media от ненужных данных
         $data = preg_replace('/(img|src)("|\'|="|=\')(.*)/i', "$3", $media[0]);
 
-        //проверяем по расширению файла картинка ли найдена и формируем массив $images с выбокрой
+        //проверяем по расширению файла картинка ли найдена и формируем массив $urlImages с выбокрой
         foreach ($data as $url) {
             $info = pathinfo($url);
 
@@ -65,62 +65,62 @@ class Parser
                     /*$info['extension'] == 'bmp'};*/
                     //если php 7> можно добавить
                 ) {
-                    array_push($images, $url);
+                    array_push($urlImages, $url);
                 }
             }
         };
 
-        if (empty($images)) {
+        if (empty($urlImages)) {
             return MessageSystem::sendMessage(false, self::NO_DRAWINGS, '');
 
         }
-        $vr = count($images) + 1;
+        $vr = count($urlImages) + 1;
 
-        return MessageSystem::sendMessage(true, self::YES_DRAWINGS . $vr . "-шт", $images);
+        return MessageSystem::sendMessage(true, self::YES_DRAWINGS . $vr . "-шт", $urlImages);
     }
 /**
  *      corrective_step
  *
  */
     // Если пользователь указал адрес без http:
-    protected function correctiveStep_1(string $url_gl)
+    protected function correctiveStep_1(string $saitUrl)
     {
 
-        if (strpos($url_gl, 'http') === false) {
-            $url_gl = "http://" . $url_gl;
+        if (strpos($saitUrl, 'http') === false) {
+            $saitUrl = "http://" . $saitUrl;
         }
 
-        if (@file_get_contents($url_gl)) {
-            return MessageSystem::sendMessage(true, self::COR_STEP_1_TRUE, $url_gl);
+        if (@file_get_contents($saitUrl)) {
+            return MessageSystem::sendMessage(true, self::COR_STEP_1_TRUE, $saitUrl);
         }
 
         return MessageSystem::sendMessage(false, self::COR_STEP_1_FALSE, '');
 
     }
     // Если пользователь указал адрес без www:
-    protected function correctiveStep_2(string $url_gl)
+    protected function correctiveStep_2(string $saitUrl)
     {
 
-        if (strpos($url_gl, 'www') === false) {
-            $url_gl = "http://www." . $url_gl;
+        if (strpos($saitUrl, 'www') === false) {
+            $saitUrl = "http://www." . $saitUrl;
         }
 
-        if (@file_get_contents($url_gl)) {
-            return MessageSystem::sendMessage(true, self::COR_STEP_2_TRUE, $url_gl);
+        if (@file_get_contents($saitUrl)) {
+            return MessageSystem::sendMessage(true, self::COR_STEP_2_TRUE, $saitUrl);
         }
 
         return MessageSystem::sendMessage(false, self::COR_STEP_2_FALSE, '');
 
     }
     // Если пользователь указал адрес без https://:
-    protected function correctiveStep_3(string $url_gl)
+    protected function correctiveStep_3(string $saitUrl)
     {
-        if (strpos($url_gl, 'https') === false) {
-            $url_gl = "https://" . $url_gl;
+        if (strpos($saitUrl, 'https') === false) {
+            $saitUrl = "https://" . $saitUrl;
         }
 
-        if (@file_get_contents($url_gl)) {
-            return MessageSystem::sendMessage(true, self::COR_STEP_3_TRUE, $url_gl);
+        if (@file_get_contents($saitUrl)) {
+            return MessageSystem::sendMessage(true, self::COR_STEP_3_TRUE, $saitUrl);
         }
 
         return MessageSystem::sendMessage(false, self::COR_STEP_3_FALSE, '');

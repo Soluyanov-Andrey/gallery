@@ -51,7 +51,7 @@ class ImgHash
      */
     private function isImage($image, &$type)
     {
-        $x = @imagesx($image);
+        $x = @urlImagesx($image);
         if (!$x)
         {
             $type = "";
@@ -96,8 +96,8 @@ class ImgHash
         }
         $hashDetalization = ImgHash::limit($pHashDetalization, 2, 6, true);
         $hashSizeRoot = ImgHash::limit($pHashSizeRoot, 4, 50, true);
-        $width = imagesx($image);
-        $height = imagesy($image);
+        $width = urlImagesx($image);
+        $height = urlImagesy($image);
         $size = array($width, $height);
         $littleSize = $hashSizeRoot;
         //Цветов на один пиксел (число от 8 до 216)

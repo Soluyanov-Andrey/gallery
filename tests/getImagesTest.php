@@ -1,10 +1,10 @@
 <?php
 
-  require_once __DIR__.'/../php/algorithms/transforming_steps/GetImages.php';
+  require_once __DIR__.'/../php/algorithms/transforming_steps/GeturlImages.php';
  
 
 
-class GetImagesTest extends \PHPUnit\Framework\TestCase {
+class GeturlImagesTest extends \PHPUnit\Framework\TestCase {
   
   use CallAsPublic;
  
@@ -19,7 +19,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
     
 
     
-    $result = $this->callMethod(GetImages::class, 'getFiles',$url,$whith, $higth);
+    $result = $this->callMethod(GeturlImages::class, 'getFiles',$url,$whith, $higth);
     $this->assertTrue( $result['result'] );
     
     // $this->assertIsArray($result);
@@ -35,7 +35,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
     $saitUrl = 'http://test.ru/test/12/3.php';
 
 
-    $result = $this->callMethod(GetImages::class, 'correctiveStep_1', $url ,$saitUrl);
+    $result = $this->callMethod(GeturlImages::class, 'correctiveStep_1', $url ,$saitUrl);
     $this->assertSame("http://test.ru/test/12/test_img/1.jpg",$result );
     
     
@@ -49,7 +49,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
         $saitUrl = 'http://test.ru/test/12/3.php';
     
     
-        $result = $this->callMethod(GetImages::class, 'correctiveStep_2', $url ,$saitUrl);
+        $result = $this->callMethod(GeturlImages::class, 'correctiveStep_2', $url ,$saitUrl);
         
         
         $this->assertSame("http://test.ru/test_img/1.jpg",$result );
@@ -67,7 +67,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
         
         $url = '/ts/animals/154988616247.jpg';
         $saitUrl = 'https://zastavok.net/animals/59873-sova_el.html';
-        $result = $this->callMethod(GetImages::class, 'correctiveStep_3', $url ,$saitUrl);
+        $result = $this->callMethod(GeturlImages::class, 'correctiveStep_3', $url ,$saitUrl);
         
         var_dump($result);
         $this->assertSame("https://zastavok.net/ts/animals/154988616247.jpg",$result );
@@ -83,7 +83,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
       $method_name = 'Tect';
   
   
-      $result = $this->callMethod(GetImages::class, 'getFilesRepeated', $url ,$method_name);
+      $result = $this->callMethod(GeturlImages::class, 'getFilesRepeated', $url ,$method_name);
       
       
       

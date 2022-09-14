@@ -11,7 +11,7 @@ define("URL_CLASS_VIEW",                   "algorithms/view/");
 define("URL_CLASS_CONTROLLER",             "controller/");
 
 
-define('URL_FOLDER_HANDLING', DOCUMENT_ROOT.'images/file_handling/');
+define('URL_FOLDER_HANDLING', DOCUMENT_ROOT.'urlImages/file_handling/');
 
 
 define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'cash_log_file/system.log');

@@ -4,7 +4,7 @@
  *  И скачать ../image.jpg через http не возможно. В данном классе производтся попытка исправить такие url.
  *  И в сообщении MessageSystem::sendMessage возвращается рабочий url.
  */
-class GetImages 
+class GeturlImages 
 {
     const FILES_YES = 'Фаил есть и подходит по размеру';
     const FILES_SIZE_NO = 'Фаил есть но не подходит по размеру';
@@ -12,24 +12,24 @@ class GetImages
     const CORRECTION_NO = 'Коррекция результата не дала.';
     const CORRECTION_YES = 'Коррекция результы дала.';
 
-    public function getImagesUrl($images_url, $url_gl, $width, $higth)
+    public function geturlImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
-        $obr = self::getFiles($images_url, $width, $higth);
+        $obr = self::getFiles($urlImages_url, $width, $higth);
        
         if (is_null($obr['result'])) {
 
-            $result_url = GetImages::correctiveStep_1($images_url, $url_gl);
-            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_1");
+            $result_url = GeturlImages::correctiveStep_1($urlImages_url, $saitUrl);
+            $result = GeturlImages::getFilesRepeated($result_url, "correctiveStep_1");
 
             if ($result['result']) {return $result;};
 
-            $result_url = GetImages::correctiveStep_2($images_url, $url_gl);
-            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_2");
+            $result_url = GeturlImages::correctiveStep_2($urlImages_url, $saitUrl);
+            $result = GeturlImages::getFilesRepeated($result_url, "correctiveStep_2");
 
             if ($result['result']) {return $result;};
 
-            $result_url = GetImages::correctiveStep_3($images_url, $url_gl); 
-            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_3");
+            $result_url = GeturlImages::correctiveStep_3($urlImages_url, $saitUrl); 
+            $result = GeturlImages::getFilesRepeated($result_url, "correctiveStep_3");
             
             if ($result['result']) {return $result;};
 
@@ -46,7 +46,7 @@ class GetImages
     private function getFilesRepeated($url, $method_name)
     {
 
-        $size = @getimagesize($url);
+        $size = @geturlImagesize($url);
 
         if (!$size) {
             return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
@@ -61,7 +61,7 @@ class GetImages
 
         $fl = 0;
 
-        $size = @getimagesize($url);
+        $size = @geturlImagesize($url);
 
         //"высота".$size[1]);
         //"ширина".$size[0]);

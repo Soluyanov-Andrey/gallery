@@ -1,15 +1,15 @@
 <?php
 
-  require_once __DIR__.'/../php/algorithms/parser/GetImages.php';
+  require_once __DIR__.'/../php/algorithms/parser/GeturlImages.php';
  
 
 
-class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
+class GeturlImagesTest1 extends \PHPUnit\Framework\TestCase {
   
 
 
       /** @test */
-      public function getImagesUrl1() {
+      public function geturlImagesUrl1() {
 
         // $url = '/template/img/left-logo.png';
         // $saitUrl = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
@@ -22,7 +22,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
         
         $width = 150;
         $higth = 150;
-        $result1 = GetImages::getImagesUrl($url, $saitUrl ,$width, $higth);
+        $result1 = GeturlImages::geturlImagesUrl($url, $saitUrl ,$width, $higth);
     
         // $this->assertIsArray($result);
           
@@ -31,7 +31,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
       }
 
         /** @test */
-        public function getImagesUrl2() {
+        public function geturlImagesUrl2() {
 
           $url = '/template/img/left-logo.png';
           $saitUrl = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
@@ -44,7 +44,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
           
           $width = 150;
           $higth = 150;
-          $result1 = GetImages::getImagesUrl($url, $saitUrl ,$width, $higth);
+          $result1 = GeturlImages::geturlImagesUrl($url, $saitUrl ,$width, $higth);
       
           // $this->assertIsArray($result);
             

@@ -5,9 +5,9 @@
 class ReadSaveHashFile 
 {
 
-    const IMAGES_YES = 'Такое изображение уже есть.';
-    const IMAGES_NO = 'Такого изображения еще нет. Копируем.';
-    const IMAGES_5PROC = 'Изображение различимо менне чем на 5%';
+    const urlImages_YES = 'Такое изображение уже есть.';
+    const urlImages_NO = 'Такого изображения еще нет. Копируем.';
+    const urlImages_5PROC = 'Изображение различимо менне чем на 5%';
 
     /**
      *
@@ -56,12 +56,12 @@ class ReadSaveHashFile
             // Такое изображение уже есть в кэш
             if ($HashFromFile == $name) {
 
-                return MessageSystem::sendMessage(false, self::IMAGES_YES, '');
+                return MessageSystem::sendMessage(false, self::urlImages_YES, '');
             };
             // Изображение различимо менне чем на 5%
             if ($isNearEqual == true) {
 
-                return MessageSystem::sendMessage(false, self::IMAGES_5PROC, '');
+                return MessageSystem::sendMessage(false, self::urlImages_5PROC, '');
             };
 
             //$isEqual = ($hash1 == $name);
@@ -70,7 +70,7 @@ class ReadSaveHashFile
             //echo "Хэши изображений равны с точностью до 5%?:" . ($isNearEqual ? "Да" : "Нет");
 
         }
-        return MessageSystem::sendMessage(true, self::IMAGES_NO, '');
+        return MessageSystem::sendMessage(true, self::urlImages_NO, '');
 
     }
 
