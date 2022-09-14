@@ -18,18 +18,18 @@ class GetImages
        
         if (is_null($obr['result'])) {
 
-            $result_url = GetImages::corrective_step_1($images_url, $url_gl);
-            $result = GetImages::get_files_repeated($result_url, "corrective_step_1");
+            $result_url = GetImages::correctiveStep_1($images_url, $url_gl);
+            $result = GetImages::get_files_repeated($result_url, "correctiveStep_1");
 
             if ($result['result']) {return $result;};
 
-            $result_url = GetImages::corrective_step_2($images_url, $url_gl);
-            $result = GetImages::get_files_repeated($result_url, "corrective_step_2");
+            $result_url = GetImages::correctiveStep_2($images_url, $url_gl);
+            $result = GetImages::get_files_repeated($result_url, "correctiveStep_2");
 
             if ($result['result']) {return $result;};
 
-            $result_url = GetImages::corrective_step_3($images_url, $url_gl); 
-            $result = GetImages::get_files_repeated($result_url, "corrective_step_3");
+            $result_url = GetImages::correctiveStep_3($images_url, $url_gl); 
+            $result = GetImages::get_files_repeated($result_url, "correctiveStep_3");
             
             if ($result['result']) {return $result;};
 
@@ -97,7 +97,7 @@ class GetImages
      * выбранные url -$url например test_img/1.jpg
      * результат http://test.ru/test/12/test_img/1.jpg
      */
-    protected function corrective_step_1($url, $gl_url)
+    protected function correctiveStep_1($url, $gl_url)
     {
 
         $path_parts = pathinfo($gl_url);
@@ -130,7 +130,7 @@ class GetImages
      * результат http://test.ru/test_img/1.jpg
      */
 
-    protected function corrective_step_2(string $url, $gl_url)
+    protected function correctiveStep_2(string $url, $gl_url)
     {
 
         $path_parts = pathinfo($gl_url);
@@ -188,10 +188,9 @@ class GetImages
      * $gl_url="https://zastavok.net/?ysclid=l764sqvgt028704337";
      * вернет https://zastavok.net/template/img/left-logo.png
      */
-    protected function corrective_step_3($url, $gl_url)
+    protected function correctiveStep_3($url, $gl_url)
     {
-        echo($url);
-        echo($gl_url);
+    
         $a = parse_url($gl_url);
         $url_n = $a["scheme"] . "://" . $a["host"];
 

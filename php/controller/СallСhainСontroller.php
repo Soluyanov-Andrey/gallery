@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  Основной класс с которого начинается загрузка.
- *  
+ *  В этом классе реализуем методы которые вызываются в цепочке.
+ *  getImage()->SeveFile()-> ........
  *
  */
 
@@ -17,14 +17,14 @@ class СallСhainСontroller
     }
     
 
-    public function getImage($value, $gl_url, $width, $higth){
+    public function usageGetImage($value, $gl_url, $width, $higth){
 
         $this->$saveMessage =  GetImages::get_images_url($value, $gl_url, $width, $higth);
 
         return $this;
     }
     
-    public function SeveFile(){
+    public function usageSeveFile(){
 
         $message = $this->$saveMessage;
 
@@ -41,7 +41,7 @@ class СallСhainСontroller
         return $this;
     }
 
-    public function ReadSaveHashFile(){
+    public function usageReadSaveHashFile(){
         
         $Message = $this->$saveMessage;
         
@@ -53,19 +53,19 @@ class СallСhainСontroller
 
         return $this;
     }
-    public function ImageResize($a){
+    public function usageImageResize($a){
         echo("4");
         return $this;
     }
-    public function Predominant_Color($a){
+    public function usagePredominant_Color($a){
         echo("5");
         return $this;
     }
-    public static function Watermark($a){
+    public static function usageWatermark($a){
         echo("6");
         return $this;
     }
-    public static function Distributions_Directory($a){
+    public static function usageDistributionsDirectory($a){
         echo("7");
         return $this;
     }

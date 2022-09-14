@@ -12,37 +12,37 @@ class Parser
     const NO_DRAWINGS = 'Рисунков не найденно';
     const YES_DRAWINGS = 'Рисунки найдены';
     const URL_NOT_WORKING = 'Url не рабочий';
-    const COR_STEP_1_FALSE = 'corrective_step_1 не смог исправить URL';
-    const COR_STEP_1_TRUE = 'corrective_step_1 смог исправить URL';
-    const COR_STEP_2_FALSE = 'corrective_step_2 не смог исправить URL';
-    const COR_STEP_2_TRUE = 'corrective_step_2 смог исправить URL';
-    const COR_STEP_3_FALSE = 'corrective_step_3 не смог исправить URL';
-    const COR_STEP_3_TRUE = 'corrective_step_3 смог исправить URL';
+    const COR_STEP_1_FALSE = 'correctiveStep_1 не смог исправить URL';
+    const COR_STEP_1_TRUE = 'correctiveStep_1 смог исправить URL';
+    const COR_STEP_2_FALSE = 'correctiveStep_2 не смог исправить URL';
+    const COR_STEP_2_TRUE = 'correctiveStep_2 смог исправить URL';
+    const COR_STEP_3_FALSE = 'correctiveStep_3 не смог исправить URL';
+    const COR_STEP_3_TRUE = 'correctiveStep_3 смог исправить URL';
 
     // Проверяем загрузится ли страница или нет. Если нет то возможно в адрессе ошибка.
-    public static function valid_Url(string $url_gl)
+    public static function validUrl(string $url_gl)
     {
 
         if (@file_get_contents($url_gl)) {
-            $images = Parser::Search_Img($url_gl);
+            $images = Parser::searchImg($url_gl);
             return $images;
 
         } else {
-            $result_array = Parser::corrective_step_1($url_gl);
-            if ($result_array['result']) {return Parser::Search_Img($result_array['data']);};
+            $result_array = Parser::correctiveStep_1($url_gl);
+            if ($result_array['result']) {return Parser::searchImg($result_array['data']);};
 
-            $result_array = Parser::corrective_step_2($url_gl);
-            if ($result_array['result']) {return Parser::Search_Img($result_array['data']);};
+            $result_array = Parser::correctiveStep_2($url_gl);
+            if ($result_array['result']) {return Parser::searchImg($result_array['data']);};
 
-            $result_array = Parser::corrective_step_3($url_gl);
-            if ($result_array['result']) {return Parser::Search_Img($result_array['data']);};
+            $result_array = Parser::correctiveStep_3($url_gl);
+            if ($result_array['result']) {return Parser::searchImg($result_array['data']);};
 
         }
         //eturn MessageSystem::sendMessage(false, self::URL_NOT_WORKING,'');
     }
 
     //Ищем в html теги img рисунки
-    private function Search_Img(string $url_gl): array
+    private function searchImg(string $url_gl): array
     {
 
         $images = array();
@@ -83,7 +83,7 @@ class Parser
  *
  */
     // Если пользователь указал адрес без http:
-    protected function corrective_step_1(string $url_gl)
+    protected function correctiveStep_1(string $url_gl)
     {
 
         if (strpos($url_gl, 'http') === false) {
@@ -98,7 +98,7 @@ class Parser
 
     }
     // Если пользователь указал адрес без www:
-    protected function corrective_step_2(string $url_gl)
+    protected function correctiveStep_2(string $url_gl)
     {
 
         if (strpos($url_gl, 'www') === false) {
@@ -113,7 +113,7 @@ class Parser
 
     }
     // Если пользователь указал адрес без https://:
-    protected function corrective_step_3(string $url_gl)
+    protected function correctiveStep_3(string $url_gl)
     {
         if (strpos($url_gl, 'https') === false) {
             $url_gl = "https://" . $url_gl;

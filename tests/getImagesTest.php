@@ -29,13 +29,13 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
 
 
    /** @test */
-   public function corrective_step_1() {
+   public function correctiveStep_1() {
 
     $url = 'test_img/1.jpg';
     $gl_url = 'http://test.ru/test/12/3.php';
 
 
-    $result = $this->callMethod(GetImages::class, 'corrective_step_1', $url ,$gl_url);
+    $result = $this->callMethod(GetImages::class, 'correctiveStep_1', $url ,$gl_url);
     $this->assertSame("http://test.ru/test/12/test_img/1.jpg",$result );
     
     
@@ -43,13 +43,13 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
    }
 
     /** @test */
-    public function corrective_step_2() {
+    public function correctiveStep_2() {
 
         $url = '../../test_img/1.jpg';
         $gl_url = 'http://test.ru/test/12/3.php';
     
     
-        $result = $this->callMethod(GetImages::class, 'corrective_step_2', $url ,$gl_url);
+        $result = $this->callMethod(GetImages::class, 'correctiveStep_2', $url ,$gl_url);
         
         
         $this->assertSame("http://test.ru/test_img/1.jpg",$result );
@@ -59,7 +59,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
        }
 
     /** @test */
-    public function corrective_step_3() {
+    public function correctiveStep_3() {
 
         // $url = '/template/img/left-logo.png';
         // $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
@@ -67,7 +67,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
         
         $url = '/ts/animals/154988616247.jpg';
         $gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
-        $result = $this->callMethod(GetImages::class, 'corrective_step_3', $url ,$gl_url);
+        $result = $this->callMethod(GetImages::class, 'correctiveStep_3', $url ,$gl_url);
         
         var_dump($result);
         $this->assertSame("https://zastavok.net/ts/animals/154988616247.jpg",$result );

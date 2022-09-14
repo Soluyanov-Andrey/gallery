@@ -15,7 +15,7 @@ class CoreController
       
         $higth = 450;
         // $result = Try_url_img::try_url($gl_url ,$width, $higth);
-        $result = Parser::valid_Url( $gl_url);
+        $result = Parser::validUrl( $gl_url);
         $array_url = array();
 
 
@@ -25,8 +25,8 @@ class CoreController
 // $img_yes = GetImages::get_images_url($result['data'][0], $gl_url, $width, $higth);
         foreach ($result['data'] as &$value) {
 
-            $bmw ->getImage($value, $gl_url, $width, $higth)
-                 ->SeveFile();
+            $bmw ->usageGetImage($value, $gl_url, $width, $higth)
+                 ->usageSeveFile();
                 //  ->ReadSaveHashFile();
                     // $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
     

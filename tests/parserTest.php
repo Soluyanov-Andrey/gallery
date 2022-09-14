@@ -11,10 +11,10 @@ class parserTest extends \PHPUnit\Framework\TestCase {
 
 
   /** @test */
-  public function corrective_step_1() {
+  public function correctiveStep_1() {
 
     $url="infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
-    $result = $this->callMethod(Parser::class, 'corrective_step_1',$url);
+    $result = $this->callMethod(Parser::class, 'correctiveStep_1',$url);
 
     $this->assertIsArray($result);
     
@@ -25,9 +25,9 @@ class parserTest extends \PHPUnit\Framework\TestCase {
   // Если пользователь указал адрес без http:
 
   /**
-  * @depends corrective_step_1
+  * @depends correctiveStep_1
   */
-  public function test_corrective_step_1_1($value) {
+  public function test_correctiveStep_1_1($value) {
   
   $result = 'http://infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov';
 
@@ -37,10 +37,10 @@ class parserTest extends \PHPUnit\Framework\TestCase {
   }
 
   /** @test */
-  public function corrective_step_2() {
+  public function correctiveStep_2() {
 
     $url="yandex.ru";
-    $result = $this->callMethod(Parser::class, 'corrective_step_2',$url);
+    $result = $this->callMethod(Parser::class, 'correctiveStep_2',$url);
   
     $this->assertIsArray($result);
     
@@ -49,9 +49,9 @@ class parserTest extends \PHPUnit\Framework\TestCase {
   }
 
    /**
-  * @depends corrective_step_2
+  * @depends correctiveStep_2
   */
-  public function test_corrective_step_2($value) {
+  public function test_correctiveStep_2($value) {
 
     $result = 'http://www.yandex.ru';
   
@@ -60,10 +60,10 @@ class parserTest extends \PHPUnit\Framework\TestCase {
     
     }
     /** @test */
-  public function corrective_step_3() {
+  public function correctiveStep_3() {
 
     $url="infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov";
-    $result = $this->callMethod(Parser::class, 'corrective_step_3',$url);
+    $result = $this->callMethod(Parser::class, 'correctiveStep_3',$url);
   
     $this->assertIsArray($result, $message = 'step_3 не массив');
     
@@ -72,9 +72,9 @@ class parserTest extends \PHPUnit\Framework\TestCase {
   }
 
    /**
-  * @depends corrective_step_3
+  * @depends correctiveStep_3
   */
-  public function test_corrective_step_3($value) {
+  public function test_correctiveStep_3($value) {
 
     $result = 'https://infogra.ru/photography/25-poleznyh-sajtov-dlya-fotografov';
   
@@ -85,10 +85,10 @@ class parserTest extends \PHPUnit\Framework\TestCase {
   
     
   /** @test */
-  public function Search_Img() {
+  public function searchImg() {
 
     $url="https://zastavok.net/?ysclid=l764sqvgt028704337";
-    $result = $this->callMethod(Parser::class, 'Search_Img',$url);
+    $result = $this->callMethod(Parser::class, 'searchImg',$url);
     $this->assertIsArray($result);
       
     return $result;
