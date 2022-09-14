@@ -3,5 +3,5 @@
 /dist
 /vendor
 /tests/.phpunit.result.cache
-/php/algorithms/temp
-/php/system
+/php/cash_log_file
+/images/file_initial
