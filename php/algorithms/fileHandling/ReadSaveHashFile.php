@@ -15,7 +15,7 @@ class ReadSaveHashFile
      * @param array $data массив с выбраными url изображений.
      */
 
-    public static function seve_fales_imagis($url)
+    public static function seveFalesImagis($url)
     {
 
       
@@ -30,7 +30,7 @@ class ReadSaveHashFile
             if ($if_rez['result']) {
                 
                 rename(URL_FOLDER_HANDLING . NAME_TEMPORARY_FILE . $path_parts['extension'], $new_name);
-                SaveFile::seve_falesHash($rez);
+                SaveFile::seveFalesHash($rez);
 
             }
         
@@ -75,7 +75,7 @@ class ReadSaveHashFile
     }
 
     //Записываем кэш изображения в файл.
-    private function seve_falesHash($HashFromFile)
+    private function seveFalesHash($HashFromFile)
     {
 
         $fp = fopen(URL_CASH_FILE, "a");

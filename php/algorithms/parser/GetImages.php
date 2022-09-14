@@ -12,24 +12,24 @@ class GetImages
     const CORRECTION_NO = 'Коррекция результата не дала.';
     const CORRECTION_YES = 'Коррекция результы дала.';
 
-    public function get_images_url($images_url, $url_gl, $width, $higth)
+    public function getImagesUrl($images_url, $url_gl, $width, $higth)
     {
-        $obr = self::get_files($images_url, $width, $higth);
+        $obr = self::getFiles($images_url, $width, $higth);
        
         if (is_null($obr['result'])) {
 
             $result_url = GetImages::correctiveStep_1($images_url, $url_gl);
-            $result = GetImages::get_files_repeated($result_url, "correctiveStep_1");
+            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_1");
 
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::correctiveStep_2($images_url, $url_gl);
-            $result = GetImages::get_files_repeated($result_url, "correctiveStep_2");
+            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_2");
 
             if ($result['result']) {return $result;};
 
             $result_url = GetImages::correctiveStep_3($images_url, $url_gl); 
-            $result = GetImages::get_files_repeated($result_url, "correctiveStep_3");
+            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_3");
             
             if ($result['result']) {return $result;};
 
@@ -43,7 +43,7 @@ class GetImages
         }
 
     }
-    private function get_files_repeated($url, $method_name)
+    private function getFilesRepeated($url, $method_name)
     {
 
         $size = @getimagesize($url);
@@ -56,7 +56,7 @@ class GetImages
 
     }
 
-    private function get_files($url, $width, $higth)
+    private function getFiles($url, $width, $higth)
     {
 
         $fl = 0;

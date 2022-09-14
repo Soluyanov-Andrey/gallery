@@ -15,12 +15,12 @@ class MessageSystem
             
         );  
         
-        MessageSystem::seve_log_files($result["message"].'----'.$result["data"]);
+        MessageSystem::seveLogFiles($result["message"].'----'.$result["data"]);
         return $result;
     }
 
 
-    private function seve_log_files($Message)
+    private function seveLogFiles($Message)
     {
 
         $fp = fopen(URL_FILE_LOG, "a");

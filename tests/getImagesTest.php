@@ -19,7 +19,7 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
     
 
     
-    $result = $this->callMethod(GetImages::class, 'get_files',$url,$whith, $higth);
+    $result = $this->callMethod(GetImages::class, 'getFiles',$url,$whith, $higth);
     $this->assertTrue( $result['result'] );
     
     // $this->assertIsArray($result);
@@ -77,13 +77,13 @@ class GetImagesTest extends \PHPUnit\Framework\TestCase {
        }
        
      /** @test */
-     public function get_files_repeated() {
+     public function getFilesRepeated() {
 
       $url = 'https://infogra.ru/wp-content/uploads/2020/11/cover-666x400.jpg';
       $method_name = 'Tect';
   
   
-      $result = $this->callMethod(GetImages::class, 'get_files_repeated', $url ,$method_name);
+      $result = $this->callMethod(GetImages::class, 'getFilesRepeated', $url ,$method_name);
       
       
       

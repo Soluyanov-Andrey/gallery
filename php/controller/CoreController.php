@@ -22,13 +22,13 @@ class CoreController
         $bmw = new СallСhainСontroller();
        
 
-// $img_yes = GetImages::get_images_url($result['data'][0], $gl_url, $width, $higth);
+// $img_yes = GetImages::getImagesUrl($result['data'][0], $gl_url, $width, $higth);
         foreach ($result['data'] as &$value) {
 
             $bmw ->usageGetImage($value, $gl_url, $width, $higth)
                  ->usageSeveFile();
                 //  ->ReadSaveHashFile();
-                    // $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
+                    // $img_yes = GetImages::getImagesUrl($value, $gl_url, $width, $higth);
     
                     // if ($img_yes['result'] == true) {
                        
@@ -39,10 +39,10 @@ class CoreController
 
         // var_dump($array_url);
 
-        // $img_yes = GetImages::get_images_url($value, $url_gl, $width, $higth);
+        // $img_yes = GetImages::getImagesUrl($value, $url_gl, $width, $higth);
         // var_dump($result);
         // $this->assertIsArray($result);
-        //  SaveFile::seve_fales_imagis($result['data']);
+        //  SaveFile::seveFalesImagis($result['data']);
     }
 
     private static function perform() {

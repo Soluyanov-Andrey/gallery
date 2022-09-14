@@ -24,7 +24,7 @@ class try_urlTest extends \PHPUnit\Framework\TestCase {
       
          //  var_dump($result['data']);
          //  // $this->assertIsArray($result);
-         //  SaveFile::seve_fales_imagis('https://zastavok.net/template/img/left-logo.png');
+         //  SaveFile::seveFalesImagis('https://zastavok.net/template/img/left-logo.png');
           
    }
     

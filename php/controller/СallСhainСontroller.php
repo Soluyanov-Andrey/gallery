@@ -19,7 +19,7 @@ class СallСhainСontroller
 
     public function usageGetImage($value, $gl_url, $width, $higth){
 
-        $this->$saveMessage =  GetImages::get_images_url($value, $gl_url, $width, $higth);
+        $this->$saveMessage =  GetImages::getImagesUrl($value, $gl_url, $width, $higth);
 
         return $this;
     }
@@ -32,7 +32,7 @@ class СallСhainСontroller
 
                 $pathParts = pathinfo($message['data']);
 
-                $this->$saveMessage = SaveFile::seve_fales_imagis($message['data'], $pathParts['extension']); 
+                $this->$saveMessage = SaveFile::seveFalesImagis($message['data'], $pathParts['extension']); 
 
                 $message = $this->$saveMessage;
                 $this->$savePathParts = $pathParts['extension'];
@@ -47,7 +47,7 @@ class СallСhainСontroller
         
         if($Message['result']){
 
-            $this->$saveMessage = ReadSaveHashFile::seve_fales_imagis(); 
+            $this->$saveMessage = ReadSaveHashFile::seveFalesImagis(); 
     
         }
 

@@ -9,7 +9,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
 
 
       /** @test */
-      public function get_images_url1() {
+      public function getImagesUrl1() {
 
         // $url = '/template/img/left-logo.png';
         // $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
@@ -22,7 +22,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
         
         $width = 150;
         $higth = 150;
-        $result1 = GetImages::get_images_url($url, $gl_url ,$width, $higth);
+        $result1 = GetImages::getImagesUrl($url, $gl_url ,$width, $higth);
     
         // $this->assertIsArray($result);
           
@@ -31,7 +31,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
       }
 
         /** @test */
-        public function get_images_url2() {
+        public function getImagesUrl2() {
 
           $url = '/template/img/left-logo.png';
           $gl_url = 'https://zastavok.net/?ysclid=l764sqvgt028704337';
@@ -44,7 +44,7 @@ class GetImagesTest1 extends \PHPUnit\Framework\TestCase {
           
           $width = 150;
           $higth = 150;
-          $result1 = GetImages::get_images_url($url, $gl_url ,$width, $higth);
+          $result1 = GetImages::getImagesUrl($url, $gl_url ,$width, $higth);
       
           // $this->assertIsArray($result);
             

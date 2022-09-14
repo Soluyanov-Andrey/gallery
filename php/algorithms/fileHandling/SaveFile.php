@@ -9,7 +9,7 @@ class SaveFile
     const IMAGES_NO =  'При копировании изображения что то пошло не так.';
 
 
-    public static function seve_fales_imagis($url, $path_parts)
+    public static function seveFalesImagis($url, $path_parts)
     {
             
             if (!copy($url, URL_FOLDER_HANDLING . NAME_TEMPORARY_FILE . $path_parts)) {
