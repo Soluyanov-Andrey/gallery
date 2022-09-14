@@ -1,5 +1,24 @@
 <?php
- ini_set('max_execution_time', '3600');
- defined('TEST_MODE') or define('TEST_MODE', false);
+
+define("DOCUMENT_ROOT",                    $_SERVER['DOCUMENT_ROOT']);
+define("DOCUMENT_ROOT_PHP",                $_SERVER['DOCUMENT_ROOT']."php/");
+
+define("URL_CLASS_ALGORITMS",              "algorithms/");
+define("URL_CLASS_PARSER",                 "algorithms/parser/");
+define("URL_CLASS_TRANSFORMING_STEPS",     "algorithms/transformingSteps/");
+define("URL_CLASS_FILE_HANDLING",          "algorithms/fileHandling/");
+define("URL_CLASS_VIEW",                   "algorithms/view/");
+define("URL_CLASS_CONTROLLER",             "controller/");
+
+
+
+// MessageSystem
+define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'cash_log_file/system.log');
+
+define('URL_CASH_FILE', DOCUMENT_ROOT_PHP . 'algorithms/system/cash.txt');
+
+// SaveFile
+define('NAME_FILES',  'test.');
+define('URL_FILE_HANDLING', DOCUMENT_ROOT. 'images/file_handling/');
 
  

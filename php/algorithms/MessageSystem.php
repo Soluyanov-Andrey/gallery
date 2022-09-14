@@ -1,5 +1,5 @@
 <?php
-define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'cash_log_file/system.log');
+
 
 class MessageSystem
 { 

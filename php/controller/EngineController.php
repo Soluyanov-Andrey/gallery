@@ -4,15 +4,8 @@
  * Ключевой контролер, откуда начинается запуск.
  *
  */
- define("URL_CLASS_ALGORITMS","algorithms/");
- define("DOCUMENT_ROOT",$_SERVER['DOCUMENT_ROOT']);
- define("DOCUMENT_ROOT_PHP",$_SERVER['DOCUMENT_ROOT']."php/");
- define("URL_CLASS_ALGORITMS","algorithms/");
- define("URL_CLASS_PARSER","algorithms/parser/");
- define("URL_CLASS_CONTROLLER","controller/");
- define("URL_CLASS_TRANSFORMING_STEPS","algorithms/transformingSteps/");
- define("URL_CLASS_SAVE_FAIL","algorithms/fileHandling/");
- define("URL_CLASS_VIEW","algorithms/view/");
+include("php/init.php");
+
 
 // Cоздаем ауто лоадер классов.
 class EngineController
@@ -28,12 +21,12 @@ class EngineController
 
     private static function AutoLoad($className) {
         
-        $algorithms = DOCUMENT_ROOT_PHP.URL_CLASS_ALGORITMS.$className.'.php';
-        $controller = DOCUMENT_ROOT_PHP.URL_CLASS_CONTROLLER.$className.'.php';
-        $parser = DOCUMENT_ROOT_PHP.URL_CLASS_PARSER.$className.'.php';
+        $algorithms        = DOCUMENT_ROOT_PHP.URL_CLASS_ALGORITMS.$className.'.php';
+        $controller        = DOCUMENT_ROOT_PHP.URL_CLASS_CONTROLLER.$className.'.php';
+        $parser            = DOCUMENT_ROOT_PHP.URL_CLASS_PARSER.$className.'.php';
         $transformingSteps = DOCUMENT_ROOT_PHP.URL_CLASS_TRANSFORMING_STEPS.$className.'.php';
-        $fileHandling = DOCUMENT_ROOT_PHP.URL_CLASS_SAVE_FAIL.$className.'.php';
-        $view = DOCUMENT_ROOT_PHP.URL_CLASS_VIEW.$className.'.php';
+        $fileHandling      = DOCUMENT_ROOT_PHP.URL_CLASS_FILE_HANDLING.$className.'.php';
+        $view              = DOCUMENT_ROOT_PHP.URL_CLASS_VIEW.$className.'.php';
 
          (is_file($algorithms)) ? require_once($algorithms): false;
          (is_file($controller)) ? require_once($controller): false;

@@ -9,7 +9,8 @@
 
 class СallСhainСontroller
 {
-    public $cash;
+    public $saveMessage;
+    public $saveUrlImages;
     function __construct() {
        
     }
@@ -17,16 +18,39 @@ class СallСhainСontroller
 
     public function getImage($value, $gl_url, $width, $higth){
 
-        $this->$cash =  GetImages::get_images_url($value, $gl_url, $width, $higth);
+        $this->$saveMessage =  GetImages::get_images_url($value, $gl_url, $width, $higth);
 
         return $this;
     }
-    public function ImgHash($a){
-        var_dump($this->$cash);
+    
+    public function SeveFile(){
+
+       $Message = $this->$saveMessage;
+
+       if($Message['result']){
+
+        $path_parts = pathinfo($url);
+        
+
+        $this->$saveMessage = SaveFile::seve_fales_imagis($Message['data']); 
+
+        $Message = $this->$saveMessage;
+        $this->$saveUrlImages = $Message['data'];
+
+       }
         return $this;
     }
-    public function SeveFile($a){
-        echo("3");
+
+    public function ReadSaveHashFile(){
+        
+        $Message = $this->$saveMessage;
+        
+        if($Message['result']){
+
+            $this->$saveMessage = ReadSaveHashFile::seve_fales_imagis(); 
+    
+        }
+
         return $this;
     }
     public function ImageResize($a){

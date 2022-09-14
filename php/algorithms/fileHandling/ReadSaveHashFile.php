@@ -1,7 +1,7 @@
 <?php
-define('URL_TEMP', DOCUMENT_ROOT_PHP . 'algorithms/temp/');
-define('URL_SYSTEM', DOCUMENT_ROOT_PHP . 'algorithms/system/cash.txt');
-define('NAME_FILES',  'test.');
+
+
+
 class ReadSaveHashFile 
 {
 
@@ -15,34 +15,25 @@ class ReadSaveHashFile
      * @param array $data массив с выбраными url изображений.
      */
 
-    public static function seve_fales_imagis($data)
+    public static function seve_fales_imagis($url)
     {
 
-        foreach ($data as $url) {
-
-            //echo $path_parts['basename'], "\n";
-            //echo $path_parts['extension'], "\n";
-            $path_parts = pathinfo($url);
-
-            if (!copy($url, URL_TEMP . NAME_FILES . $path_parts['extension'])) {
-                echo ("error");
-
-            }
-            $rez = ImgHash::createHashFromFile(URL_TEMP . NAME_FILES . $path_parts['extension']);
+      
+            $rez = ImgHash::createHashFromFile($url);
             $new_filename = md5($rez) . '.';
 
             $if_rez = SaveFile::comparisonHash($rez);
 
-            $new_name = URL_TEMP . $new_filename . $path_parts['extension'];
+            $new_name = URL_FILE_HANDLING . $new_filename . $path_parts['extension'];
 
           
             if ($if_rez['result']) {
                 
-                rename(URL_TEMP . NAME_FILES . $path_parts['extension'], $new_name);
+                rename(URL_FILE_HANDLING . NAME_FILES . $path_parts['extension'], $new_name);
                 SaveFile::seve_falesHash($rez);
 
             }
-        }
+        
     }
 
     /**
@@ -54,7 +45,7 @@ class ReadSaveHashFile
     private function comparisonHash($HashFromFile)
     {
 
-        $names = file(URL_SYSTEM);
+        $names = file(URL_CASH_FILE);
 
         foreach ($names as $name) {
 
@@ -87,7 +78,7 @@ class ReadSaveHashFile
     private function seve_falesHash($HashFromFile)
     {
 
-        $fp = fopen(URL_SYSTEM, "a");
+        $fp = fopen(URL_CASH_FILE, "a");
         fwrite($fp, "\r\n" . $HashFromFile);
         fclose($fp);
 

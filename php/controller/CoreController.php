@@ -26,8 +26,8 @@ class CoreController
         foreach ($result['data'] as &$value) {
 
             $bmw ->getImage($value, $gl_url, $width, $higth)
-                 ->ImgHash(7)
-                 ->SeveFile(10);
+                 ->SeveFile();
+                //  ->ReadSaveHashFile();
                     // $img_yes = GetImages::get_images_url($value, $gl_url, $width, $higth);
     
                     // if ($img_yes['result'] == true) {
