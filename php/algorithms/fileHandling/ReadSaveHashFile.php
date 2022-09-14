@@ -24,12 +24,12 @@ class ReadSaveHashFile
 
             $if_rez = SaveFile::comparisonHash($rez);
 
-            $new_name = URL_FILE_HANDLING . $new_filename . $path_parts['extension'];
+            $new_name = URL_FOLDER_HANDLING . $new_filename . $path_parts['extension'];
 
           
             if ($if_rez['result']) {
                 
-                rename(URL_FILE_HANDLING . NAME_FILES . $path_parts['extension'], $new_name);
+                rename(URL_FOLDER_HANDLING . NAME_TEMPORARY_FILE . $path_parts['extension'], $new_name);
                 SaveFile::seve_falesHash($rez);
 
             }

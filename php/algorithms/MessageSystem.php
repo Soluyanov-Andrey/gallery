@@ -19,15 +19,6 @@ class MessageSystem
         return $result;
     }
 
-    public function massages($var)
-    {
-        echo $var;
-    }
-
-    public function massages1($var)
-    {
-        echo "$var";
-    }
 
     private function seve_log_files($Message)
     {

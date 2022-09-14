@@ -11,14 +11,13 @@ define("URL_CLASS_VIEW",                   "algorithms/view/");
 define("URL_CLASS_CONTROLLER",             "controller/");
 
 
+define('URL_FOLDER_HANDLING', DOCUMENT_ROOT.'images/file_handling/');
 
-// MessageSystem
+
 define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'cash_log_file/system.log');
+define('URL_CASH_FILE', DOCUMENT_ROOT_PHP .'algorithms/system/cash.txt');
+define('NAME_TEMPORARY_FILE',  'test.');
 
-define('URL_CASH_FILE', DOCUMENT_ROOT_PHP . 'algorithms/system/cash.txt');
 
-// SaveFile
-define('NAME_FILES',  'test.');
-define('URL_FILE_HANDLING', DOCUMENT_ROOT. 'images/file_handling/');
 
  

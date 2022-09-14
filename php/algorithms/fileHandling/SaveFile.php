@@ -14,11 +14,11 @@ class SaveFile
            
             
             
-            if (!copy($url, URL_FILE_HANDLING . NAME_FILES . $path_parts['extension'])) {
+            if (!copy($url, URL_FOLDER_HANDLING . NAME_TEMPORARY_FILE . $path_parts['extension'])) {
                 return MessageSystem::sendMessage(false, self::IMAGES_NO, '');
             } 
            return MessageSystem::sendMessage(
-               true, self::IMAGES_YES, URL_FILE_HANDLING . NAME_FILES . $path_parts['extension']);
+               true, self::IMAGES_YES, URL_FOLDER_HANDLING . NAME_TEMPORARY_FILE . $path_parts['extension']);
         
     }
 
