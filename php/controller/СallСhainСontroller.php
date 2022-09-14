@@ -9,8 +9,9 @@
 
 class СallСhainСontroller
 {
+    //
     public $saveMessage;
-    public $saveUrlImages;
+    public $savePathParts;
     function __construct() {
        
     }
@@ -25,19 +26,18 @@ class СallСhainСontroller
     
     public function SeveFile(){
 
-       $Message = $this->$saveMessage;
+        $message = $this->$saveMessage;
 
-       if($Message['result']){
+        if($message['result']){
 
-        $path_parts = pathinfo($url);
-        
+                $pathParts = pathinfo($message['data']);
 
-        $this->$saveMessage = SaveFile::seve_fales_imagis($Message['data']); 
+                $this->$saveMessage = SaveFile::seve_fales_imagis($message['data'], $pathParts['extension']); 
 
-        $Message = $this->$saveMessage;
-        $this->$saveUrlImages = $Message['data'];
+                $message = $this->$saveMessage;
+                $this->$savePathParts = $pathParts['extension'];
 
-       }
+        }
         return $this;
     }
 
