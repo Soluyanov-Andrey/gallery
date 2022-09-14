@@ -10,25 +10,25 @@ class CoreController
 {
 
     function __construct() {
-         $gl_url = 'https://zastavok.net/animals/59873-sova_el.html';
-        //$gl_url = 'https://www.lifeofpix.com/gallery/city/';
+         $saitUrl = 'https://zastavok.net/animals/59873-sova_el.html';
+        //$saitUrl = 'https://www.lifeofpix.com/gallery/city/';
       
         $higth = 450;
-        // $result = Try_url_img::try_url($gl_url ,$width, $higth);
-        $result = Parser::validUrl( $gl_url);
+        // $result = Try_url_img::try_url($saitUrl ,$width, $higth);
+        $result = Parser::validUrl( $saitUrl);
         $array_url = array();
 
 
         $bmw = new СallСhainСontroller();
        
 
-// $img_yes = GetImages::getImagesUrl($result['data'][0], $gl_url, $width, $higth);
+// $img_yes = GetImages::getImagesUrl($result['data'][0], $saitUrl, $width, $higth);
         foreach ($result['data'] as &$value) {
 
-            $bmw ->usageGetImage($value, $gl_url, $width, $higth)
+            $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
                  ->usageSeveFile();
                 //  ->ReadSaveHashFile();
-                    // $img_yes = GetImages::getImagesUrl($value, $gl_url, $width, $higth);
+                    // $img_yes = GetImages::getImagesUrl($value, $saitUrl, $width, $higth);
     
                     // if ($img_yes['result'] == true) {
                        

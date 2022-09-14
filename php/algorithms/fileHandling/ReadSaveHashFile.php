@@ -20,11 +20,11 @@ class ReadSaveHashFile
 
       
             $rez = ImgHash::createHashFromFile($url);
-            $new_filename = md5($rez) . '.';
+            $newFilename = md5($rez) . '.';
 
             $if_rez = SaveFile::comparisonHash($rez);
 
-            $new_name = URL_FOLDER_HANDLING . $new_filename . $path_parts['extension'];
+            $new_name = URL_FOLDER_HANDLING . $newFilename . $path_parts['extension'];
 
           
             if ($if_rez['result']) {

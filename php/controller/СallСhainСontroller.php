@@ -17,9 +17,9 @@ class СallСhainСontroller
     }
     
 
-    public function usageGetImage($value, $gl_url, $width, $higth){
+    public function usageGetImage($value, $saitUrl, $width, $higth){
 
-        $this->$saveMessage =  GetImages::getImagesUrl($value, $gl_url, $width, $higth);
+        $this->$saveMessage =  GetImages::getImagesUrl($value, $saitUrl, $width, $higth);
 
         return $this;
     }

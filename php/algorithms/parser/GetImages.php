@@ -93,14 +93,14 @@ class GetImages
 
     /*
      * corrective_step1 возвращает новый URl
-     * имеет исходный url -$gl_url например http://test.ru/test/12/3.php
+     * имеет исходный url -$saitUrl например http://test.ru/test/12/3.php
      * выбранные url -$url например test_img/1.jpg
      * результат http://test.ru/test/12/test_img/1.jpg
      */
-    protected function correctiveStep_1($url, $gl_url)
+    protected function correctiveStep_1($url, $saitUrl)
     {
 
-        $path_parts = pathinfo($gl_url);
+        $path_parts = pathinfo($saitUrl);
 
         $a = parse_url($url);
 
@@ -125,15 +125,15 @@ class GetImages
 
     /*
      * corrective_step2 возвращает новый URl
-     * имеет исходный url -$gl_url например http://test.ru/test/12/3.php
+     * имеет исходный url -$saitUrl например http://test.ru/test/12/3.php
      * выбранные url -$url например ../../test_img/1.jpg
      * результат http://test.ru/test_img/1.jpg
      */
 
-    protected function correctiveStep_2(string $url, $gl_url)
+    protected function correctiveStep_2(string $url, $saitUrl)
     {
 
-        $path_parts = pathinfo($gl_url);
+        $path_parts = pathinfo($saitUrl);
 
         $a = parse_url($url);
 
@@ -171,7 +171,7 @@ class GetImages
         if (conditions($url)) {
             $quantity = substr_count($url, '../');
 
-            $str_1 = trim_down($gl_url, $quantity + 1);
+            $str_1 = trim_down($saitUrl, $quantity + 1);
 
             //удаляем все '../' в строке вида '../../img.jpg'
             $str_2 = str_replace("../", "", $url, $count);
@@ -185,13 +185,13 @@ class GetImages
     /*
      * corrective_step3  возвращает новый URl картинки
      * $url="/template/img/left-logo.png";
-     * $gl_url="https://zastavok.net/?ysclid=l764sqvgt028704337";
+     * $saitUrl="https://zastavok.net/?ysclid=l764sqvgt028704337";
      * вернет https://zastavok.net/template/img/left-logo.png
      */
-    protected function correctiveStep_3($url, $gl_url)
+    protected function correctiveStep_3($url, $saitUrl)
     {
     
-        $a = parse_url($gl_url);
+        $a = parse_url($saitUrl);
         $url_n = $a["scheme"] . "://" . $a["host"];
 
         //если в url первая  "/" то соеденяем по
