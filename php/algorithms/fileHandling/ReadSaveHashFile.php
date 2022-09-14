@@ -65,12 +65,12 @@ class SaveFile extends MessageSystem
             // Такое изображение уже есть в кэш
             if ($HashFromFile == $name) {
 
-                return MessageSystem::returns(false, self::IMAGES_YES, '');
+                return MessageSystem::sendMessage(false, self::IMAGES_YES, '');
             };
             // Изображение различимо менне чем на 5%
             if ($isNearEqual == true) {
 
-                return MessageSystem::returns(false, self::IMAGES_5PROC, '');
+                return MessageSystem::sendMessage(false, self::IMAGES_5PROC, '');
             };
 
             //$isEqual = ($hash1 == $name);
@@ -79,7 +79,7 @@ class SaveFile extends MessageSystem
             //echo "Хэши изображений равны с точностью до 5%?:" . ($isNearEqual ? "Да" : "Нет");
 
         }
-        return MessageSystem::returns(true, self::IMAGES_NO, '');
+        return MessageSystem::sendMessage(true, self::IMAGES_NO, '');
 
     }
 

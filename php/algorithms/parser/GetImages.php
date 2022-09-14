@@ -49,10 +49,10 @@ class GetImages extends MessageSystem
         $size = @getimagesize($url);
 
         if (!$size) {
-            return MessageSystem::returns(false, self::CORRECTION_NO . "-" . $method_name);
+            return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
         }
 
-        return MessageSystem::returns(true, self::CORRECTION_YES . "-" . $method_name, $url);
+        return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
 
     }
 
@@ -74,19 +74,19 @@ class GetImages extends MessageSystem
         if ($size && $fl == 1) {
             //фаил есть и подходит по размеру
 
-            return MessageSystem::returns(true, self::FILES_YES, $url);
+            return MessageSystem::sendMessage(true, self::FILES_YES, $url);
         }
 
         if ($size && $fl == 0) {
             //фаил есть но не подходит по размеру
 
-            return MessageSystem::returns(false, self::FILES_SIZE_NO, $url);
+            return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
         } 
 
         if (!$size) {
             //фаила нет
 
-            return MessageSystem::returns(null, self::FILES_NO,$url);
+            return MessageSystem::sendMessage(null, self::FILES_NO,$url);
         }
     }
 

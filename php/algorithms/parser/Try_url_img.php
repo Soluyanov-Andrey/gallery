@@ -23,10 +23,10 @@ class Try_url_img extends MessageSystem
         //     }
         // }
         // if ($array_url === []) {
-        //     return MessageSystem::returns(false, self::ANSWER_NO, $array_url);
+        //     return MessageSystem::sendMessage(false, self::ANSWER_NO, $array_url);
         // }
 
-        // return MessageSystem::returns(true, self::ANSWER_YES, $array_url);
+        // return MessageSystem::sendMessage(true, self::ANSWER_YES, $array_url);
 var_dump($result );
     }
 

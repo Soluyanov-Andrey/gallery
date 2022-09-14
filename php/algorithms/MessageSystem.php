@@ -6,7 +6,7 @@ class MessageSystem
     
    
 
-    public function returns($result, $message, $data = null)
+    public function sendMessage($result, $message, $data = null)
     {
         $result = array(
             "result" => $result,   // true.false
