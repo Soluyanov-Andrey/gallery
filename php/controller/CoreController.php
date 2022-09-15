@@ -27,7 +27,8 @@ class CoreController
 
             $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
                  ->usageSeveFile()
-                 ->usageReadSaveHashFile();
+                 ->usageReadSaveHashFile()
+                 ->usageImageResize();
               
         }
     }

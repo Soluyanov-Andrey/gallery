@@ -12,7 +12,7 @@ class СallСhainСontroller
     //
     private $saveMessage;
     private $saveExtension;
-
+    private $saveNewFile;
 
     public function usageGetImage($value, $saitUrl, $width, $higth){
 
@@ -23,15 +23,14 @@ class СallСhainСontroller
     
     public function usageSeveFile(){
 
+        //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
        
        
         if($message['result']){
 
-                $pathParts = pathinfo($message['data']);
-                
-                 $this->saveMessage = SaveFile::seveFalesImagis($message['data'], $pathParts['extension']); 
-                 $this->saveExtension = $pathParts['extension'];
+                 $this->saveMessage = SaveFile::seveFalesImagis($message['data']); 
+                 $this->saveExtension = $this->saveMessage['data'];
 
         }
         
@@ -40,9 +39,11 @@ class СallСhainСontroller
 
     public function usageReadSaveHashFile(){
         
+        //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
         $extension = $this->saveExtension;
        
+
         if($message['result']){
 
             $this->$saveMessage = ReadSaveHashFile::seveFalesImagis($extension); 
@@ -51,8 +52,18 @@ class СallСhainСontroller
 
         return $this;
     }
-    public function usageImageResize($a){
-        echo("4");
+    public function usageImageResize(){
+
+        $message = $this->saveMessage;
+        $extension = $this->saveExtension;
+        var_dump($message);
+        if($message['result']){
+
+            
+    
+        }
+
+        
         return $this;
     }
     public function usagePredominantColor(){

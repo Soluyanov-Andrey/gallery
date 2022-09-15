@@ -21,11 +21,13 @@ class ReadSaveHashFile
            
             $imgHash = ImgHash::createHashFromFile($urlTempImageFaile);
             
-            $newFilename = md5($imgHash);
+            $md5 = md5($imgHash);
 
-            $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash);
+            $newFilename = URL_FOLDER_INITIAL . $md5 .'.'.$extension;
 
-            $newName = URL_FOLDER_INITIAL . $newFilename .'.'.$extension;
+            $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash ,$newFilename);
+
+            
 
             
             if ($resultMessage['result']) {
@@ -43,7 +45,7 @@ class ReadSaveHashFile
      * @param array arrayHashRedFiles массив содержащий кэши изображений хранящийся в файле.
      */
 
-    private function comparisonHash($hashFromFile)
+    private function comparisonHash($hashFromFile, $newFilename)
     {
 
         $names = file(URL_CASH_FILE);
@@ -71,7 +73,7 @@ class ReadSaveHashFile
             //echo "Хэши изображений равны с точностью до 5%?:" . ($isNearEqual ? "Да" : "Нет");
 
         }
-        return MessageSystem::sendMessage(true, self::URL_IMAGES_NO, '');
+        return MessageSystem::sendMessage(true, self::URL_IMAGES_NO, $newFilename);
 
     }
 
