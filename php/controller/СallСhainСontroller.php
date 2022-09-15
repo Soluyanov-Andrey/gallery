@@ -46,8 +46,9 @@ class СallСhainСontroller
 
         if($message['result']){
 
-            $this->$saveMessage = ReadSaveHashFile::seveFalesImagis($extension); 
-    
+            $this->saveMessage = ReadSaveHashFile::seveFalesImagis($extension); 
+            $this->saveNewFile = $this->$saveMessage['data'];
+            var_dump( $this->saveMessage);
         }
 
         return $this;
@@ -56,7 +57,7 @@ class СallСhainСontroller
 
         $message = $this->saveMessage;
         $extension = $this->saveExtension;
-        var_dump($message);
+        
         if($message['result']){
 
             

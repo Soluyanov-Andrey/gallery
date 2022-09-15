@@ -6,9 +6,9 @@ class ReadSaveHashFile
 {
 
     const URL_IMAGES_YES = 'Такое изображение уже есть.';
-    const URL_IMAGES_NO = 'Такого изображения еще нет. Копируем.';
+    const URL_IMAGES_NO = 'Такого изображения в Hash еще нет.';
     const URL_IMAGES_5_PERCENT = 'Изображение различимо менне чем на 5%';
-
+    const IMAGES_HASH_SAVE = 'Сохранили Hash файла';
     /**
      *
      *
@@ -25,17 +25,19 @@ class ReadSaveHashFile
 
             $newFilename = URL_FOLDER_INITIAL . $md5 .'.'.$extension;
 
-            $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash ,$newFilename);
+            $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash);
 
             
 
             
             if ($resultMessage['result']) {
                 
-                rename($urlTempImageFaile, $newName);
-                ReadSaveHashFile::seveFalesHash($imgHash);
+                rename($urlTempImageFaile, $newFilename);
+                return ReadSaveHashFile::seveFalesHash($imgHash, $newFilename);
 
             }
+            
+            return $resultMessage;
         
     }
 
@@ -45,7 +47,7 @@ class ReadSaveHashFile
      * @param array arrayHashRedFiles массив содержащий кэши изображений хранящийся в файле.
      */
 
-    private function comparisonHash($hashFromFile, $newFilename)
+    private function comparisonHash($hashFromFile)
     {
 
         $names = file(URL_CASH_FILE);
@@ -73,18 +75,19 @@ class ReadSaveHashFile
             //echo "Хэши изображений равны с точностью до 5%?:" . ($isNearEqual ? "Да" : "Нет");
 
         }
-        return MessageSystem::sendMessage(true, self::URL_IMAGES_NO, $newFilename);
+        return MessageSystem::sendMessage(true, self::URL_IMAGES_NO);
 
     }
 
     //Записываем кэш изображения в файл.
-    private function seveFalesHash($hashFromFile)
+    private function seveFalesHash($hashFromFile , $newFilename)
     {
 
         $fp = fopen(URL_CASH_FILE, "a");
         fwrite($fp, "\r\n" . $hashFromFile);
         fclose($fp);
 
+        return MessageSystem::sendMessage(true, self::IMAGES_HASH_SAVE, $newFilename);
     }
 
 }
