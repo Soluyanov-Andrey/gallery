@@ -1,7 +1,8 @@
 <?php
 /**
  * Уменьшаем изображения
- *
+ * ImageResize::resize("../model/temp/hd-wallpaper-madagascar-cartoon-3840x2160.jpeg");
+ * 
  */
 
 //------------------------Класс испольует следующие константы
@@ -10,7 +11,7 @@
 //define("DIR_TEMP", "../model/temp/");           // путь к папке где храним временные файлы
 
 
-class ImageResize
+class ImageResize 
 {
 
     /**
@@ -25,10 +26,9 @@ class ImageResize
 
         //Определяем размер фотографии — ширину и высоту
         $size=GetImageSize ($file_n);
+
         //Создаём новое изображение из «старого»
         $src=ImageResize::format($file_n);
-
-
 
         $iw=$size[0];
         $ih=$size[1];
@@ -66,6 +66,5 @@ class ImageResize
 
 }
 
-//$obj= new Image_Resize();
 
-//$obj->resize("../model/temp/hd-wallpaper-madagascar-cartoon-3840x2160.jpeg");
+

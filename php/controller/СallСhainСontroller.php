@@ -31,8 +31,8 @@ class СallСhainСontroller
        
         if($message['result']){
 
-                 $this->saveMessage = SaveFile::seveFalesImagis($saitUrl); 
-                 $this->saveExtension = $this->saveMessage['data'];
+                 $message = SaveFile::seveFalesImagis($saitUrl); 
+                 $this->saveExtension = $message['data'];
                  $this->saveNewFile = URL_FOLDER_INITIAL . NAME_TEMPORARY_FILE . $this->saveExtension;
         }
         
@@ -43,7 +43,6 @@ class СallСhainСontroller
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
-        $saitUrl = $this->saveSaitUrl;
         $saveNewFile = $this->saveNewFile;
 
         if($message['result']){
