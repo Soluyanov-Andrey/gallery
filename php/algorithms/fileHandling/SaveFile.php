@@ -17,6 +17,9 @@ class SaveFile
             if (!copy($url, URL_FOLDER_INITIAL . NAME_TEMPORARY_FILE . $pathParts['extension'])) {
                 return MessageSystem::sendMessage(false, self::URL_IMAGES_NO, '');
             } 
+            $obj = new ImageResize();
+            $obj->resize($url);
+
             return MessageSystem::sendMessage(
                true, self::URL_IMAGES_YES, $pathParts['extension']);
         
