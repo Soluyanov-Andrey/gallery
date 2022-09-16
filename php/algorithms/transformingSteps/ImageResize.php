@@ -17,7 +17,7 @@ class ImageResize
      * Уменьшает изображения
      * @param $file_name Файл изображения
      */
-    public function resize($file_n){
+    public static function resize($file_n){
 
         static $higth = 200;
         static $file_name = URL_FOLDER_INITIAL.NAME_SMOLL_IMG;
@@ -26,7 +26,7 @@ class ImageResize
         //Определяем размер фотографии — ширину и высоту
         $size=GetImageSize ($file_n);
         //Создаём новое изображение из «старого»
-        $src=$this->format($file_n);
+        $src=ImageResize::format($file_n);
 
 
 

@@ -48,8 +48,8 @@ class СallСhainСontroller
 
         if($message['result']){
 
-            $obj = new ImageResize();
-            $obj->resize($saveNewFile);
+            ImageResize::resize($saveNewFile);
+           
                 
         }
         
