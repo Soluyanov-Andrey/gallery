@@ -2,7 +2,7 @@
 
 /**
  *  В этом классе реализуем методы которые вызываются в цепочке.
- *  getImage()->SeveFile()->usageReadSaveHashFile() ........
+ *  getImage()->usageWorkFileDirectory()->usageReadSaveHashFile() ........
  *
  */
 
@@ -23,7 +23,7 @@ class СallСhainСontroller
         return $this;
     }
    
-    public function usageSeveFile(){
+    public function usageWorkFileDirectory(){
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
@@ -31,9 +31,9 @@ class СallСhainСontroller
        
         if($message['result']){
 
-                 $message = SaveFile::seveFalesImagis($saitUrl); 
+                 $message = WorkFileDirectory::seveFalesImagis($saitUrl); 
                  $this->saveExtension = $message['data'];
-                 $this->saveNewFile = URL_FOLDER_INITIAL . NAME_TEMPORARY_FILE . $this->saveExtension;
+                 $this->saveNewFile = URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $this->saveExtension;
         }
         
         return $this;
@@ -59,12 +59,11 @@ class СallСhainСontroller
         
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
-        $extension = $this->saveExtension;
-       
+        $smollImg = URL_FOLDER_INITIAL.NAME_SMOLL_IMG;
 
         if($message['result']){
 
-            $this->saveMessage = ReadSaveHashFile::seveFalesImagis($extension); 
+            $this->saveMessage = ReadSaveHashFile::seveFalesImagis($smollImg); 
             $this->saveNewFile = $this->saveMessage['data'];
            
         }

@@ -1,7 +1,5 @@
 <?php
 
-
-
 class ReadSaveHashFile 
 {
 
@@ -15,24 +13,22 @@ class ReadSaveHashFile
      * @param array $data массив с выбраными url изображений.
      */
 
-    public static function seveFalesImagis($extension)
+    public static function seveFalesImagis($urlSmollImg)
     {
-            $urlTempImageFaile = URL_TEMPORARY_FILE.$extension;
+            
            
-            $imgHash = ImgHash::createHashFromFile($urlTempImageFaile);
+            $imgHash = ImgHash::createHashFromFile($urlSmollImg);
             
             $md5 = md5($imgHash);
 
-            $newFilename = URL_FOLDER_INITIAL . $md5 .'.'.$extension;
+            $newFilename = URL_FOLDER_INITIAL . $md5 .'.jpg';
 
             $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash);
 
-            
-
-            
+        
             if ($resultMessage['result']) {
                 
-                rename($urlTempImageFaile, $newFilename);
+                rename($urlSmollImg, $newFilename);
                 return ReadSaveHashFile::seveFalesHash($imgHash, $newFilename);
 
             }

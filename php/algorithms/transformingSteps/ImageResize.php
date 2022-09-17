@@ -18,10 +18,14 @@ class ImageResize
      * Уменьшает изображения
      * @param $file_name Файл изображения
      */
+
+    const SAVE_IMAGES_NO =  'При сохранении изображения SMOLL_IMG, что то пошло ни так.';
+    const SAVE_IMAGES_YES =  'Изображения SMOLL_IMG, сохранено.';
+
     public static function resize($file_n){
 
         static $higth = 200;
-        static $file_name = URL_FOLDER_INITIAL.NAME_SMOLL_IMG;
+        static $file_name = URL_FOLDER_TMP.NAME_SMOLL_IMG;
 
 
         //Определяем размер фотографии — ширину и высоту
@@ -40,8 +44,12 @@ class ImageResize
         ImageCopyResampled ($dst, $src, 0, 0, 0, 0, $new_w, $higth, $iw, $ih);
 
         //Сохраняем полученное изображение в формате JPG
-        ImageJPEG ($dst, $file_name, 100);
-        imagedestroy($src);
+        if(ImageJPEG ($dst, $file_name, 100)){
+            imagedestroy($src);
+            return MessageSystem::sendMessage(true , self::SAVE_IMAGES_YES, '');
+        };
+
+        return MessageSystem::sendMessage(false , self::SAVE_IMAGES_NO, '');
 
 
     }

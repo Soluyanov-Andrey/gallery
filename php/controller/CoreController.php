@@ -26,9 +26,9 @@ class CoreController
         foreach ($result['data'] as &$value) {
 
             $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
-                 ->usageSeveFile()
-                 ->usageImageResize();
-                //  ->usagePredominantColor();
+                 ->usageWorkFileDirectory()
+                 ->usageImageResize()
+                 ->usageReadSaveHashFile();
               
         }
     }
