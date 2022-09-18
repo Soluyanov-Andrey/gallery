@@ -59,7 +59,7 @@ class СallСhainСontroller
         
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
-        $smollImg = URL_FOLDER_INITIAL.NAME_SMOLL_IMG;
+        $smollImg = URL_FOLDER_TMP.NAME_SMOLL_IMG;
 
         if($message['result']){
 
@@ -71,6 +71,17 @@ class СallСhainСontroller
         return $this;
     }
    
+    public function createNewFileName(){
+        
+        
+        return $this;
+    }
+    public function moveAndRename(){
+        
+      
+        return $this;
+    }
+
     public function usagePredominantColor(){
         
         $b = new PredominantColor();
