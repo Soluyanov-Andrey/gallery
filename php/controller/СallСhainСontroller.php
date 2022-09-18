@@ -23,7 +23,7 @@ class СallСhainСontroller
         return $this;
     }
    
-    public function usageWorkFileDirectory(){
+    public function SaveFile(){
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
@@ -71,16 +71,12 @@ class СallСhainСontroller
         return $this;
     }
    
-    public function createNewFileName(){
+    public function usageWorkFileDirectory(){
         
         
         return $this;
     }
-    public function moveAndRename(){
-        
-      
-        return $this;
-    }
+    
 
     public function usagePredominantColor(){
         
