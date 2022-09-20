@@ -31,7 +31,7 @@ class СallСhainСontroller
        
         if($message['result']){
 
-                 $message = WorkFileDirectory::seveFalesImagis($saitUrl); 
+                 $message = SaveFile::seveFalesImagis($saitUrl); 
                  $this->saveExtension = $message['data'];
                  $this->saveNewFile = URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $this->saveExtension;
         }
