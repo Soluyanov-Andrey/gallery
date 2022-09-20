@@ -2,14 +2,14 @@
 
 /**
  *  В этом классе реализуем методы которые вызываются в цепочке.
- *  getImage()->usageWorkFileDirectory()->usageReadSaveHashFile() ........
+ *  getImage()->usageImageResize()->usageImageResize()->usageReadSaveHashFile() ........
  *
  */
 
 
 class СallСhainСontroller
 {
-    //
+
     private $saveSaitUrl;
     private $saveMessage;
     private $saveExtension;
