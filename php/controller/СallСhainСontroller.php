@@ -23,7 +23,7 @@ class СallСhainСontroller
         return $this;
     }
    
-    public function SaveFile(){
+    public function usageSaveFile(){
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
@@ -71,12 +71,6 @@ class СallСhainСontroller
         return $this;
     }
    
-    public function usageWorkFileDirectory(){
-        
-        
-        return $this;
-    }
-    
 
     public function usagePredominantColor(){
         
@@ -92,6 +86,13 @@ class СallСhainСontroller
         echo("6");
         return $this;
     }
+
+    public function usageWorkFileDirectory(){
+        
+        
+        return $this;
+    }
+    
     public function usageDistributionsDirectory(){
         echo("7");
         return $this;
