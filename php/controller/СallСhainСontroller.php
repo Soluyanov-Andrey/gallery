@@ -10,7 +10,7 @@
 class СallСhainСontroller
 {
 
-    private $saveSaitUrl;
+    private $saveImageUrl;
     private $saveMessage;
     private $saveExtension;
     private $saveNewFile;
@@ -19,7 +19,8 @@ class СallСhainСontroller
     public function usageGetImage($value, $saitUrl, $width, $higth){
 
         $this->saveMessage =  GetImages::getImagesUrl($value, $saitUrl, $width, $higth);
-        $this->saveSaitUrl = $this->saveMessage['data'];
+        $this->saveImageUrl = $this->saveMessage['data'];
+        echo($this->saveImageUrl);
         return $this;
     }
    
@@ -27,7 +28,7 @@ class СallСhainСontroller
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
-        $saitUrl = $this->saveSaitUrl;
+        $saitUrl = $this->saveImageUrl;
        
         if($message['result']){
 
@@ -92,10 +93,7 @@ class СallСhainСontroller
         
         return $this;
     }
-    
-    public function usageDistributionsDirectory(){
-        echo("7");
-        return $this;
-    }
+
+   
 
 }
