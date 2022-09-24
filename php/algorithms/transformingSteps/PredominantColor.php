@@ -374,8 +374,8 @@ class PredominantColor
                 $dom_color="white";
             }
         }
-        MessageSystem::sendMessage(false, "цвет", $dom_color);
-        return $dom_color;
+        
+        return MessageSystem::sendMessage(false, "цвет", $dom_color);
     }
 
 }

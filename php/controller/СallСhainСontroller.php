@@ -14,13 +14,16 @@ class СallСhainСontroller
     private $saveMessage;
     // private $saveExtension;
     private $saveTestFileExtension;
+    private $saveNewNameMD5;
+    private $saveColor;
+    
 
     
     public function usageGetImage($value, $saitUrl, $width, $higth){
 
         $this->saveMessage =  GetImages::getImagesUrl($value, $saitUrl, $width, $higth);
         $this->saveImageUrl = $this->saveMessage['data'];
-        echo($this->saveImageUrl);
+        
         return $this;
     }
    
@@ -34,7 +37,7 @@ class СallСhainСontroller
 
                  $this->saveMessage = SaveFile::seveFalesImagis($saveImageUrl); 
                  $this->saveTestFileExtension = URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $this->saveMessage ;
-                var_dump($this->saveTestFileExtension);
+              
         }
         
         return $this;
@@ -65,7 +68,7 @@ class СallСhainСontroller
         if($message['result']){
 
             $this->saveMessage = ReadSaveHashFile::seveFalesImagis($smollImg); 
-            $this->saveNewFile = $this->saveMessage['data'];
+            $this->$saveNewNameMD5 = $this->saveMessage['data'];
            
         }
 
@@ -74,10 +77,12 @@ class СallСhainСontroller
    
 
     public function usagePredominantColor(){
+
         $smollImg = URL_FOLDER_TMP.NAME_SMOLL_IMG;
         
         $b = new PredominantColor();
-        $kol=$b->Get_Img('/var/www/html/images/file_initial/82862f7e5c23841b91dff939f5c8bc03.jpg');
+
+        $this->$saveColor = $b-> Get_Img($smollImg);
         
         return $this;
     }
