@@ -12,8 +12,8 @@ class СallСhainСontroller
 
     private $saveImageUrl;
     private $saveMessage;
-    private $saveExtension;
-    private $saveNewFile;
+    // private $saveExtension;
+    private $saveTestFileExtension;
 
     
     public function usageGetImage($value, $saitUrl, $width, $higth){
@@ -28,13 +28,13 @@ class СallСhainСontroller
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
-        $saitUrl = $this->saveImageUrl;
+        $saveImageUrl = $this->saveImageUrl;
        
         if($message['result']){
 
-                 $message = SaveFile::seveFalesImagis($saitUrl); 
-                 $this->saveExtension = $message['data'];
-                 $this->saveNewFile = URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $this->saveExtension;
+                 $this->saveMessage = SaveFile::seveFalesImagis($saveImageUrl); 
+                 $this->saveTestFileExtension = URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $this->saveMessage ;
+                var_dump($this->saveTestFileExtension);
         }
         
         return $this;
@@ -44,11 +44,11 @@ class СallСhainСontroller
 
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
-        $saveNewFile = $this->saveNewFile;
+        $saveImageUrl = $this->saveImageUrl;
 
         if($message['result']){
 
-            ImageResize::resize($saveNewFile);
+            ImageResize::resize($saveImageUrl);
            
                 
         }
@@ -74,6 +74,7 @@ class СallСhainСontroller
    
 
     public function usagePredominantColor(){
+        $smollImg = URL_FOLDER_TMP.NAME_SMOLL_IMG;
         
         $b = new PredominantColor();
         $kol=$b->Get_Img('/var/www/html/images/file_initial/82862f7e5c23841b91dff939f5c8bc03.jpg');

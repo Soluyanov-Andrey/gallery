@@ -25,10 +25,10 @@ class CoreController
 
         foreach ($result['data'] as &$value) {
 
-            $bmw ->usageGetImage($value, $saitUrl, $width, $higth);
-                //  ->SaveFile() 
-                //  ->usageImageResize()
-                //  ->usageReadSaveHashFile()
+            $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
+                 ->usageSaveFile()
+                 ->usageImageResize()
+                 ->usageReadSaveHashFile();
                 //  ->usageWorkFileDirectory()
                 //  ->usageReadSaveHashFile();
               

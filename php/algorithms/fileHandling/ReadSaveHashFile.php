@@ -28,7 +28,7 @@ class ReadSaveHashFile
         
             if ($resultMessage['result']) {
                 
-                rename($urlSmollImg, $newFilename);
+                // rename($urlSmollImg, $newFilename);
                 return ReadSaveHashFile::seveFalesHash($imgHash, $newFilename);
 
             }
