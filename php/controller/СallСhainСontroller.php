@@ -48,7 +48,7 @@ class СallСhainСontroller
         //-------------------Идентификаторы для сокращения------------------
         $message = $this->saveMessage;
         $saveImageUrl = $this->saveImageUrl;
-
+        
         if($message['result']){
 
             ImageResize::resize($saveImageUrl);
@@ -69,7 +69,7 @@ class СallСhainСontroller
 
             $this->saveMessage = ReadSaveHashFile::seveFalesImagis($smollImg); 
             $this->saveNewNameMD5 = $this->saveMessage['data'];
-           
+            
         }
 
         return $this;
@@ -77,12 +77,13 @@ class СallСhainСontroller
    
 
     public function usagePredominantColor(){
-
+        
         $smollImg = URL_FOLDER_TMP.NAME_SMOLL_IMG;
         
-        $b = new PredominantColor();
+       
 
-        $this->saveMessage = $b-> Get_Img($smollImg);
+        $this->saveMessage = PredominantColor::Get_Img($smollImg);
+        
         $this->saveColor = $this->saveMessage['data'];
         
         return $this;

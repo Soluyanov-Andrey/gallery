@@ -22,9 +22,9 @@ class WaterMark
         static $img = URL_FOLDER_TMP.NAME_SMOLL_IMG; // фаил который берем
 
         static $font =TTF; // Ссылка на шрифт
-        static $font_size = 24; // Размер шрифта
+        static $font_size = 21; // Размер шрифта
         static $degree = 90; // Угол поворота текста в градусах
-        static $height = 170; // Отступ сверху в пикселях
+        static $height = 190; // Отступ сверху в пикселях
         static $width = 30; // Отступ слева в пикселях
 
         static $color_transfer = array("black" => "Черный",

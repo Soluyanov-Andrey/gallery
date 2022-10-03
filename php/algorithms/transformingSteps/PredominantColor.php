@@ -81,10 +81,9 @@ class PredominantColor
     //14) Неопределенные цвета
     static $undefined=array(45,46,81,82,88,118,189,477,513,621,518,521,53,119,82,83);
 
-    public function Get_Img($url)
+    public static function Get_Img($url)
     {
-        MessageSystem::sendMessage(false, "цвет", $url);
-        var_dump($url);
+        
         $arr_color=array();
         // Файл для определения основного цвета
         $im = ImageCreateFromJPEG($url);
@@ -103,9 +102,9 @@ class PredominantColor
                 $avg_B = $rgb & 0xFF;
 
 
-                $HSV = $this->RGB_HSV($avg_R, $avg_G, $avg_B);
+                $HSV = PredominantColor::RGB_HSV($avg_R, $avg_G, $avg_B);
 
-                $number = $this->number_intable($HSV["hue"], $HSV["saturation"], $HSV["value"]);
+                $number = PredominantColor::number_intable($HSV["hue"], $HSV["saturation"], $HSV["value"]);
 
                 if (isset($arr_color[$number])) {
                     $arr_color[$number] = $arr_color[$number] + 1;
@@ -118,10 +117,10 @@ class PredominantColor
         //var_dump($arr_color);
         ImageDestroy($im);
 
-        $vr=$this->counting_color($arr_color);
+        $vr = PredominantColor::counting_color($arr_color);
+        
 
-
-        return (string)$this->calculation_dominant_color($vr);
+        return PredominantColor::calculation_dominant_color($vr);
 
     }
     // Перевести RGB в HSV
@@ -375,9 +374,10 @@ class PredominantColor
             }
         }
         
-        return MessageSystem::sendMessage(true, "цвет", $dom_color);
+         return MessageSystem::sendMessage(true, "цвет", $dom_color);
+        // return $dom_color;
     }
-
+    
 }
 
 //$b = new Predominant_Color();
