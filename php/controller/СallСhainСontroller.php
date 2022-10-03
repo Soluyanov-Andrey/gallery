@@ -68,7 +68,7 @@ class СallСhainСontroller
         if($message['result']){
 
             $this->saveMessage = ReadSaveHashFile::seveFalesImagis($smollImg); 
-            $this->$saveNewNameMD5 = $this->saveMessage['data'];
+            $this->saveNewNameMD5 = $this->saveMessage['data'];
            
         }
 
@@ -82,7 +82,8 @@ class СallСhainСontroller
         
         $b = new PredominantColor();
 
-        $this->$saveColor = $b-> Get_Img($smollImg);
+        $this->saveMessage = $b-> Get_Img($smollImg);
+        $this->saveColor = $this->saveMessage['data'];
         
         return $this;
     }
@@ -90,7 +91,8 @@ class СallСhainСontroller
     
 
     public function usageWatermark(){
-        echo("6");
+        $color = $this->saveColor;
+        WaterMark::to_draw($color);
         return $this;
     }
 

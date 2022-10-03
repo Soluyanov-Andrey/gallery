@@ -18,5 +18,5 @@ define('NAME_TEMPORARY_FILE', 'test.');
 define('URL_TEMPORARY_FILE', URL_FOLDER_INITIAL. NAME_TEMPORARY_FILE);
 define("NAME_SMOLL_IMG","small.jpg");
 define("TTF", DOCUMENT_ROOT . 'php/algorithms/transformingSteps/ofont.ru_Chekharda.ttf');
-
+define("FILE_NAME_WATERMARK","watermark.jpg");
 

@@ -18,8 +18,8 @@ class WaterMark
 
     {
 
-        static $faile_name = DIR_TEMP.FILE_NAME_WATERMARK; // Конечный фаил
-        static $img = DIR_TEMP.NAME_SMOLL_IMG; // фаил который берем
+        static $faile_name = URL_FOLDER_TMP.FILE_NAME_WATERMARK; // Конечный фаил
+        static $img = URL_FOLDER_TMP.NAME_SMOLL_IMG; // фаил который берем
 
         static $font =TTF; // Ссылка на шрифт
         static $font_size = 24; // Размер шрифта

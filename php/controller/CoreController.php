@@ -29,7 +29,8 @@ class CoreController
                  ->usageSaveFile()
                  ->usageImageResize()
                  ->usageReadSaveHashFile()
-                 ->usagePredominantColor();
+                 ->usagePredominantColor()
+                 ->usageWatermark();
                 //  ->usageReadSaveHashFile();
               
         }

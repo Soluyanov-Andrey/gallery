@@ -375,7 +375,7 @@ class PredominantColor
             }
         }
         
-        return MessageSystem::sendMessage(false, "цвет", $dom_color);
+        return MessageSystem::sendMessage(true, "цвет", $dom_color);
     }
 
 }
