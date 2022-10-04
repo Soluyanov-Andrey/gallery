@@ -14,6 +14,7 @@ class GetImages
 
     public function getImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
+        
         $obr = self::getFiles($urlImages_url, $width, $higth);
        
         if (is_null($obr['result'])) {
@@ -58,6 +59,8 @@ class GetImages
 
     private function getFiles($url, $width, $higth)
     {
+        
+       
 
         $fl = 0;
 
@@ -65,11 +68,12 @@ class GetImages
 
         //"высота".$size[1]);
         //"ширина".$size[0]);
+       
         if ($size[1] >= $higth && $size[0] >= $width) {
 
             $fl = 1;
         }
-
+ 
         //-----------------------------------------------------
         
         if ($size && $fl == 1) {

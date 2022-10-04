@@ -77,14 +77,16 @@ class СallСhainСontroller
    
 
     public function usagePredominantColor(){
-        
+        //-------------------Идентификаторы для сокращения------------------
         $smollImg = URL_FOLDER_TMP.NAME_SMOLL_IMG;
-        
-       
+        $message = $this->saveMessage;
+
+        if($message['result']){
 
         $this->saveMessage = PredominantColor::Get_Img($smollImg);
-        
         $this->saveColor = $this->saveMessage['data'];
+
+        }
         
         return $this;
     }
@@ -92,7 +94,9 @@ class СallСhainСontroller
     
 
     public function usageWatermark(){
+        //-------------------Идентификаторы для сокращения------------------
         $color = $this->saveColor;
+
         WaterMark::to_draw($color);
         return $this;
     }

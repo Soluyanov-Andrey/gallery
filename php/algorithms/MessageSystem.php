@@ -16,7 +16,7 @@ class MessageSystem
         );  
         
         MessageSystem::seveLogFiles($result["message"].'----'.$result["data"]);
-        var_dump($result);
+        
         return $result;
     }
 

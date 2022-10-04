@@ -13,8 +13,8 @@ class CoreController
          $saitUrl = 'https://zastavok.net/animals/59873-sova_el.html';
         //$saitUrl = 'https://www.lifeofpix.com/gallery/city/';
       
-        $higth = 450;
-        
+        $higth = 150;
+        $width =400;
         $result = Parser::validUrl($saitUrl);
         $array_url = array();
 
