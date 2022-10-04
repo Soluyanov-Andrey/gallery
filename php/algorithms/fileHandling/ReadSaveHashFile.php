@@ -21,7 +21,7 @@ class ReadSaveHashFile
             
             $md5 = md5($imgHash);
 
-            $newFilename = URL_FOLDER_INITIAL . $md5 .'.jpg';
+            $newFilename =  $md5 .'.jpg';
 
             $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash);
 

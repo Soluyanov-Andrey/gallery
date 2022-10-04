@@ -35,7 +35,7 @@ class СallСhainСontroller
         if ($message['result']) {
 
             $this->saveMessage = SaveFile::seveFalesImagis($saveImageUrl);
-            $this->saveTestFileExtension = URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $this->saveMessage;
+            $this->saveTestFileExtension =  $this->saveMessage['data'];
 
         }
 
@@ -80,9 +80,9 @@ class СallСhainСontroller
         //-------------------Идентификаторы для сокращения------------------
         $smollImg = URL_FOLDER_TMP . NAME_SMOLL_IMG;
         $message = $this->saveMessage;
-
+        
         if ($message['result']) {
-
+            
             $this->saveMessage = PredominantColor::Get_Img($smollImg);
             $this->saveColor = $this->saveMessage['data'];
 
@@ -96,7 +96,7 @@ class СallСhainСontroller
         //-------------------Идентификаторы для сокращения------------------
         $color = $this->saveColor;
         $message = $this->saveMessage;
-
+         echo($this->saveTestFileExtension);
         if ($message['result']) {
 
             WaterMark::to_draw($color);

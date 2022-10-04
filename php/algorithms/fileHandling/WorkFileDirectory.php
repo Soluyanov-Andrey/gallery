@@ -4,7 +4,7 @@ class WorkFileDirectory
 {
 
     
-
+    // URL_FOLDER_TMP . NAME_TEMPORARY_FILE .
   
 
     public static function folderDistribution(){
