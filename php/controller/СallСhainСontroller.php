@@ -116,7 +116,7 @@ class СallСhainСontroller
         if ($message['result']) {
            WorkFileDirectory ::createNewFileName($imgHash, $color, $extension);
         }
-
+        // DeleteImg::delete();
         return $this;
     }
 
