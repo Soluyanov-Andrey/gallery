@@ -51,6 +51,12 @@
 /images/yellow/
 !images/yellow/.gitkeep
 
+/images/tmp/
+!images/tmp/.gitkeep
+
+/php/cash_log_file/cash.txt
+
+
 
 
 
