@@ -1,30 +1,37 @@
 <?php
 
 /**
- * В классе реализованы функции для удаления изображени и файла с кэшами
+ * В классе реализованы функции для очистки папок с изображениями.
+ * функция очистки кэш файла
+ * функция очистки лог файла
  */
-
-//define("CASH_FILE_NAME","cash.txt");            // имя файла хранещего кэши изображений
-//define("DIR_SYSTEM", "../model/system/");       // путь где хранятся cash фаил изображений ,и сообщения
 
 class DeleteImg
 {
     public static function delete()
     {
 
-        DeleteImg::delete_records();
-        DeleteImg::del_img();
+        DeleteImg::deleteRecordsCash();
+        DeleteImg::deleteLogFiles();
+        DeleteImg::delImg();
     }
 
-    public static function delete_records()
+    public static function deleteRecordsCash()
     {
 
         $fp = fopen(URL_CASH_FILE, 'w');
         fclose($fp);
     }
 
+    public static function deleteLogFiles()
+    {
+
+        $fp = fopen(URL_FILE_LOG, 'w');
+        fclose($fp);
+    }
+
     //удалеяет все файлы скопированных изображений
-    public static function del_img()
+    public static function delImg()
     {
 
         $folders = array("black", "blue", "brown", "dark_blue",
@@ -34,7 +41,7 @@ class DeleteImg
         foreach ($folders as $elem) {
 
             $dir = URL_FOLDER_IMAGES . $elem;
-            echo($dir);
+            
             if ($handle = opendir($dir)) {
 
                 while (false !== ($file = readdir($handle))) {
