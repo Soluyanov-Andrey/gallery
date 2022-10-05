@@ -195,7 +195,7 @@ class PredominantColor
 
         }
     }
-
+    
     //Подсчитываем блоки относящиеся к конкретному цвету
     private function counting_color($array){
 
