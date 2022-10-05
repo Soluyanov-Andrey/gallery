@@ -3,7 +3,8 @@
 /dist
 /vendor
 /tests/.phpunit.result.cache
-/php/cash_log_file
+/php/cash_log_file/cash.txt
+/php/cash_log_file/system.log
 /images/file_initial
 
 /images/black/
@@ -54,7 +55,7 @@
 /images/tmp/
 !images/tmp/.gitkeep
 
-/php/cash_log_file/cash.txt
+
 
 
 
