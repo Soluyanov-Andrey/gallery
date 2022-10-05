@@ -19,9 +19,7 @@ class ReadSaveHashFile
            
             $imgHash = ImgHash::createHashFromFile($urlSmollImg);
             
-            $md5 = md5($imgHash);
-
-            $newFilename =  $md5 .'.jpg';
+            
 
             $resultMessage = ReadSaveHashFile ::comparisonHash($imgHash);
 
@@ -29,7 +27,7 @@ class ReadSaveHashFile
             if ($resultMessage['result']) {
                 
                 // rename($urlSmollImg, $newFilename);
-                return ReadSaveHashFile::seveFalesHash($imgHash, $newFilename);
+                return ReadSaveHashFile::seveFalesHash($imgHash,  $imgHash );
 
             }
             

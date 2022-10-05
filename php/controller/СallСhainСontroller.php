@@ -13,7 +13,7 @@ class СallСhainСontroller
     private $saveMessage;
     // private $saveExtension;
     private $saveTestFileExtension;
-    private $saveNewNameMD5;
+    private $saveImgHash;
     private $saveColor;
 
     public function usageGetImage($value, $saitUrl, $width, $higth)
@@ -68,7 +68,7 @@ class СallСhainСontroller
         if ($message['result']) {
 
             $this->saveMessage = ReadSaveHashFile::seveFalesImagis($smollImg);
-            $this->saveNewNameMD5 = $this->saveMessage['data'];
+            $this->saveImgHash = $this->saveMessage['data'];
 
         }
 
@@ -109,14 +109,12 @@ class СallСhainСontroller
         //-------------------Идентификаторы для сокращения------------------
         $color = $this->saveColor;
         $message = $this->saveMessage;
-        $nameMD5 = $this->saveNewNameMD5;
-        $file =$this->saveTestFileExtension;
+        $imgHash = $this->saveImgHash;
+        $extension =$this->saveTestFileExtension;
 
+       
         if ($message['result']) {
-           var_dump($color);
-           var_dump($message);
-           var_dump($nameMD5);
-           var_dump($file);
+           WorkFileDirectory ::createNewFileName($imgHash, $color, $extension);
         }
 
         return $this;

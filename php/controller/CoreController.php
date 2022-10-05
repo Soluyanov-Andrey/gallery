@@ -23,26 +23,26 @@ class CoreController
        
 
 
-        // foreach ($result['data'] as &$value) {
+        foreach ($result['data'] as &$value) {
 
-        //     $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
-        //          ->usageSaveFile()
-        //          ->usageImageResize()
-        //          ->usageReadSaveHashFile()
-        //          ->usagePredominantColor()
-        //          ->usageWatermark();
-        //         //  ->usageReadSaveHashFile();
-              
-        // }
+            $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
+                 ->usageSaveFile()
+                 ->usageImageResize()
+                 ->usageReadSaveHashFile()
+                 ->usagePredominantColor()
+                 ->usageWatermark()
+                 ->usageWorkFileDirectory()
+                 ->usageReadSaveHashFile();
+        }
 
-    $value = 'https://zastavok.net/ts/animals/165273601317.jpg';
-    $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
-    ->usageSaveFile()
-    ->usageImageResize()
-    ->usageReadSaveHashFile()
-    ->usagePredominantColor()
-    ->usageWatermark()
-    ->usageWorkFileDirectory();
+    // $value = 'https://zastavok.net/ts/animals/165273601317.jpg';
+    // $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
+    // ->usageSaveFile()
+    // ->usageImageResize()
+    // ->usageReadSaveHashFile()
+    // ->usagePredominantColor()
+    // ->usageWatermark()
+    // ->usageWorkFileDirectory();
    //  ->usageReadSaveHashFile();
     
     }
