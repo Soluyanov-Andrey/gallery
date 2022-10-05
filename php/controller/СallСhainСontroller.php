@@ -96,7 +96,7 @@ class СallСhainСontroller
         //-------------------Идентификаторы для сокращения------------------
         $color = $this->saveColor;
         $message = $this->saveMessage;
-         echo($this->saveTestFileExtension);
+         
         if ($message['result']) {
 
             WaterMark::to_draw($color);
@@ -106,6 +106,18 @@ class СallСhainСontroller
 
     public function usageWorkFileDirectory()
     {
+        //-------------------Идентификаторы для сокращения------------------
+        $color = $this->saveColor;
+        $message = $this->saveMessage;
+        $nameMD5 = $this->saveNewNameMD5;
+        $file =$this->saveTestFileExtension;
+
+        if ($message['result']) {
+           var_dump($color);
+           var_dump($message);
+           var_dump($nameMD5);
+           var_dump($file);
+        }
 
         return $this;
     }

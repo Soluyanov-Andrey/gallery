@@ -12,7 +12,7 @@
 class WaterMark
 {
 
-
+    const WATERMARK = 'Блок, подписи цвета, на рисунке выполнен.';
 
     public static function to_draw($color_img)
 
@@ -43,7 +43,7 @@ class WaterMark
 
         $text=$color_transfer[$color_img];
 
-    $pic = Imagecreatefromjpeg($img);                         // Функция создания изображения
+    $pic = Imagecreatefromjpeg($img);           // Функция создания изображения
     $color = ImageColorAllocate($pic, 0, 0, 0); // Функция выделения цвета для текста
 
 
@@ -58,9 +58,10 @@ class WaterMark
     // Функция нанесения текста
     imagejpeg($pic, $faile_name); // Сохранение рисунка
     ImageDestroy($pic);           // Освобождение памяти и закрытие рисунка
-
+    
+    return MessageSystem::sendMessage(true, self::WATERMARK, '');
     }
 
-
+    
 }
 //Watermark::to_draw("gray");

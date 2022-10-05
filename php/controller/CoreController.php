@@ -41,7 +41,8 @@ class CoreController
     ->usageImageResize()
     ->usageReadSaveHashFile()
     ->usagePredominantColor()
-    ->usageWatermark();
+    ->usageWatermark()
+    ->usageWorkFileDirectory();
    //  ->usageReadSaveHashFile();
     
     }
