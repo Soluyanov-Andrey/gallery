@@ -5,7 +5,7 @@
 /tests/.phpunit.result.cache
 /php/cash_log_file/cash.txt
 /php/cash_log_file/system.log
-/images/file_initial
+/images/fileInitial
 
 /images/black/
 !images/black/.gitkeep
@@ -16,8 +16,8 @@
 /images/brown/
 !images/brown/.gitkeep
 
-/images/dark_blue/
-!images/dark_blue/.gitkeep
+/images/darkBlue/
+!images/darkBlue/.gitkeep
 
 /images/file_initial/
 !images/file_initial/.gitkeep

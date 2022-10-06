@@ -10,7 +10,7 @@ class GetImages
     const FILES_SIZE_NO = 'Рисунок есть но не подходит по размеру';
     const FILES_NO = 'Рисунка  нет';
     const CORRECTION_NO = 'Коррекция Url результата не дала.';
-    const CORRECTION_YES = 'Коррекция Url результы дала.';
+    const CORRECTION_YES = 'Коррекция Url  результы дала.';
 
     public function getImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
