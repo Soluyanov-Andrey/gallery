@@ -29,15 +29,15 @@ class WaterMark
 
         static $color_transfer = array("black" => "Черный",
                               "fiolet" => "Фиолетовый",
-                              "siniy" => "Синий",
-                              "goluboi" => "Голубой",
+                              "darkBlue" => "Синий",
+                              "blue" => "Голубой",
                               "green" => "Зеленый",
                               "yellow" => "Желтый",
                               "orange" => "Оранжевый",
                               "red" => "Красный",
                               "white" => "Белый",
                               "gray" => "Серый",
-                              "berezovy" => "Берюзовый",
+                              "turquoise" => "Берюзовый",
                               "rose" => "Розовый",
                               "brown" => "Коричневый");
 

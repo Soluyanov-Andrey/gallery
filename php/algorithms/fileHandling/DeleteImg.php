@@ -34,8 +34,8 @@ class DeleteImg
     public static function delImg()
     {
 
-        $folders = array("black", "blue", "brown", "dark_blue",
-            "file_initial", "gray", "green", "orange", "red",
+        $folders = array("black", "blue", "brown", "darkBlue",
+            "fileInitial", "gray", "green", "orange", "red",
             "rose", "turquoise", "violet", "white", "yellow");
 
         foreach ($folders as $elem) {

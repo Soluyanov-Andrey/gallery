@@ -10,7 +10,7 @@ define("URL_CLASS_FILE_HANDLING", "algorithms/fileHandling/");
 define("URL_CLASS_VIEW", "algorithms/view/");
 define("URL_CLASS_CONTROLLER", "controller/");
 
-define('URL_FOLDER_INITIAL', DOCUMENT_ROOT . 'images/file_initial/');
+define('URL_FOLDER_INITIAL', DOCUMENT_ROOT . 'images/fileInitial/');
 define('URL_FOLDER_TMP', DOCUMENT_ROOT . 'images/tmp/');
 define('URL_FOLDER_IMAGES', DOCUMENT_ROOT . 'images/');
 define('URL_FILE_LOG', DOCUMENT_ROOT_PHP . 'cash_log_file/system.log');

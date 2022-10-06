@@ -29,13 +29,13 @@ class PredominantColor
     );
 
     //3) Диапазоны относящиеся к синему
-    static $siniy = array(
+    static $darkBlue = array(
         375,380,381,386,387,388,389,392,393,394,395,396,411,416,417,418,419,422,423,
         424,425,426,428,429,430,431,432,443,447,448,449,452,453,454,455,456,458,459,
         460,461,462,464,465,466,467,468,500,501,585);
 
     //4) Диапазоны относящиеся к голубому
-    static $goluboi=array(
+    static $blue=array(
         371,372,376,377,382,383,407,408,412,413,414,420,444,450,378,384,390,353,354,
         370,406);
 
@@ -70,7 +70,7 @@ class PredominantColor
         616,651,652);
 
     //11) Диапазоны относящиеся к берюзовому
-    static $berezovy = array(297,298,299,302,303,304,305,306,312,318,324,333,334,335,336,338,
+    static $turquoise = array(297,298,299,302,303,304,305,306,312,318,324,333,334,335,336,338,
         339,340,341,342,344,345,346,347,348,350,351,352,356,357,358,359,360);
 
     //12) Диапазоны относящиеся к коричневому
@@ -202,15 +202,15 @@ class PredominantColor
         $data = array(
             "black" => 0,
             "fiolet" => 0,
-            "siniy" => 0,
-            "goluboi" => 0,
+            "darkBlue" => 0,
+            "blue" => 0,
             "green" => 0,
             "yellow" => 0,
             "orange" => 0,
             "red" => 0,
             "white" => 0,
             "gray" => 0,
-            "berezovy" => 0,
+            "turquoise" => 0,
             "rose" => 0,
             "brown"=> 0
         );
@@ -225,13 +225,13 @@ class PredominantColor
 
         }
 
-        foreach (self::$siniy as $elem ) {
-            if (isset($array[$elem])) {$data["siniy"]=$data["siniy"]+$array[$elem];};
+        foreach (self::$darkBlue as $elem ) {
+            if (isset($array[$elem])) {$data["darkBlue"]=$data["darkBlue"]+$array[$elem];};
 
         }
 
-        foreach (self::$goluboi as $elem ) {
-            if (isset($array[$elem])) {$data["goluboi"]=$data["goluboi"]+$array[$elem];};
+        foreach (self::$blue as $elem ) {
+            if (isset($array[$elem])) {$data["blue"]=$data["blue"]+$array[$elem];};
 
         }
 
@@ -267,8 +267,8 @@ class PredominantColor
 
         }
 
-        foreach (self::$berezovy as $elem ) {
-            if (isset($array[$elem])) {$data["berezovy"]=$data["berezovy"]+$array[$elem];};
+        foreach (self::$turquoise as $elem ) {
+            if (isset($array[$elem])) {$data["turquoise"]=$data["turquoise"]+$array[$elem];};
 
         }
 
@@ -293,7 +293,7 @@ class PredominantColor
         $blok_bc = array(
 
             "black+" =>  $data["gray"]+$data["black"],
-            "color+" =>  $data["fiolet"]+$data["siniy"]+$data["goluboi"]+$data["green"]+$data["yellow"]+$data["orange"]+$data["red"]+$data["white"]+$data["berezovy"]+$data["rose"]+$data["brown"]
+            "color+" =>  $data["fiolet"]+$data["darkBlue"]+$data["blue"]+$data["green"]+$data["yellow"]+$data["orange"]+$data["red"]+$data["white"]+$data["turquoise"]+$data["rose"]+$data["brown"]
         );
 
 
@@ -312,7 +312,7 @@ class PredominantColor
 
             $blok_skj = array(
 
-                "siniy+" => $data["siniy"]+$data["fiolet"]+$data["goluboi"]+$data["berezovy"],
+                "darkBlue+" => $data["darkBlue"]+$data["fiolet"]+$data["blue"]+$data["turquoise"],
                 "krasniy+" => $data["red"]+$data["rose"],
                 "yellow+" => $data["yellow"]+$data["orange"],
                 "brown" => $data["brown"],
@@ -321,28 +321,28 @@ class PredominantColor
             );
             $max=max($blok_skj);
 
-            if(array_search($max,$blok_skj)=="siniy+"){
+            if(array_search($max,$blok_skj)=="darkBlue+"){
 
                 $blok_sfgb = array(
-                    "siniy"=>$data["siniy"],
+                    "darkBlue"=>$data["darkBlue"],
                     "fiolet"=>$data["fiolet"],
-                    "goluboi"=>$data["goluboi"],
-                    "berezovy"=>$data["berezovy"]
+                    "blue"=>$data["blue"],
+                    "turquoise"=>$data["turquoise"]
                 );
 
                 $max_sfgb=max($blok_sfgb);
 
-                if(array_search($max_sfgb,$blok_sfgb)=="siniy"){
-                    $dom_color="siniy";
+                if(array_search($max_sfgb,$blok_sfgb)=="darkBlue"){
+                    $dom_color="darkBlue";
                 }
                 if(array_search($max_sfgb,$blok_sfgb)=="fiolet"){
                     $dom_color="fiolet";
                 }
-                if(array_search($max_sfgb,$blok_sfgb)=="goluboi"){
-                    $dom_color="goluboi";
+                if(array_search($max_sfgb,$blok_sfgb)=="blue"){
+                    $dom_color="blue";
                 }
-                if(array_search($max_sfgb,$blok_sfgb)=="berezovy"){
-                    $dom_color="berezovy";
+                if(array_search($max_sfgb,$blok_sfgb)=="turquoise"){
+                    $dom_color="turquoise";
                 }
 
 

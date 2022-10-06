@@ -6,11 +6,11 @@
  */
 class GetImages 
 {
-    const FILES_YES = 'Фаил есть и подходит по размеру';
-    const FILES_SIZE_NO = 'Фаил есть но не подходит по размеру';
-    const FILES_NO = 'Фаила нет';
-    const CORRECTION_NO = 'Коррекция результата не дала.';
-    const CORRECTION_YES = 'Коррекция результы дала.';
+    const FILES_YES = 'Рисунок есть и подходит по размеру';
+    const FILES_SIZE_NO = 'Рисунок есть но не подходит по размеру';
+    const FILES_NO = 'Рисунка  нет';
+    const CORRECTION_NO = 'Коррекция Url результата не дала.';
+    const CORRECTION_YES = 'Коррекция Url результы дала.';
 
     public function getImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
@@ -68,7 +68,7 @@ class GetImages
 
         //"высота".$size[1]);
         //"ширина".$size[0]);
-       
+    
         if ($size[1] >= $higth && $size[0] >= $width) {
 
             $fl = 1;

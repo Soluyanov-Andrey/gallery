@@ -35,7 +35,7 @@ class CoreController
                  ->usageReadSaveHashFile();
         }
 
-    // $value = 'https://zastavok.net/ts/animals/165273601317.jpg';
+    // $value = 'https://zastavok.net/uploads/avatars/foto_315.gif';
     // $bmw ->usageGetImage($value, $saitUrl, $width, $higth)
     // ->usageSaveFile()
     // ->usageImageResize()

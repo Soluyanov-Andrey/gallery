@@ -21,7 +21,7 @@ class CallChainController
 
         $this->saveMessage = GetImages::getImagesUrl($value, $saitUrl, $width, $higth);
         $this->saveImageUrl = $this->saveMessage['data'];
-
+        MessageSystem::sendMessage(false, "------var-----",  $this->saveMessage['result']);
         return $this;
     }
 
@@ -69,7 +69,7 @@ class CallChainController
 
             $this->saveMessage = ReadSaveHashFile::seveFalesImagis($smollImg);
             $this->saveImgHash = $this->saveMessage['data'];
-
+            
         }
 
         return $this;
@@ -116,7 +116,8 @@ class CallChainController
         if ($message['result']) {
            WorkFileDirectory ::createNewFileName($imgHash, $color, $extension);
         }
-        //  DeleteImg::delete();
+         //DeleteImg::delete();
+         MessageSystem::sendMessage(false, "------konec------", '');
         return $this;
     }
 
