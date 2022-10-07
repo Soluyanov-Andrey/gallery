@@ -7,6 +7,7 @@ class ReadSaveHashFile
     const URL_IMAGES_NO = 'Такого изображения в Hash еще нет.';
     const URL_IMAGES_5_PERCENT = 'Изображение различимо менне чем на 5%';
     const IMAGES_HASH_SAVE = 'Сохранили Hash файла';
+    
     /**
      *
      *
