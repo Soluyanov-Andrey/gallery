@@ -44,6 +44,16 @@ class GetImages
         }
 
     }
+
+    private function getFilesExamination(){
+
+    }
+
+    private function filesSizeExamination(){
+
+    }
+
+
     private function getFilesRepeated($url, $method_name)
     {
 
@@ -56,6 +66,7 @@ class GetImages
         return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
 
     }
+
 
     private function getFiles($url, $width, $higth)
     {
