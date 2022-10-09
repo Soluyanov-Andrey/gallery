@@ -21,7 +21,7 @@ class CallChainController
 
         $this->saveMessage = GetImages::getImagesUrl($value, $saitUrl, $width, $higth);
         $this->saveImageUrl = $this->saveMessage['data'];
-        MessageSystem::sendMessage(false, "------var-----",  $this->saveMessage['result']);
+  
         return $this;
     }
 

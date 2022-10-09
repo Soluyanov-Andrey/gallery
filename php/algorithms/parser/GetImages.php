@@ -11,48 +11,67 @@ class GetImages
     const FILES_NO = 'Рисунка  нет';
     const CORRECTION_NO = 'Коррекция Url результата не дала.';
     const CORRECTION_YES = 'Коррекция Url  результы дала.';
-    const ONE_EXAMINATION = 'Первая проверка';
+    const CORRECTIVE_STEP_0 = 'Первая проверка';
     const CORRECTIVE_STEP_1 = 'correctiveStep_1';
+    const CORRECTIVE_STEP_2 = 'correctiveStep_2';
+    const CORRECTIVE_STEP_3 = 'correctiveStep_3';
 
     public function getImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
         
-        $obr = self::getFilesExamination($urlImages_url, $width, $higth);
+        $obr = self::getFilesExamination($urlImages_url, self::CORRECTIVE_STEP_0);
        
-        if (is_null($obr['result'])) {
+        if (!$obr['result']) {
 
             $result_url = GetImages::correctiveStep_1($urlImages_url, $saitUrl);
-            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_1");
-
-            if ($result['result']) {return $result;};
+            $result = GetImages::getFilesExamination($result_url, "correctiveStep_1");
+            
+            if ($result['result']) {
+                
+                $obr = self::filesSizeExamination($result_url, $width, $higth);
+                return $obr;
+            };
 
             $result_url = GetImages::correctiveStep_2($urlImages_url, $saitUrl);
-            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_2");
-
-            if ($result['result']) {return $result;};
+            $result = GetImages::getFilesExamination($result_url, "correctiveStep_2");
+            
+            if ($result['result']) {
+                
+                $obr = self::filesSizeExamination($result_url, $width, $higth);
+                return $obr;
+            };
 
             $result_url = GetImages::correctiveStep_3($urlImages_url, $saitUrl); 
-            $result = GetImages::getFilesRepeated($result_url, "correctiveStep_3");
-            
-            if ($result['result']) {return $result;};
+            $result = GetImages::getFilesExamination($result_url, "correctiveStep_3");
+           
+            if ($result['result']) {
+                
+                $obr = self::filesSizeExamination($result_url, $width, $higth);
+                return $obr;
+            };
 
             return $obr;
 
         }
-        if ($obr['result'] == true || $obr['result'] == false) {
 
-            return $obr;
+        $obr = self::filesSizeExamination($urlImages_url, $width, $higth);
 
-        }
+        return $obr;
+
+        // if ($obr['result'] == true || $obr['result'] == false) {
+
+        //     return $obr;
+
+        // }
 
     }
 
     private function getFilesExamination($url,$method_name){
 
-        $size = @getImagesize($url);
-
-        if (!$size) {
-            return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
+        $file = @getImagesize($url);
+        MessageSystem::sendMessage(false, "------var-----",  $result_url);
+        if (!$file) {
+            return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name, $url);
         }
 
         return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
@@ -62,7 +81,7 @@ class GetImages
         
 
         $size = @getImagesize($url);
-
+        
         //"высота".$size[1]);
         //"ширина".$size[0]);
     
@@ -71,64 +90,64 @@ class GetImages
             return MessageSystem::sendMessage(true, self::FILES_YES, $url);
         }
         
-            return MessageSystem::sendMessage(true, self::FILES_SIZE_NO, $url);
+            return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
         
 
 
     }
 
 
-    private function getFilesRepeated($url, $method_name)
-    {
+    // private function getFilesRepeated($url, $method_name)
+    // {
 
-        $size = @getImagesize($url);
+    //     $size = @getImagesize($url);
 
-        if (!$size) {
-            return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
-        }
+    //     if (!$size) {
+    //         return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
+    //     }
 
-        return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
+    //     return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
 
-    }
+    // }
 
 
-    private function getFiles($url, $width, $higth)
-    {
+    // private function getFiles($url, $width, $higth)
+    // {
         
        
 
-        $fl = 0;
+    //     $fl = 0;
 
-        $size = @getImagesize($url);
+    //     $size = @getImagesize($url);
 
-        //"высота".$size[1]);
-        //"ширина".$size[0]);
+    //     //"высота".$size[1]);
+    //     //"ширина".$size[0]);
     
-        if ($size[1] >= $higth && $size[0] >= $width) {
+    //     if ($size[1] >= $higth && $size[0] >= $width) {
 
-            $fl = 1;
-        }
+    //         $fl = 1;
+    //     }
  
-        //-----------------------------------------------------
+    //     //-----------------------------------------------------
         
-        if ($size && $fl == 1) {
-            //фаил есть и подходит по размеру
+    //     if ($size && $fl == 1) {
+    //         //фаил есть и подходит по размеру
 
-            return MessageSystem::sendMessage(true, self::FILES_YES, $url);
-        }
+    //         return MessageSystem::sendMessage(true, self::FILES_YES, $url);
+    //     }
 
-        if ($size && $fl == 0) {
-            //фаил есть но не подходит по размеру
+    //     if ($size && $fl == 0) {
+    //         //фаил есть но не подходит по размеру
 
-            return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
-        } 
+    //         return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
+    //     } 
 
-        if (!$size) {
-            //фаила нет
+    //     if (!$size) {
+    //         //фаила нет
 
-            return MessageSystem::sendMessage(null, self::FILES_NO,$url);
-        }
-    }
+    //         return MessageSystem::sendMessage(null, self::FILES_NO,$url);
+    //     }
+    // }
 
     /*
      * corrective_step1 возвращает новый URl
