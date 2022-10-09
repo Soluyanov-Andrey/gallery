@@ -11,11 +11,13 @@ class GetImages
     const FILES_NO = 'Рисунка  нет';
     const CORRECTION_NO = 'Коррекция Url результата не дала.';
     const CORRECTION_YES = 'Коррекция Url  результы дала.';
+    const ONE_EXAMINATION = 'Первая проверка';
+    const CORRECTIVE_STEP_1 = 'correctiveStep_1';
 
     public function getImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
         
-        $obr = self::getFiles($urlImages_url, $width, $higth);
+        $obr = self::getFilesExamination($urlImages_url, $width, $higth);
        
         if (is_null($obr['result'])) {
 
@@ -45,11 +47,33 @@ class GetImages
 
     }
 
-    private function getFilesExamination(){
+    private function getFilesExamination($url,$method_name){
 
+        $size = @getImagesize($url);
+
+        if (!$size) {
+            return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
+        }
+
+        return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
     }
 
-    private function filesSizeExamination(){
+    private function filesSizeExamination($url, $width, $higth){
+        
+
+        $size = @getImagesize($url);
+
+        //"высота".$size[1]);
+        //"ширина".$size[0]);
+    
+        if ($size[1] >= $higth && $size[0] >= $width) {
+
+            return MessageSystem::sendMessage(true, self::FILES_YES, $url);
+        }
+        
+            return MessageSystem::sendMessage(true, self::FILES_SIZE_NO, $url);
+        
+
 
     }
 
