@@ -7,12 +7,8 @@ class ReadSaveHashFile
     const URL_IMAGES_NO = 'Такого изображения в Hash еще нет.';
     const URL_IMAGES_5_PERCENT = 'Изображение различимо менне чем на 5%';
     const IMAGES_HASH_SAVE = 'Сохранили Hash файла';
-    
-    /**
-     *
-     *
-     * @param array $data массив с выбраными url изображений.
-     */
+
+   
 
     public static function seveFalesImagis($urlSmollImg)
     {
@@ -39,7 +35,7 @@ class ReadSaveHashFile
     /**
      * Проверяем есть ли в записанном файле кэш, подобное изображение.
      * @param string $hashFromFile кэш изображения
-     * @param array arrayHashRedFiles массив содержащий кэши изображений хранящийся в файле.
+     * 
      */
 
     private function comparisonHash($hashFromFile)

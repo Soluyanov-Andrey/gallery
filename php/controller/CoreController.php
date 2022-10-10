@@ -10,7 +10,8 @@ class CoreController
 {
 
     function __construct() {
-         $saitUrl = 'https://zastavok.net/animals/59873-sova_el.html';
+        $saitUrl = 'https://kanzoboz.ru/article/galereya_realistichnyih_risunkov_sharikovoy_ruchkoy_jivotnyih_ot_tima_djeffsa/';
+         //$saitUrl = 'https://zastavok.net/animals/59873-sova_el.html';
         //$saitUrl = 'https://www.lifeofpix.com/gallery/city/';
       
         $higth = 150;
