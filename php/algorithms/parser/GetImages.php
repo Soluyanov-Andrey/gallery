@@ -4,7 +4,7 @@
  *  И скачать ../image.jpg через http не возможно. В данном классе производтся попытка исправить такие url.
  *  И в сообщении MessageSystem::sendMessage возвращается рабочий url.
  */
-class GetImages 
+class GetImages
 {
     const FILES_YES = 'Рисунок есть и подходит по размеру';
     const FILES_SIZE_NO = 'Рисунок есть но не подходит по размеру';
@@ -18,54 +18,53 @@ class GetImages
 
     public function getImagesUrl($urlImages_url, $saitUrl, $width, $higth)
     {
-        
-        $obr = self::getFilesExamination($urlImages_url, self::CORRECTIVE_STEP_0);
-       
-        if (!$obr['result']) {
+
+        $temporary = self::getFilesExamination($urlImages_url, self::CORRECTIVE_STEP_0);
+
+        if (!$temporary['result']) {
 
             $result_url = GetImages::correctiveStep_1($urlImages_url, $saitUrl);
-            $result = GetImages::getFilesExamination($result_url, "correctiveStep_1");
-            
+            $result = GetImages::getFilesExamination($result_url, self::CORRECTIVE_STEP_1);
+
             if ($result['result']) {
-                
-                $obr = self::filesSizeExamination($result_url, $width, $higth);
-                return $obr;
+
+                $temporary = self::filesSizeExamination($result_url, $width, $higth);
+                return $temporary;
             };
 
             $result_url = GetImages::correctiveStep_2($urlImages_url, $saitUrl);
-            $result = GetImages::getFilesExamination($result_url, "correctiveStep_2");
-            
+            $result = GetImages::getFilesExamination($result_url, self::CORRECTIVE_STEP_2);
+
             if ($result['result']) {
-                
-                $obr = self::filesSizeExamination($result_url, $width, $higth);
-                return $obr;
+
+                $temporary = self::filesSizeExamination($result_url, $width, $higth);
+                return $temporary;
             };
 
-            $result_url = GetImages::correctiveStep_3($urlImages_url, $saitUrl); 
-            $result = GetImages::getFilesExamination($result_url, "correctiveStep_3");
-           
+            $result_url = GetImages::correctiveStep_3($urlImages_url, $saitUrl);
+            $result = GetImages::getFilesExamination($result_url, self::CORRECTIVE_STEP_3);
+
             if ($result['result']) {
-                
-                $obr = self::filesSizeExamination($result_url, $width, $higth);
-                return $obr;
+
+                $temporary = self::filesSizeExamination($result_url, $width, $higth);
+                return $temporary;
             };
 
-            return $obr;
+            return $temporary;
 
         }
 
-        $obr = self::filesSizeExamination($urlImages_url, $width, $higth);
+        $temporary = self::filesSizeExamination($urlImages_url, $width, $higth);
 
-        return $obr;
-
-        
+        return $temporary;
 
     }
 
-    private function getFilesExamination($url,$method_name){
+    private function getFilesExamination($url, $method_name)
+    {
 
         $file = @getImagesize($url);
-        MessageSystem::sendMessage(false, "------var-----",  $result_url);
+        MessageSystem::sendMessage(false, "------var-----", $result_url);
         if (!$file) {
             return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name, $url);
         }
@@ -73,22 +72,20 @@ class GetImages
         return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
     }
 
-    private function filesSizeExamination($url, $width, $higth){
-        
+    private function filesSizeExamination($url, $width, $higth)
+    {
 
         $size = @getImagesize($url);
-        
+
         //"высота".$size[1]);
         //"ширина".$size[0]);
-    
+
         if ($size[1] >= $higth && $size[0] >= $width) {
 
             return MessageSystem::sendMessage(true, self::FILES_YES, $url);
         }
-        
-            return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
-        
 
+        return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
 
     }
 
@@ -119,7 +116,7 @@ class GetImages
 
             }
         };
-       
+
         return $url;
 
     }
@@ -180,7 +177,7 @@ class GetImages
             return ($str_1 . '/' . $str_2);
 
         }
-        
+
         return $url;
     }
     /*
@@ -191,13 +188,13 @@ class GetImages
      */
     protected function correctiveStep_3($url, $saitUrl)
     {
-    
+
         $a = parse_url($saitUrl);
         $url_n = $a["scheme"] . "://" . $a["host"];
 
         //если в url первая  "/" то соеденяем по
         if (substr($url, 0, 1) == "/") {
-            
+
             return $url_n . $url;
         } else {
             return $url_n . "/" . $url;
