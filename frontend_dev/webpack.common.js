@@ -89,12 +89,12 @@ module.exports = {
 
         }),
 
-        new CopyPlugin({
-            patterns: [
-              { from: './src/urlImages', to: 'urlImages' },
-              { from: './src/fonts', to: 'fonts' }
-            ],
-          }),
+        // new CopyPlugin({
+        //     patterns: [
+        //       { from: './src/urlImages', to: 'urlImages' },
+        //       { from: './src/fonts', to: 'fonts' }
+        //     ],
+        //   }),
 
        // в предыдущей версии писал так
        // с этим модулем были проблемы установился v 2.0.2 и выдовал ошибку
