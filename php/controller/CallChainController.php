@@ -116,7 +116,7 @@ class CallChainController
         if ($message['result']) {
            WorkFileDirectory ::createNewFileName($imgHash, $color, $extension);
         }
-         //DeleteImg::delete();
+        //  DeleteImg::delete();
          MessageSystem::sendMessage(false, "------konec------", '');
         return $this;
     }

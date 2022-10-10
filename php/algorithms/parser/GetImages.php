@@ -58,11 +58,7 @@ class GetImages
 
         return $obr;
 
-        // if ($obr['result'] == true || $obr['result'] == false) {
-
-        //     return $obr;
-
-        // }
+        
 
     }
 
@@ -95,59 +91,6 @@ class GetImages
 
 
     }
-
-
-    // private function getFilesRepeated($url, $method_name)
-    // {
-
-    //     $size = @getImagesize($url);
-
-    //     if (!$size) {
-    //         return MessageSystem::sendMessage(false, self::CORRECTION_NO . "-" . $method_name);
-    //     }
-
-    //     return MessageSystem::sendMessage(true, self::CORRECTION_YES . "-" . $method_name, $url);
-
-    // }
-
-
-    // private function getFiles($url, $width, $higth)
-    // {
-        
-       
-
-    //     $fl = 0;
-
-    //     $size = @getImagesize($url);
-
-    //     //"высота".$size[1]);
-    //     //"ширина".$size[0]);
-    
-    //     if ($size[1] >= $higth && $size[0] >= $width) {
-
-    //         $fl = 1;
-    //     }
- 
-    //     //-----------------------------------------------------
-        
-    //     if ($size && $fl == 1) {
-    //         //фаил есть и подходит по размеру
-
-    //         return MessageSystem::sendMessage(true, self::FILES_YES, $url);
-    //     }
-
-    //     if ($size && $fl == 0) {
-    //         //фаил есть но не подходит по размеру
-
-    //         return MessageSystem::sendMessage(false, self::FILES_SIZE_NO, $url);
-    //     } 
-
-    //     if (!$size) {
-    //         //фаила нет
-
-    //         return MessageSystem::sendMessage(null, self::FILES_NO,$url);
-    //     }
-    // }
 
     /*
      * corrective_step1 возвращает новый URl
