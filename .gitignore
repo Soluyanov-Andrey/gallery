@@ -1,5 +1,7 @@
 /.idea
 /node_modules
+frontendDevJS/node_modules
+frontendDevJS/dist
 /dist
 /vendor
 /tests/.phpunit.result.cache
