@@ -14,6 +14,7 @@ class SaveFile
 
         $pathParts = pathinfo($url);
 
+        
         if (!copy($url, URL_FOLDER_TMP . NAME_TEMPORARY_FILE . $pathParts['extension'])) {
             return MessageSystem::sendMessage(false, self::SAVE_FILE_IMAGES_NO, '');
         }
