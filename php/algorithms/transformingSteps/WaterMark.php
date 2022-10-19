@@ -9,6 +9,7 @@
 //define("TTF","../view/a_AlternaSw.ttf");        // Ссылка на шрифт)
 //define("NAME_SMOLL_IMG","small_photo.jpg");     // имя файла после уменьшения рисунка до требуемых размеров
 
+
 class WaterMark
 {
 
