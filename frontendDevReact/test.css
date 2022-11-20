@@ -1,0 +1,163 @@
+html,body {
+    
+    margin: 0;
+}
+#float-block {
+  background-color: #FFFFFF;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0px;
+  border-bottom: 1px solid #c4beb7;
+z-index: 2;	
+}
+#shapka {
+  
+  width: 500px;
+  height: auto; 
+  margin: 0px auto; 
+  
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-decoration: Поиск;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 350px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+#width{
+  width: 150px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+#higth{
+  width: 150px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+
+}
+
+
+#kolokol{
+  position: relative;
+  top : -45px;
+  left :510px;
+  filter: alpha (Opacity=25);
+  opacity: 0.5;
+}
+#kolokol:hover {
+  filter: alpha (Opacity=100);
+  opacity: 1;
+}
+
+#nastroiki{
+   position: relative;
+   top : -45px;
+   left :530px;
+   filter: alpha (Opacity=25);
+   opacity: 0.5;
+}
+#nastroiki:hover {
+  filter: alpha (Opacity=100);
+  opacity: 1;
+}
+
+.modalDialog {
+
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+
+
+}
+
+
+.modalDialog > div {
+  width: 400px;
+
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+
+}
+.close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+.messages {
+  height: 200px; /* высота нашего блока */
+  width: 390px; /* ширина нашего блока */
+  background: #fff; /* цвет фона, белый */
+  border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+
+  overflow-y: scroll; /* прокрутка по вертикали */
+}
+.close:hover { background: #00d9ff; }
+
+
+
+#gallery {
+  z-index: 1;
+  Position : absolute;
+  top : 70px;
+  left :30px;
+
+}
+.l {
+  Position : absolute;
+  z-index:-1;
+  left :48%;
+  top: 48%;
+}
+
+
+#win_notification {
+   display: none;
+   Position : absolute;
+   top : 200px;
+   left :150px;
+}
+#setting {
+  display: none;
+  Position : absolute;
+  top : 200px;
+  left :150px;
+}
