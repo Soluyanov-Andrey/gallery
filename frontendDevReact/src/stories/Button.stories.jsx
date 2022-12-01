@@ -9,6 +9,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
+    odd: { control: { type: 'range', min: 1, max: 30, step: 3 } }
   },
 };
 
@@ -25,6 +26,7 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  odd: 10,
 };
 
 export const Large = Template.bind({});
