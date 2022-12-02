@@ -14,14 +14,16 @@ import imageFile1 from './assets/nastroiki.jpg';
 
 export const Floatblock = () => {
 
+const [user, setUser] = React.useState();
+
   return (
     <div id="float-block" className="float-block">
 
       <div id="shapka">
         <div id="showScroll"></div>
 
-        <input type="text" id="txt" name="search" placeholder="Url загрузки" />
-        <input type="submit" id="btn" value="Загрузка" />
+        <input  type="text" id="txt" name="search" placeholder="Url загрузки" />
+        <input  type="submit" id="btn" value="Загрузка" />
 
 
         <img id="kolokol" src={imageFile} alt="колокол" title="Уведомления" />
@@ -33,3 +35,4 @@ export const Floatblock = () => {
 
   );
 };
+
