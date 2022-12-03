@@ -27,7 +27,7 @@ export const App = () =>  {
     <div className = "blocking-layer"></div>
 
 
-    <div  className="settings-win">
+    <div className="settings-win">
         <div>
            <div className="settings-win__close">X</div>
            <h2>Настройки</h2>

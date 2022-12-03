@@ -87,7 +87,10 @@ html,body {
 /*?-----------------blocking-layer end-------------------------*/
 
 
+/*?-----------------settings-win start-----------------------------*/  
+
 .settings-win{
+  display: block; /*! */
   z-index: 11;
   width: 400px;
   position: relative;
@@ -123,17 +126,21 @@ html,body {
     .settings-win__close:hover { background: #00d9ff; }
 
     .settings-win input[type=submit]{
-       background-color: #4CAF50;
-       border: none;
-       color: white;
-       padding: 12px 32px;
-       text-decoration: Поиск;
-       margin: 4px 2px;
-       cursor: pointer;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 12px 32px;
+      text-decoration: Поиск;
+      margin: 4px 2px;
+      cursor: pointer;
     }
     #settings-win__submit{
-    position: relative;
-    left: 260px;
-    margin-top: 35px;
-    margin-bottom: 10px;
+      position: relative;
+      left: 260px;
+      margin-top: 35px;
+      margin-bottom: 10px;
     }
+  
+  /*?-----------------settings-win end-------------------------*/
+  
+  
