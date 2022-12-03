@@ -1,4 +1,4 @@
-.data {
+.top-block {
 
   display: flex;
   justify-content: center;     
@@ -8,4 +8,54 @@
 
 }
 
+    .data {
+      display: flex; 
+      align-items: center;
+    }
+        .data input[type=submit]{
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 12px 32px;
+          text-decoration: Поиск;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
 
+        .data input[type=text]{
+          width: 350px;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          }
+
+        #bell{
+          /* position: relative; */
+          /* width: 50px;
+          height: 45px;
+          padding-left: 15px;
+          padding-top: 5px; */
+          padding-left: 15px;
+          filter: alpha (Opacity=25);
+          opacity: 0.5;
+        }
+
+        #bell:hover{
+          filter: alpha (Opacity=100);
+          opacity: 1;
+        }
+
+        #settings{
+          /* position: relative; */
+          /* padding-left: 15px;
+          padding-top: 5px;
+          width: 50px;
+          height: 45px; */
+          padding-left: 15px;
+          filter: alpha (Opacity=25);
+          opacity: 0.5;
+        }
+        #settings:hover{
+          filter: alpha (Opacity=100);
+          opacity: 1;
+        }
