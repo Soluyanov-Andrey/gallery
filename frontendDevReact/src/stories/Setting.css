@@ -15,43 +15,44 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 8px 0;
   box-sizing: border-box;
 }
+
 #higth{
   width: 150px;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-
+/* ? hjhjh jh */
 }
 
 
-.modalDialog {
+      .modalDialog {
 
-  position: fixed;
-  font-family: Arial, Helvetica, sans-serif;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(12, 0, 0, 0.8);
-  z-index: 99999;
- 
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(12, 0, 0, 0.8);
+        z-index: 99999;
+      
 
 
-}
+      }
 
-.modalDialog > div {
-  width: 400px;
+      .modalDialog > div {
+        width: 400px;
 
-  position: relative;
-  margin: 10% auto;
-  padding: 5px 20px 13px 20px;
-  border-radius: 10px;
-  background: rgb(246, 243, 243);
-  background: -moz-linear-gradient(#fff, #999);
-  background: -webkit-linear-gradient(#fff, #999);
-  background: -o-linear-gradient(#fff, #999);
-
-}
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: rgb(246, 243, 243);
+        background: -moz-linear-gradient(#fff, #999);
+        background: -webkit-linear-gradient(#fff, #999);
+        background: -o-linear-gradient(#fff, #999);
+      }
+    
 .close {
   background: #606061;
   color: #FFFFFF;
@@ -73,8 +74,8 @@ input[type=button], input[type=submit], input[type=reset] {
 
 .close:hover { background: #00d9ff; }
 
-#setting1 {
-  /* display: none; */
+#setting {
+  /*! display: none; */
   Position : absolute;
   top : 200px;
   left :150px;

@@ -10,7 +10,10 @@ export const Winlog = () => {
         <div id="knopka" className="close">X</div>
         <h2>Че проиcходит?</h2>
         <div id="messages" className="messages">
-          текст текст текст
+          In proident qui occaecat officia do. Eiusmod ea excepteur laborum adipisicing aliquip eiusmod ut duis nulla veniam in labore. Ullamco dolor commodo ad voluptate minim excepteur. Dolor culpa sit consequat esse fugiat ex qui ea voluptate duis minim culpa culpa. Ipsum non velit magna voluptate. Incididunt do culpa magna proident nisi eiusmod do. Aute commodo exercitation do ut.
+          In proident qui occaecat officia do. Eiusmod ea excepteur laborum adipisicing aliquip eiusmod ut duis nulla veniam in labore. Ullamco dolor commodo ad voluptate minim excepteur. Dolor culpa sit consequat esse fugiat ex qui ea voluptate duis minim culpa culpa. Ipsum non velit magna voluptate. Incididunt do culpa magna proident nisi eiusmod do. Aute commodo exercitation do ut.
+          In proident qui occaecat officia do. Eiusmod ea excepteur laborum adipisicing aliquip eiusmod ut duis nulla veniam in labore. Ullamco dolor commodo ad voluptate minim excepteur. Dolor culpa sit consequat esse fugiat ex qui ea voluptate duis minim culpa culpa. Ipsum non velit magna voluptate. Incididunt do culpa magna proident nisi eiusmod do. Aute commodo exercitation do ut.
+
         </div>
       </div>
     </div>

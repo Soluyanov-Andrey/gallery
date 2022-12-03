@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './Setting.css';
 
 export const Setting = () => {
@@ -7,6 +7,7 @@ export const Setting = () => {
   const DataCap = {
     display: "block"
 }
+
   return (
 
     <div id = "setting" style={DataCap}>
