@@ -1,3 +1,10 @@
+html,body {
+  font-family: Arial, Helvetica, sans-serif;  
+  margin: 0;
+}
+
+/*?-----------------top-block start-----------------------------*/                
+
 .top-block {
 
   display: flex;
@@ -29,7 +36,7 @@
           box-sizing: border-box;
           }
 
-        #bell{
+        #data__bell{
           /* position: relative; */
           /* width: 50px;
           height: 45px;
@@ -40,12 +47,12 @@
           opacity: 0.5;
         }
 
-        #bell:hover{
+        #data__bell:hover{
           filter: alpha (Opacity=100);
           opacity: 1;
         }
 
-        #settings{
+        #data__settings{
           /* position: relative; */
           /* padding-left: 15px;
           padding-top: 5px;
@@ -55,7 +62,78 @@
           filter: alpha (Opacity=25);
           opacity: 0.5;
         }
-        #settings:hover{
+        #data__settings:hover{
           filter: alpha (Opacity=100);
           opacity: 1;
         }
+
+/*?-----------------top-block end------------------------------*/
+
+
+
+/*?-----------------blocking-layer start-----------------------*/ 
+
+.blocking-layer {
+  
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+}
+
+/*?-----------------blocking-layer end-------------------------*/
+
+
+.settings-win{
+  z-index: 11;
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+    .settings-win input[type=text]{
+      width: 90px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    .settings-win__close {
+      background: #606061;
+      color: #FFFFFF;
+      line-height: 25px;
+      position: absolute;
+      right: -12px;
+      text-align: center;
+      top: -10px;
+      width: 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 1px 1px 3px #000;
+    }
+    .settings-win__close:hover { background: #00d9ff; }
+
+    .settings-win input[type=submit]{
+       background-color: #4CAF50;
+       border: none;
+       color: white;
+       padding: 12px 32px;
+       text-decoration: Поиск;
+       margin: 4px 2px;
+       cursor: pointer;
+    }
+    #settings-win__submit{
+    position: relative;
+    left: 260px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    }
