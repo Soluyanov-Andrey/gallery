@@ -3,7 +3,7 @@ import React from 'react';
 
 export const blockingLayer = () => {
   return (
-     <div></div>
+    <div className="blocking-layer"></div>
   );
 
 
