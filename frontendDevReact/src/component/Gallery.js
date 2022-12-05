@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-export const gallery = () => {
+export const Gallery = () => {
   return (
     <div className='gallery'></div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-export const settingsWin = () => {
+export const SettingsWin = () => {
   return (
     <div className="settings-win">
     <div>

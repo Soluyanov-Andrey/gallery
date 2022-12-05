@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
-import imageFile from './../public/bell-static.gif';
-import imageFile1 from './../public/settings.jpg';
-
+import imageFile from './img/bell-static.gif';
+import imageFile1 from './img/settings.jpg';
+import {Gallery}   from './component/Gallery';
+import { BlockingLayer } from './component/BlockingLayer';
+import { SettingsWin } from './component/SettingsWin';
+import { WinLog } from './component/WinLog';
 
 export const App = () => {
   return (
@@ -19,19 +22,10 @@ export const App = () => {
         </div>
       </div>
 
-
-
-      
-
-      
-
-   
-
-
-
-
-
-
+   <Gallery/>
+   <BlockingLayer/>
+   <SettingsWin/>
+   <WinLog/>
     </>
   );
 

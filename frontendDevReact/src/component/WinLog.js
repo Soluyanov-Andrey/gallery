@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-export const winLog = () => {
+export const WinLog = () => {
   return (
     <div className="win-log">
     <div>
@@ -23,7 +23,6 @@ export const winLog = () => {
                  kjkjkjkj jkjkjk jkjk hhy yyyh yh y
       </div>
     </div>
-  
 </div>
   );
 
