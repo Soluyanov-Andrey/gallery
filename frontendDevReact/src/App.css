@@ -91,7 +91,7 @@ html,body {
 /*?-----------------settings-win start-------------------------*/  
 
 .settings-win{
-  display:  block; /*! */
+  /*! display:  block; */ 
   border:solid;
   border-width:1px;
   border-color:#d0d0d6;
