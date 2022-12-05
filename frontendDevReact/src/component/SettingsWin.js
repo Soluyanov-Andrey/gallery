@@ -8,10 +8,10 @@ export const SettingsWin = () => {
       <div className="settings-win__close">X</div>
       <h2>Настройки</h2>
 
-      <input type="text" id="settings-win__width" name="search" placeholder="" maxlength="4" />
+      <input type="text" id="settings-win__width" name="search" placeholder="" maxLength="4" />
       <span >&nbsp;&nbsp;&nbsp;Мин ширина 100-6000</span>
       <br></br>
-      <input type="text" id="settings-win__heigth" name="search" placeholder="" maxlength="4" />
+      <input type="text" id="settings-win__heigth" name="search" placeholder="" maxLength="4" />
       <span>&nbsp;&nbsp;&nbsp;Мин ширина 200-4000</span>
       <br></br>
 

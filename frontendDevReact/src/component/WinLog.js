@@ -5,10 +5,10 @@ export const WinLog = () => {
   return (
     <div className="win-log">
     <div>
-      <div class="win-log__close">X</div>
+      <div className="win-log__close">X</div>
       <h2>События на сервере.</h2>
 
-      <div id="messages" class="messages">
+      <div  className="win-log__messages">
                  jkjkjkj kjkjkjkj jkjkjk jkjk jkjkjkj 
                  jkjkjkj kjkjkjkj jkjkjk jkjk
                  jkjkjkj kjkjkjkj jkjkjk jkjk

@@ -185,7 +185,7 @@ html,body {
     }
     .win-log__close:hover { background: #00d9ff; }
 
-    .messages {
+    .win-log__messages {
       height: 200px; /* высота нашего блока */
       width: 390px; /* ширина нашего блока */
       background: #fff; /* цвет фона, белый */
