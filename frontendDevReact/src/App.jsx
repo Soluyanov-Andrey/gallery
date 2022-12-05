@@ -37,8 +37,8 @@ export const App = () => {
           <span>&nbsp;&nbsp;&nbsp;Мин ширина 200-4000</span>
           <br></br>
 
-          <input type="checkbox" name="yourName" id="settings-win__checkbox" /> <>Удалить все картинки из галереи</>
-          <input type="submit" id="settings-win__submit" value="Применить" />
+          <input type="checkbox" name="yourName" className="settings-win__checkbox" /> <>Удалить все картинки из галереи</>
+          <input type="submit" className="settings-win__submit" value="Применить" />
         </div>
       </div>
 
