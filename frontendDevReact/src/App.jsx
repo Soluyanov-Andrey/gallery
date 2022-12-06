@@ -17,12 +17,12 @@ export const App = () => {
  const [showBlockingLayer, set_BlockingLayer] = useState(true);
  const [showWinLog, set_WinLog] = useState(true);
 
-  const VisibleSettingsWinF = () => {
+  const visibleSettingsWinF = () => {
     set_BlockingLayer(!showBlockingLayer);
     set_SettingsWin(!showSettingsWin);
    
   }
-  const VisibleWinLogF = () => {
+  const visibleWinLogF = () => {
     set_BlockingLayer(!showBlockingLayer);
     set_WinLog(!showWinLog);
     
@@ -35,8 +35,8 @@ export const App = () => {
           <input type="text" id="data__search" name="search" placeholder="Url загрузки" />
           <input type="submit" id="data__submit" value="Загрузка" />
 
-          <img id="data__bell" onClick={VisibleSettingsWinF} src={imageFile} alt="колокол" title="Уведомления" />
-          <img id="data__settings" onClick={VisibleWinLogF} src={imageFile1} alt="колокол" title="Настройки" />
+          <img id="data__bell" onClick={visibleSettingsWinF} src="img/bell-static.gif" alt="колокол" title="Уведомления" />
+          <img id="data__settings" onClick={visibleWinLogF} src={imageFile1} alt="колокол" title="Настройки" />
 
         </div>
       </div>
@@ -44,8 +44,8 @@ export const App = () => {
    <Gallery/>
    <BlockingLayer showBlockingLayer ={showBlockingLayer}/> 
 
-   <SettingsWin showSettingsWin ={showSettingsWin}  VisibleSettingsWinF={VisibleSettingsWinF}/>
-   <WinLog showWinLog={showWinLog} VisibleWinLogF={VisibleWinLogF}/>
+   <SettingsWin showSettingsWin ={showSettingsWin}  VisibleSettingsWinF={visibleSettingsWinF}/>
+   <WinLog showWinLog={showWinLog} VisibleWinLogF={visibleWinLogF}/>
     </>
   );
 
