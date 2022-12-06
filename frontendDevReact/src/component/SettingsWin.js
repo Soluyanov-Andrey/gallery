@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-export const SettingsWin = ({show}) => {
+export const SettingsWin = ({showSettingsWin}) => {
 
 //   const DataCap = {
 //     display: "none"
@@ -10,7 +10,7 @@ export const SettingsWin = ({show}) => {
 
   return (
    
-    <div className="settings-win" style={show?{display: "none"}:{display: "block"}} >
+    <div className="settings-win" style={showSettingsWin?{display: "none"}:{display: "block"}} >
         <div>
           <div className="settings-win__close">X</div>
           <h2>Настройки</h2>

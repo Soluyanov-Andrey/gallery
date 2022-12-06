@@ -13,7 +13,13 @@ const handleClick = () => {
   }
 
 export const App = () => {
- const [show, setCount] = useState(true);
+ const [showSettingsWin, setCount] = useState(true);
+ 
+ const handleClick = () => {
+   setCount(!showSettingsWin);
+  console.log('this это:', this);
+}
+
   return (
     <>
       <div className='top-block'>
@@ -22,7 +28,7 @@ export const App = () => {
           <input type="text" id="data__search" name="search" placeholder="Url загрузки" />
           <input type="submit" id="data__submit" value="Загрузка" />
 
-          <img id="data__bell" onClick={() => handleClick()} src={imageFile} alt="колокол" title="Уведомления" />
+          <img id="data__bell" onClick={handleClick} src={imageFile} alt="колокол" title="Уведомления" />
           <img id="data__settings" src={imageFile1} alt="колокол" title="Настройки" />
 
         </div>
@@ -30,7 +36,7 @@ export const App = () => {
 
    <Gallery/>
    {/* <BlockingLayer/> */}
-   <SettingsWin show ={show}/>
+   <SettingsWin showSettingsWin ={showSettingsWin}/>
    <WinLog/>
     </>
   );
