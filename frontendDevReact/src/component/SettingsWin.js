@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-export const SettingsWin = ({showSettingsWin}) => {
+export const SettingsWin = ({showSettingsWin, VisibleSettingsWinF}) => {
 
 //   const DataCap = {
 //     display: "none"
@@ -12,7 +12,7 @@ export const SettingsWin = ({showSettingsWin}) => {
    
     <div className="settings-win" style={showSettingsWin?{display: "none"}:{display: "block"}} >
         <div>
-          <div className="settings-win__close">X</div>
+          <div className="settings-win__close" onClick={VisibleSettingsWinF}>X</div>
           <h2>Настройки</h2>
 
           <input type="text" id="settings-win__width" name="search" placeholder="" maxLength="4" />

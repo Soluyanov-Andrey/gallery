@@ -13,13 +13,20 @@ const handleClick = () => {
   }
 
 export const App = () => {
- const [showSettingsWin, setCount] = useState(true);
- 
- const handleClick = () => {
-   setCount(!showSettingsWin);
-  console.log('this это:', this);
-}
+ const [showSettingsWin, set_SettingsWin] = useState(true);
+ const [showBlockingLayer, set_BlockingLayer] = useState(true);
+ const [showWinLog, set_WinLog] = useState(true);
 
+  const VisibleSettingsWinF = () => {
+    set_BlockingLayer(!showBlockingLayer);
+    set_SettingsWin(!showSettingsWin);
+   
+  }
+  const VisibleWinLogF = () => {
+    set_BlockingLayer(!showBlockingLayer);
+    set_WinLog(!showWinLog);
+    
+  }
   return (
     <>
       <div className='top-block'>
@@ -28,16 +35,17 @@ export const App = () => {
           <input type="text" id="data__search" name="search" placeholder="Url загрузки" />
           <input type="submit" id="data__submit" value="Загрузка" />
 
-          <img id="data__bell" onClick={handleClick} src={imageFile} alt="колокол" title="Уведомления" />
-          <img id="data__settings" src={imageFile1} alt="колокол" title="Настройки" />
+          <img id="data__bell" onClick={VisibleSettingsWinF} src={imageFile} alt="колокол" title="Уведомления" />
+          <img id="data__settings" onClick={VisibleWinLogF} src={imageFile1} alt="колокол" title="Настройки" />
 
         </div>
       </div>
 
    <Gallery/>
-   {/* <BlockingLayer/> */}
-   <SettingsWin showSettingsWin ={showSettingsWin}/>
-   <WinLog/>
+   <BlockingLayer showBlockingLayer ={showBlockingLayer}/> 
+
+   <SettingsWin showSettingsWin ={showSettingsWin}  VisibleSettingsWinF={VisibleSettingsWinF}/>
+   <WinLog showWinLog={showWinLog} VisibleWinLogF={VisibleWinLogF}/>
     </>
   );
 
