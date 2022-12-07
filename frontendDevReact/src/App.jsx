@@ -2,7 +2,7 @@ import React, { useState, useRef} from 'react';
 import './App.css';
 import imageFile from './img/bell-static.gif';
 import imageFile1 from './img/settings.jpg';
-import {Gallery}   from './component/Gallery';
+import {Gallery}   from './component/gallery/Gallery';
 import { BlockingLayer } from './component/BlockingLayer';
 import { SettingsWin } from './component/SettingsWin';
 import { WinLog } from './component/WinLog';
@@ -41,7 +41,7 @@ export const App = () => {
         </div>
       </div>
 
-   <Gallery/>
+   {/* <Gallery/> */}
    <BlockingLayer showBlockingLayer ={showBlockingLayer}/> 
 
    <SettingsWin showSettingsWin ={showSettingsWin}  VisibleSettingsWinF={visibleSettingsWinF}/>

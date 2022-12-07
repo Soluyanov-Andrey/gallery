@@ -208,13 +208,20 @@ html,body {
     z-index:-1;
     left :48%;
     top: 48%;
+   
 }
 .gallery__block{
   position: relative;
   border: 1px solid black;
   float: left; 
-  margin: 0px 2px; 
+  margin: 2px 2px; 
   overflow: hidden;
   height: 200px; 
+  z-index:1;
+  transition: 0.2s; /* Время эффекта */
 }
 
+ .gallery__block:hover {
+  z-index:2;
+  transform: scale(1.07); /* Увеличиваем масштаб */
+ }
