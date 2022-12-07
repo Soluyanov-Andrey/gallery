@@ -195,3 +195,26 @@ html,body {
     }
 
   /*?-----------------win-log end-----------------------------*/
+
+#gallery{
+    z-index: 1;
+    Position : absolute;
+    top : 70px;
+    left :30px;
+
+}
+.gallery__loader{
+    Position : absolute;
+    z-index:-1;
+    left :48%;
+    top: 48%;
+}
+.gallery__block{
+  position: relative;
+  border: 1px solid black;
+  float: left; 
+  margin: 0px 2px; 
+  overflow: hidden;
+  height: 200px; 
+}
+
