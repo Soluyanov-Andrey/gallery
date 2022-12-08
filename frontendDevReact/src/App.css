@@ -3,6 +3,7 @@ html,body {
   margin: 0;
 }
 
+
 /*?-----------------top-block start-----------------------------*/                
 
 .top-block {
@@ -196,12 +197,16 @@ html,body {
 
   /*?-----------------win-log end-----------------------------*/
 
-#gallery{
-    z-index: 1;
-    Position : absolute;
-    top : 70px;
-    left :30px;
-
+.gallery{
+  
+    /* z-index: 1;*/
+    Position : absolute; 
+    /* width: 100%;
+    top : 100px;
+    left :30px; */
+    /* height: 100%; */
+    /* margin: 0px 0px; */
+border: 1px solid black;
 }
 .gallery__loader{
     Position : absolute;
@@ -211,10 +216,11 @@ html,body {
    
 }
 .gallery__block{
+  box-sizing:border-box;
   position: relative;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   float: left; 
-  margin: 2px 2px; 
+  padding: 4px 1px; 
   overflow: hidden;
   height: 200px; 
   z-index:1;

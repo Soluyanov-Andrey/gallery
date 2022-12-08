@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./sb-show.css";
 import { Gallery } from './Gallery.js';
 
 export default {
