@@ -5,7 +5,7 @@ import calculatingNewArray from './calculatingNewArray.js'
 export const Gallery = ({ dataSys }) => {
 
   const [arrayWidth,setArrayWidth] = useState([]);
-  const [Width,setWidth] = useState(1);
+  const [widthWin,setWinWidth] = useState(4000);
 
   function newArray(dataSys){
 
@@ -30,15 +30,15 @@ export const Gallery = ({ dataSys }) => {
 
     let arrayNewWidth= calculatingNewArray(initialArray, clientWidth);
   
-    setWidth(clientWidth);
+    setWinWidth(clientWidth);
     setArrayWidth(arrayNewWidth);
     
 
   };
-
+  
 
   useEffect(() => {
-
+    windowResize();
     window.addEventListener("resize", windowResize);
   },[]);
 
@@ -54,7 +54,7 @@ export const Gallery = ({ dataSys }) => {
   });
  
   return (
-    <div className='gallery'style={{ width: `${Width}px` }} >
+    <div className='gallery'style={{ width: `${widthWin}px` }} >
       {elements}
     </div>
   );
