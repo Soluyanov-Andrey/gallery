@@ -2,9 +2,9 @@ import React, { useState, useRef} from 'react';
 import './App.css';
 import kolokolAnimeImg from './img/kolokol-anime.gif';
 import kolokolStatImg from './img/kolokol-stat.gif';
+import settingsImg from './img/settings.jpg';
 
-import imageFile1 from './img/settings.jpg';
-import {Gallery}   from './component/gallery/Gallery';
+import { Gallery}   from './component/gallery/Gallery';
 import { BlockingLayer } from './component/BlockingLayer';
 import { SettingsWin } from './component/SettingsWin';
 import { WinLog } from './component/WinLog';
@@ -36,8 +36,8 @@ export const App = (props) => {
           <input type="text" id="data__search" name="search" placeholder="Url загрузки" />
           <input type="submit" id="data__submit" value="Загрузка" />
 
-          <img id="data__bell" onClick={visibleSettingsWinF} src={props.kolokolAnime ? kolokolAnimeImg:kolokolStatImg} alt="колокол" title="Уведомления" />
-          <img id="data__settings" onClick={visibleWinLogF} src={imageFile1} alt="колокол" title="Настройки" />
+          <img id="data__bell" onClick={visibleWinLogF} src={props.kolokolAnime ? kolokolAnimeImg:kolokolStatImg} alt="колокол" title="Уведомления" />
+          <img id="data__settings" onClick={visibleSettingsWinF} src={settingsImg} alt="Настройки" title="Настройки" />
 
         </div>
       </div>

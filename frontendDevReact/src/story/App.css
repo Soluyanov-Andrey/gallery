@@ -163,7 +163,7 @@ html,body {
 
   }
 
-                              /*ANCHOR Win-log */
+                              /*ANCHOR win-log */
 
 .win-log{  
   border:solid;
@@ -203,6 +203,16 @@ html,body {
     border: 1px solid #C1C1C1; /* размер и цвет границы блока */
     padding:5px;
     overflow-y: scroll; /* прокрутка по вертикали */
+  }
+  @media screen and (max-width: 500px){
+    .win-log{
+      width: 300px;
+    }
+
+    .win-log__messages{
+      width: 290px; /* ширина нашего блока */
+    }
+
   }
 
 
