@@ -4,9 +4,9 @@ html,body {
 }
 
                
-/*ANCHOR  top-blockr*/
+                               /*ANCHOR  top-blockr*/
 
-.top-block {
+.top-block{
 
   display: flex;
   justify-content: center;     
@@ -16,77 +16,78 @@ html,body {
 
 }
 
-    .data {
-      display: flex; 
-      align-items: center;
+ .data{
+    display: flex; 
+    align-items: center;
     }
-        .data input[type=submit]{
-          border-radius: 10px;
-          background-color: #4CAF50;
-          border: none;
-          color: white;
-          padding: 12px 32px;
-          text-decoration: Поиск;
-          margin: 4px 2px;
-          cursor: pointer;
+
+    .data input[type=submit]{
+      border-radius: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 12px 32px;
+      text-decoration: Поиск;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .data input[type=text]{
+      
+      width: 350px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      }
+
+    #data__bell{
+      /* position: relative; */
+      /* width: 50px;
+      height: 45px;
+      padding-left: 15px;
+      padding-top: 5px; */
+      padding-left: 15px;
+      filter: alpha (Opacity=25);
+      opacity: 0.5;
+    }
+
+    #data__bell:hover{
+      filter: alpha (Opacity=100);
+      opacity: 1;
+    }
+
+    #data__settings{
+      /* position: relative; */
+      /* padding-left: 15px;
+      padding-top: 5px;
+      width: 50px;
+      height: 45px; */
+      padding-left: 15px;
+      filter: alpha (Opacity=25);
+      opacity: 0.5;
+    }
+    #data__settings:hover{
+      filter: alpha (Opacity=100);
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 500px){
+      .data input[type=text]{
+        width: 150px;
+      
         }
-
-        .data input[type=text]{
-         
-          width: 350px;
-          padding: 12px 20px;
-          margin: 8px 0;
-          box-sizing: border-box;
-          }
-
-        #data__bell{
-          /* position: relative; */
-          /* width: 50px;
-          height: 45px;
-          padding-left: 15px;
-          padding-top: 5px; */
-          padding-left: 15px;
-          filter: alpha (Opacity=25);
-          opacity: 0.5;
+      .data input[type=submit]{
+        
+        padding: 10px 12px;
+        
+        margin: 4px 2px;
+      
         }
+    }
 
-        #data__bell:hover{
-          filter: alpha (Opacity=100);
-          opacity: 1;
-        }
+                               /*ANCHOR blocking-layer*/
 
-        #data__settings{
-          /* position: relative; */
-          /* padding-left: 15px;
-          padding-top: 5px;
-          width: 50px;
-          height: 45px; */
-          padding-left: 15px;
-          filter: alpha (Opacity=25);
-          opacity: 0.5;
-        }
-        #data__settings:hover{
-          filter: alpha (Opacity=100);
-          opacity: 1;
-        }
-
-        @media screen and (max-width: 500px) {
-          .data input[type=text]{
-            width: 150px;
-          
-            }
-          .data input[type=submit]{
-            
-            padding: 10px 12px;
-           
-            margin: 4px 2px;
-         
-           }
-        }
-
-/*ANCHOR blocking-layer*/
-
-.blocking-layer {
+.blocking-layer{
   
   position: fixed;
   top: 0;
@@ -98,7 +99,7 @@ html,body {
    /*! display: block;  */
 }
 
-/*ANCHOR settings-win*/
+                               /*ANCHOR settings-win*/
 
 .settings-win{
   /*! display:  block; */ 
@@ -114,55 +115,55 @@ html,body {
   border-radius: 10px;
 
 }
-    .settings-win input[type=text]{
-      width: 90px;
-      padding: 12px 20px;
-      margin: 8px 0;
-      box-sizing: border-box;
-    }
+  .settings-win input[type=text]{
+    width: 90px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
 
-    .settings-win__close {
-      background: #606061;
-      color: #FFFFFF;
-      line-height: 25px;
-      position: absolute;
-      right: -12px;
-      text-align: center;
-      top: -10px;
-      width: 24px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 12px;
-      box-shadow: 1px 1px 3px #000;
-    }
-    .settings-win__close:hover { background: #00d9ff; }
+  .settings-win__close{
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px #000;
+  }
+  .settings-win__close:hover{ background: #00d9ff;}
 
-    .settings-win input[type=submit]{
-      border-radius: 10px;
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 12px 32px;
-      text-decoration: Поиск;
-      margin: 4px 2px;
-      cursor: pointer;
+  .settings-win input[type=submit]{
+    border-radius: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-decoration: Поиск;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .settings-win__submit{
+    position: relative;
+    left: 63%;
+  }
+  @media screen and (max-width: 500px){
+    .settings-win{
+      width: 250px;
     }
     .settings-win__submit{
-      position: relative;
-      left: 63%;
-    }
-    @media screen and (max-width: 500px) {
-      .settings-win{
-        width: 250px;
-      }
-      .settings-win__submit{
-        left: 50%;
-
-      }
+      left: 50%;
 
     }
 
-/*ANCHOR Win-log */
+  }
+
+                              /*ANCHOR Win-log */
 
 .win-log{  
   border:solid;
@@ -178,61 +179,59 @@ html,body {
   background: rgb(230, 229, 229);
 
 }
+  .win-log__close{
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px #000;
+
+  }
+  .win-log__close:hover{ background: #00d9ff; }
+
+  .win-log__messages{
+    height: 200px; /* высота нашего блока */
+    width: 390px; /* ширина нашего блока */
+    background: #fff; /* цвет фона, белый */
+    border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+    padding:5px;
+    overflow-y: scroll; /* прокрутка по вертикали */
+  }
 
 
-
-    .win-log__close{
-      background: #606061;
-      color: #FFFFFF;
-      line-height: 25px;
-      position: absolute;
-      right: -12px;
-      text-align: center;
-      top: -10px;
-      width: 24px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 12px;
-      box-shadow: 1px 1px 3px #000;
-
-    }
-    .win-log__close:hover { background: #00d9ff; }
-
-    .win-log__messages {
-      height: 200px; /* высота нашего блока */
-      width: 390px; /* ширина нашего блока */
-      background: #fff; /* цвет фона, белый */
-      border: 1px solid #C1C1C1; /* размер и цвет границы блока */
-      padding:5px;
-      overflow-y: scroll; /* прокрутка по вертикали */
-    }
-
-/*ANCHOR  gallery*/
+                               /*ANCHOR  gallery*/
 
 .gallery{
   Position : absolute; 
   padding: 4px 15px; 
  } 
-    .gallery__loader{
-        Position : absolute;
-        z-index:-1;
-        left :48%;
-        top: 48%;
-      
-    }
-    .gallery__block{
-      box-sizing:border-box;
-      position: relative;
-      /* border: 1px solid black; */
-      float: left; 
-      padding: 4px 1px; 
-      overflow: hidden;
-      height: 200px; 
-      z-index:1;
-      /* transition: 0.2s; Время эффекта */
-    }
+  .gallery__loader{
+      Position : absolute;
+      z-index:-1;
+      left :48%;
+      top: 48%;
+    
+  }
+  .gallery__block{
+    box-sizing:border-box;
+    position: relative;
+    /* border: 1px solid black; */
+    float: left; 
+    padding: 4px 1px; 
+    overflow: hidden;
+    height: 200px; 
+    z-index:1;
+    /* transition: 0.2s; Время эффекта */
+  }
 
-    .gallery__block:hover {
-      z-index:2;
-      /* transform: scale(1.07); Увеличиваем масштаб */
-    }
+  .gallery__block:hover {
+    z-index:2;
+    /* transform: scale(1.07); Увеличиваем масштаб */
+  }
