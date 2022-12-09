@@ -3,8 +3,8 @@ html,body {
   margin: 0;
 }
 
-
-/*?-----------------top-block start-----------------------------*/                
+               
+/*ANCHOR  top-blockr*/
 
 .top-block {
 
@@ -70,11 +70,21 @@ html,body {
           opacity: 1;
         }
 
-/*?-----------------top-block end------------------------------*/
+        @media screen and (max-width: 500px) {
+          .data input[type=text]{
+            width: 150px;
+          
+            }
+          .data input[type=submit]{
+            
+            padding: 10px 12px;
+           
+            margin: 4px 2px;
+         
+           }
+        }
 
-
-
-/*?-----------------blocking-layer start-----------------------*/ 
+/*ANCHOR blocking-layer*/
 
 .blocking-layer {
   
@@ -88,10 +98,7 @@ html,body {
    /*! display: block;  */
 }
 
-/*?-----------------blocking-layer end-------------------------*/
-
-
-/*?-----------------settings-win start-------------------------*/  
+/*ANCHOR settings-win*/
 
 .settings-win{
   /*! display:  block; */ 
@@ -142,15 +149,20 @@ html,body {
     }
     .settings-win__submit{
       position: relative;
-      left: 260px;
-      margin-top: 35px;
-      margin-bottom: 10px;
+      left: 63%;
     }
-  
-  /*?-----------------settings-win end-------------------------*/
-  
-  
-  /*?-----------------win-log----------------------------------*/
+    @media screen and (max-width: 500px) {
+      .settings-win{
+        width: 250px;
+      }
+      .settings-win__submit{
+        left: 50%;
+
+      }
+
+    }
+
+/*ANCHOR Win-log */
 
 .win-log{  
   border:solid;
@@ -166,6 +178,8 @@ html,body {
   background: rgb(230, 229, 229);
 
 }
+
+
 
     .win-log__close{
       background: #606061;
@@ -193,40 +207,32 @@ html,body {
       overflow-y: scroll; /* прокрутка по вертикали */
     }
 
-  /*?-----------------win-log end-----------------------------*/
+/*ANCHOR  gallery*/
 
 .gallery{
-  
-    /* z-index: 1;*/
-    Position : absolute; 
-    padding: 4px 15px; 
-    /* width: 100%;
-    top : 100px;
-    left :30px; */
-    /* height: 100%; */
-    /* margin: 0px 20px; */
-/* border: 1px solid black;*/
-} 
-.gallery__loader{
-    Position : absolute;
-    z-index:-1;
-    left :48%;
-    top: 48%;
-   
-}
-.gallery__block{
-  box-sizing:border-box;
-  position: relative;
-  /* border: 1px solid black; */
-  float: left; 
-  padding: 4px 1px; 
-  overflow: hidden;
-  height: 200px; 
-  z-index:1;
-  /* transition: 0.2s; Время эффекта */
-}
+  Position : absolute; 
+  padding: 4px 15px; 
+ } 
+    .gallery__loader{
+        Position : absolute;
+        z-index:-1;
+        left :48%;
+        top: 48%;
+      
+    }
+    .gallery__block{
+      box-sizing:border-box;
+      position: relative;
+      /* border: 1px solid black; */
+      float: left; 
+      padding: 4px 1px; 
+      overflow: hidden;
+      height: 200px; 
+      z-index:1;
+      /* transition: 0.2s; Время эффекта */
+    }
 
- .gallery__block:hover {
-  z-index:2;
-  /* transform: scale(1.07); Увеличиваем масштаб */
- }
+    .gallery__block:hover {
+      z-index:2;
+      /* transform: scale(1.07); Увеличиваем масштаб */
+    }

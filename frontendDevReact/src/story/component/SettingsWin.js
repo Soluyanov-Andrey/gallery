@@ -23,6 +23,7 @@ export const SettingsWin = ({showSettingsWin, VisibleSettingsWinF}) => {
           <br></br>
 
           <input type="checkbox" name="yourName" className="settings-win__checkbox" /> <>Удалить все картинки из галереи</>
+          <br></br>
           <input type="submit" className="settings-win__submit" value="Применить" />
         </div>
     </div>

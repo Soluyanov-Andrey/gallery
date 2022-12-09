@@ -10,20 +10,13 @@ import { SettingsWin } from './component/SettingsWin';
 import { WinLog } from './component/WinLog';
 
 
-const handleClick = () => {
-    console.log('this это:', this);
-  }
 
 export const App = (props) => {
  
  const [showSettingsWin, set_SettingsWin] = useState(true);
  const [showBlockingLayer, set_BlockingLayer] = useState(true);
  const [showWinLog, set_WinLog] = useState(true);
- const [kolokolAnime, setKolokolAnime] = useState(false);
-
-
  
-
 
   const visibleSettingsWinF = () => {
     set_BlockingLayer(!showBlockingLayer);
@@ -49,7 +42,7 @@ export const App = (props) => {
         </div>
       </div>
 
-   {/* <Gallery/> */}
+   <Gallery dataSys={props.data_sys}/>
    <BlockingLayer showBlockingLayer ={showBlockingLayer}/> 
 
    <SettingsWin showSettingsWin ={showSettingsWin}  VisibleSettingsWinF={visibleSettingsWinF}/>

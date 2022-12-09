@@ -3,7 +3,7 @@ import "./sb-show.css";
 import { Gallery } from './Gallery.js';
 
 export default {
-  title: 'Example/form',
+  title: 'Gallery/form',
   component: Gallery,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
