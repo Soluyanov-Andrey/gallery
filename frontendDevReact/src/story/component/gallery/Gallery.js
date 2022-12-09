@@ -26,7 +26,7 @@ export const Gallery = ({ dataSys }) => {
 
   let windowResize = () => {
 
-    let clientWidth = document.body.clientWidth;
+    let clientWidth = document.body.clientWidth-30;
 
     let arrayNewWidth= calculatingNewArray(initialArray, clientWidth);
   

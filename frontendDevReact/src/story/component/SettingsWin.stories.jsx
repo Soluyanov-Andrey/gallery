@@ -1,14 +1,13 @@
 import React from 'react';
-
-import { App } from './App.jsx';
+import { SettingsWin } from './SettingsWin.js';
 
 export default {
-  title: 'Example/form',
-  component: App,
+  title: 'Gallery/form',
+  component: SettingsWin,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     
   },
 };
 
-export const app85 = (args) => <App {...args} />;
+export const settingsWin = (args) => <SettingsWin {...args}/>;

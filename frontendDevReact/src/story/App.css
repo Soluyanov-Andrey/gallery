@@ -21,6 +21,7 @@ html,body {
       align-items: center;
     }
         .data input[type=submit]{
+          border-radius: 10px;
           background-color: #4CAF50;
           border: none;
           color: white;
@@ -31,6 +32,7 @@ html,body {
         }
 
         .data input[type=text]{
+         
           width: 350px;
           padding: 12px 20px;
           margin: 8px 0;
@@ -103,10 +105,7 @@ html,body {
   margin: 10% auto;
   padding: 5px 20px 13px 20px;
   border-radius: 10px;
-  background: #fff;
-  background: -moz-linear-gradient(#fff, #999);
-  background: -webkit-linear-gradient(#fff, #999);
-  background: -o-linear-gradient(#fff, #999);
+
 }
     .settings-win input[type=text]{
       width: 90px;
@@ -132,6 +131,7 @@ html,body {
     .settings-win__close:hover { background: #00d9ff; }
 
     .settings-win input[type=submit]{
+      border-radius: 10px;
       background-color: #4CAF50;
       border: none;
       color: white;
@@ -164,9 +164,7 @@ html,body {
   padding: 5px 20px 13px 20px;
   border-radius: 10px;
   background: rgb(230, 229, 229);
-  background: -moz-linear-gradient(#fff, #999);
-  background: -webkit-linear-gradient(#fff, #999);
-  background: -o-linear-gradient(#fff, #999);
+
 }
 
     .win-log__close{
@@ -191,7 +189,7 @@ html,body {
       width: 390px; /* ширина нашего блока */
       background: #fff; /* цвет фона, белый */
       border: 1px solid #C1C1C1; /* размер и цвет границы блока */
-
+      padding:5px;
       overflow-y: scroll; /* прокрутка по вертикали */
     }
 
@@ -201,11 +199,12 @@ html,body {
   
     /* z-index: 1;*/
     Position : absolute; 
+    padding: 4px 15px; 
     /* width: 100%;
     top : 100px;
     left :30px; */
     /* height: 100%; */
-    /* margin: 0px 0px; */
+    /* margin: 0px 20px; */
 /* border: 1px solid black;*/
 } 
 .gallery__loader{

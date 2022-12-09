@@ -18,8 +18,7 @@ export default  function calculatingNewArray(initialArray, initialWindowWidth){
 
 
   function recordValues(meaning){
-    
-    arrayRecordValues.push(meaning);
+     arrayRecordValues.push(meaning);
   }
 
   function resetRecord(){
@@ -38,20 +37,15 @@ export default  function calculatingNewArray(initialArray, initialWindowWidth){
   function newCalculatingWidth(){
    
     let difference =seveWidthSum-initialWindowWidth;
-
     //высчитываем излишек 
     let surplus = Math.round((difference) / arrayRecordValues.length);
-   
-    
     //высчитываем добавочное 
     let additional = (difference-(surplus*arrayRecordValues.length));
   
     for (let vr = 0; vr < arrayRecordValues.length; ++vr) {
        
       if(vr == arrayRecordValues.length-1){
-
         newArrayWidth.push(arrayRecordValues[vr] - surplus - additional);
-
       }else{
         newArrayWidth.push(arrayRecordValues[vr]-surplus);
       }
@@ -67,13 +61,9 @@ export default  function calculatingNewArray(initialArray, initialWindowWidth){
   for (let vr = 0; vr < initialArray.length; ++vr) {
 
     seveWidthSum += initialArray[vr];
-    
     recordValues(initialArray[vr]);
 
     if (seveWidthSum > initialWindowWidth) {
-
-      
-      
       resetRecord();
     }
     
@@ -82,6 +72,7 @@ export default  function calculatingNewArray(initialArray, initialWindowWidth){
     }
 
   }
+  
 return newArrayWidth;  
 
 }

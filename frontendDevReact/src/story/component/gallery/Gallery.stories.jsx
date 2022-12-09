@@ -30,6 +30,4 @@ gallery.args = {
                  { fale_name: "img/16.webp", higth: 200, width: 150 },
                  { fale_name: "img/17.png", higth: 200, width: 317 }
 ],
-    label: 'Button',
-    odd: 10,
   };

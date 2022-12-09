@@ -1,6 +1,8 @@
 import React, { useState, useRef} from 'react';
 import './App.css';
-import imageFile from './img/bell-static.gif';
+import kolokolAnimeImg from './img/kolokol-anime.gif';
+import kolokolStatImg from './img/kolokol-stat.gif';
+
 import imageFile1 from './img/settings.jpg';
 import {Gallery}   from './component/gallery/Gallery';
 import { BlockingLayer } from './component/BlockingLayer';
@@ -12,10 +14,16 @@ const handleClick = () => {
     console.log('this это:', this);
   }
 
-export const App = () => {
+export const App = (props) => {
+ 
  const [showSettingsWin, set_SettingsWin] = useState(true);
  const [showBlockingLayer, set_BlockingLayer] = useState(true);
  const [showWinLog, set_WinLog] = useState(true);
+ const [kolokolAnime, setKolokolAnime] = useState(false);
+
+
+ 
+
 
   const visibleSettingsWinF = () => {
     set_BlockingLayer(!showBlockingLayer);
@@ -35,7 +43,7 @@ export const App = () => {
           <input type="text" id="data__search" name="search" placeholder="Url загрузки" />
           <input type="submit" id="data__submit" value="Загрузка" />
 
-          <img id="data__bell" onClick={visibleSettingsWinF} src="img/bell-static.gif" alt="колокол" title="Уведомления" />
+          <img id="data__bell" onClick={visibleSettingsWinF} src={props.kolokolAnime ? kolokolAnimeImg:kolokolStatImg} alt="колокол" title="Уведомления" />
           <img id="data__settings" onClick={visibleWinLogF} src={imageFile1} alt="колокол" title="Настройки" />
 
         </div>
